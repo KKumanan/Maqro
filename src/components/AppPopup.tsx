@@ -100,37 +100,6 @@ const AppPopup: React.FC<AppPopupProps> = ({ isOpen, onClose, app }) => {
 
   if (!isOpen) return null;
 
-  // Sample data - this would come from your state management in a real app
-  const suggestedMacros: Macro[] = [
-    {
-      id: '1',
-      title: 'Play Study Playlist',
-      keybind: 'Ctrl + s + p',
-      isApproved: false
-    },
-    {
-      id: '2',
-      title: 'Skip Track',
-      keybind: 'Ctrl + s',
-      isApproved: false
-    }
-  ];
-
-  const savedMacros: Macro[] = [
-    {
-      id: '3',
-      title: 'Play/Pause',
-      keybind: 'Ctrl + p',
-      isApproved: true
-    },
-    {
-      id: '4',
-      title: 'Volume Up',
-      keybind: 'Ctrl + ↑',
-      isApproved: true
-    }
-  ];
-
   const handleEditClick = (macro: Macro) => {
     setEditingMacroId(macro.id);
     setEditedTitle(macro.title);
