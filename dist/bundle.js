@@ -308,8 +308,8 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.popup-container {
 .popup-content {
   background: rgba(255, 255, 255, 0.95);
   border-radius: 16px;
-  width: 800px;
-  height: 600px;
+  width: 600px;
+  height: 450px;
   overflow: hidden;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   animation: slideIn 0.3s ease;
@@ -485,7 +485,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.popup-container {
     opacity: 1;
     transform: translateY(0);
   }
-} `, "",{"version":3,"sources":["webpack://./src/components/AppPopup.css"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,MAAM;EACN,OAAO;EACP,QAAQ;EACR,SAAS;EACT,8BAA8B;EAC9B,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,aAAa;EACb,0BAA0B;EAC1B,kCAAkC;AACpC;;AAEA;EACE,qCAAqC;EACrC,mBAAmB;EACnB,YAAY;EACZ,aAAa;EACb,gBAAgB;EAChB,yCAAyC;EACzC,4BAA4B;EAC5B,aAAa;EACb,sBAAsB;AACxB;;AAEA;EACE,aAAa;EACb,8BAA8B;EAC9B,mBAAmB;EACnB,oBAAoB;EACpB,2CAA2C;EAC3C,oCAAoC;EACpC,2BAA2B;EAC3B,mCAAmC;AACrC;;AAEA;EACE,aAAa;EACb,mBAAmB;EACnB,SAAS;AACX;;AAEA;EACE,WAAW;EACX,YAAY;EACZ,mBAAmB;EACnB,kBAAkB;AACpB;;AAEA;EACE,SAAS;EACT,kBAAkB;EAClB,gBAAgB;EAChB,cAAc;AAChB;;AAEA;EACE,gBAAgB;EAChB,YAAY;EACZ,eAAe;EACf,eAAe;EACf,cAAc;EACd,kBAAkB;EAClB,aAAa;EACb,mBAAmB;EACnB,uBAAuB;EACvB,sCAAsC;AACxC;;AAEA;EACE,qCAAqC;AACvC;;AAEA;EACE,OAAO;EACP,eAAe;EACf,gBAAgB;EAChB,aAAa;EACb,sBAAsB;EACtB,SAAS;AACX;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,SAAS;AACX;;AAEA;EACE,SAAS;EACT,mBAAmB;EACnB,gBAAgB;EAChB,cAAc;EACd,sBAAsB;EACtB,2CAA2C;AAC7C;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,SAAS;AACX;;AAEA;EACE,aAAa;EACb,8BAA8B;EAC9B,mBAAmB;EACnB,aAAa;EACb,oCAAoC;EACpC,mBAAmB;EACnB,oCAAoC;EACpC,qDAAqD;AACvD;;AAEA;EACE,2BAA2B;EAC3B,0CAA0C;AAC5C;;AAEA;EACE,OAAO;AACT;;AAEA;EACE,SAAS;EACT,eAAe;EACf,gBAAgB;EAChB,cAAc;AAChB;;AAEA;EACE,kBAAkB;EAClB,mBAAmB;EACnB,WAAW;EACX,+BAA+B;EAC/B,uBAAuB;EACvB,kBAAkB;EAClB,qBAAqB;AACvB;;AAEA;EACE,aAAa;EACb,YAAY;EACZ,iBAAiB;AACnB;;AAEA;EACE,gBAAgB;EAChB,YAAY;EACZ,gBAAgB;EAChB,eAAe;EACf,WAAW;EACX,kBAAkB;EAClB,aAAa;EACb,mBAAmB;EACnB,uBAAuB;EACvB,yBAAyB;AAC3B;;AAEA;EACE,qCAAqC;EACrC,cAAc;AAChB;;AAEA;EACE,cAAc;AAChB;;AAEA;EACE,WAAW;AACb;;AAEA;EACE,cAAc;AAChB;;AAEA;EACE,cAAc;AAChB;;AAEA;EACE,cAAc;AAChB;;AAEA;EACE;IACE,UAAU;IACV,4BAA4B;EAC9B;EACA;IACE,UAAU;IACV,wBAAwB;EAC1B;AACF","sourcesContent":[".popup-container {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1000;\n  backdrop-filter: blur(4px);\n  -webkit-backdrop-filter: blur(4px);\n}\n\n.popup-content {\n  background: rgba(255, 255, 255, 0.95);\n  border-radius: 16px;\n  width: 800px;\n  height: 600px;\n  overflow: hidden;\n  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);\n  animation: slideIn 0.3s ease;\n  display: flex;\n  flex-direction: column;\n}\n\n.popup-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 1rem 1.5rem;\n  border-bottom: 1px solid rgba(0, 0, 0, 0.1);\n  background: rgba(255, 255, 255, 0.8);\n  backdrop-filter: blur(10px);\n  -webkit-backdrop-filter: blur(10px);\n}\n\n.app-info {\n  display: flex;\n  align-items: center;\n  gap: 1rem;\n}\n\n.app-info .app-icon {\n  width: 32px;\n  height: 32px;\n  object-fit: contain;\n  border-radius: 8px;\n}\n\n.app-info h2 {\n  margin: 0;\n  font-size: 1.25rem;\n  font-weight: 500;\n  color: #1d1d1f;\n}\n\n.close-button {\n  background: none;\n  border: none;\n  padding: 0.5rem;\n  cursor: pointer;\n  color: #1d1d1f;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: background-color 0.2s ease;\n}\n\n.close-button:hover {\n  background-color: rgba(0, 0, 0, 0.05);\n}\n\n.popup-body {\n  flex: 1;\n  padding: 1.5rem;\n  overflow-y: auto;\n  display: flex;\n  flex-direction: column;\n  gap: 2rem;\n}\n\n.macro-section {\n  display: flex;\n  flex-direction: column;\n  gap: 1rem;\n}\n\n.section-title {\n  margin: 0;\n  font-size: 1.125rem;\n  font-weight: 600;\n  color: #1d1d1f;\n  padding-bottom: 0.5rem;\n  border-bottom: 1px solid rgba(0, 0, 0, 0.1);\n}\n\n.macros-list {\n  display: flex;\n  flex-direction: column;\n  gap: 1rem;\n}\n\n.macro-item {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 1rem;\n  background: rgba(255, 255, 255, 0.8);\n  border-radius: 12px;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  transition: transform 0.2s ease, box-shadow 0.2s ease;\n}\n\n.macro-item:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);\n}\n\n.macro-content {\n  flex: 1;\n}\n\n.macro-title {\n  margin: 0;\n  font-size: 1rem;\n  font-weight: 500;\n  color: #1d1d1f;\n}\n\n.macro-keybind {\n  margin-top: 0.5rem;\n  font-size: 0.875rem;\n  color: #666;\n  background: rgba(0, 0, 0, 0.05);\n  padding: 0.25rem 0.5rem;\n  border-radius: 4px;\n  display: inline-block;\n}\n\n.macro-actions {\n  display: flex;\n  gap: 0.75rem;\n  margin-left: 1rem;\n}\n\n.action-button {\n  background: none;\n  border: none;\n  padding: 0.75rem;\n  cursor: pointer;\n  color: #666;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: all 0.2s ease;\n}\n\n.action-button:hover {\n  background-color: rgba(0, 0, 0, 0.05);\n  color: #1d1d1f;\n}\n\n.edit-button:hover {\n  color: #007AFF;\n}\n\n.approve-button {\n  color: #666;\n}\n\n.approve-button.approved {\n  color: #34C759;\n}\n\n.approve-button:hover {\n  color: #34C759;\n}\n\n.remove-button:hover {\n  color: #FF3B30;\n}\n\n@keyframes slideIn {\n  from {\n    opacity: 0;\n    transform: translateY(-20px);\n  }\n  to {\n    opacity: 1;\n    transform: translateY(0);\n  }\n} "],"sourceRoot":""}]);
+} `, "",{"version":3,"sources":["webpack://./src/components/AppPopup.css"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,MAAM;EACN,OAAO;EACP,QAAQ;EACR,SAAS;EACT,8BAA8B;EAC9B,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,aAAa;EACb,0BAA0B;EAC1B,kCAAkC;AACpC;;AAEA;EACE,qCAAqC;EACrC,mBAAmB;EACnB,YAAY;EACZ,aAAa;EACb,gBAAgB;EAChB,yCAAyC;EACzC,4BAA4B;EAC5B,aAAa;EACb,sBAAsB;AACxB;;AAEA;EACE,aAAa;EACb,8BAA8B;EAC9B,mBAAmB;EACnB,oBAAoB;EACpB,2CAA2C;EAC3C,oCAAoC;EACpC,2BAA2B;EAC3B,mCAAmC;AACrC;;AAEA;EACE,aAAa;EACb,mBAAmB;EACnB,SAAS;AACX;;AAEA;EACE,WAAW;EACX,YAAY;EACZ,mBAAmB;EACnB,kBAAkB;AACpB;;AAEA;EACE,SAAS;EACT,kBAAkB;EAClB,gBAAgB;EAChB,cAAc;AAChB;;AAEA;EACE,gBAAgB;EAChB,YAAY;EACZ,eAAe;EACf,eAAe;EACf,cAAc;EACd,kBAAkB;EAClB,aAAa;EACb,mBAAmB;EACnB,uBAAuB;EACvB,sCAAsC;AACxC;;AAEA;EACE,qCAAqC;AACvC;;AAEA;EACE,OAAO;EACP,eAAe;EACf,gBAAgB;EAChB,aAAa;EACb,sBAAsB;EACtB,SAAS;AACX;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,SAAS;AACX;;AAEA;EACE,SAAS;EACT,mBAAmB;EACnB,gBAAgB;EAChB,cAAc;EACd,sBAAsB;EACtB,2CAA2C;AAC7C;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,SAAS;AACX;;AAEA;EACE,aAAa;EACb,8BAA8B;EAC9B,mBAAmB;EACnB,aAAa;EACb,oCAAoC;EACpC,mBAAmB;EACnB,oCAAoC;EACpC,qDAAqD;AACvD;;AAEA;EACE,2BAA2B;EAC3B,0CAA0C;AAC5C;;AAEA;EACE,OAAO;AACT;;AAEA;EACE,SAAS;EACT,eAAe;EACf,gBAAgB;EAChB,cAAc;AAChB;;AAEA;EACE,kBAAkB;EAClB,mBAAmB;EACnB,WAAW;EACX,+BAA+B;EAC/B,uBAAuB;EACvB,kBAAkB;EAClB,qBAAqB;AACvB;;AAEA;EACE,aAAa;EACb,YAAY;EACZ,iBAAiB;AACnB;;AAEA;EACE,gBAAgB;EAChB,YAAY;EACZ,gBAAgB;EAChB,eAAe;EACf,WAAW;EACX,kBAAkB;EAClB,aAAa;EACb,mBAAmB;EACnB,uBAAuB;EACvB,yBAAyB;AAC3B;;AAEA;EACE,qCAAqC;EACrC,cAAc;AAChB;;AAEA;EACE,cAAc;AAChB;;AAEA;EACE,WAAW;AACb;;AAEA;EACE,cAAc;AAChB;;AAEA;EACE,cAAc;AAChB;;AAEA;EACE,cAAc;AAChB;;AAEA;EACE;IACE,UAAU;IACV,4BAA4B;EAC9B;EACA;IACE,UAAU;IACV,wBAAwB;EAC1B;AACF","sourcesContent":[".popup-container {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1000;\n  backdrop-filter: blur(4px);\n  -webkit-backdrop-filter: blur(4px);\n}\n\n.popup-content {\n  background: rgba(255, 255, 255, 0.95);\n  border-radius: 16px;\n  width: 600px;\n  height: 450px;\n  overflow: hidden;\n  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);\n  animation: slideIn 0.3s ease;\n  display: flex;\n  flex-direction: column;\n}\n\n.popup-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 1rem 1.5rem;\n  border-bottom: 1px solid rgba(0, 0, 0, 0.1);\n  background: rgba(255, 255, 255, 0.8);\n  backdrop-filter: blur(10px);\n  -webkit-backdrop-filter: blur(10px);\n}\n\n.app-info {\n  display: flex;\n  align-items: center;\n  gap: 1rem;\n}\n\n.app-info .app-icon {\n  width: 32px;\n  height: 32px;\n  object-fit: contain;\n  border-radius: 8px;\n}\n\n.app-info h2 {\n  margin: 0;\n  font-size: 1.25rem;\n  font-weight: 500;\n  color: #1d1d1f;\n}\n\n.close-button {\n  background: none;\n  border: none;\n  padding: 0.5rem;\n  cursor: pointer;\n  color: #1d1d1f;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: background-color 0.2s ease;\n}\n\n.close-button:hover {\n  background-color: rgba(0, 0, 0, 0.05);\n}\n\n.popup-body {\n  flex: 1;\n  padding: 1.5rem;\n  overflow-y: auto;\n  display: flex;\n  flex-direction: column;\n  gap: 2rem;\n}\n\n.macro-section {\n  display: flex;\n  flex-direction: column;\n  gap: 1rem;\n}\n\n.section-title {\n  margin: 0;\n  font-size: 1.125rem;\n  font-weight: 600;\n  color: #1d1d1f;\n  padding-bottom: 0.5rem;\n  border-bottom: 1px solid rgba(0, 0, 0, 0.1);\n}\n\n.macros-list {\n  display: flex;\n  flex-direction: column;\n  gap: 1rem;\n}\n\n.macro-item {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 1rem;\n  background: rgba(255, 255, 255, 0.8);\n  border-radius: 12px;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  transition: transform 0.2s ease, box-shadow 0.2s ease;\n}\n\n.macro-item:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);\n}\n\n.macro-content {\n  flex: 1;\n}\n\n.macro-title {\n  margin: 0;\n  font-size: 1rem;\n  font-weight: 500;\n  color: #1d1d1f;\n}\n\n.macro-keybind {\n  margin-top: 0.5rem;\n  font-size: 0.875rem;\n  color: #666;\n  background: rgba(0, 0, 0, 0.05);\n  padding: 0.25rem 0.5rem;\n  border-radius: 4px;\n  display: inline-block;\n}\n\n.macro-actions {\n  display: flex;\n  gap: 0.75rem;\n  margin-left: 1rem;\n}\n\n.action-button {\n  background: none;\n  border: none;\n  padding: 0.75rem;\n  cursor: pointer;\n  color: #666;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: all 0.2s ease;\n}\n\n.action-button:hover {\n  background-color: rgba(0, 0, 0, 0.05);\n  color: #1d1d1f;\n}\n\n.edit-button:hover {\n  color: #007AFF;\n}\n\n.approve-button {\n  color: #666;\n}\n\n.approve-button.approved {\n  color: #34C759;\n}\n\n.approve-button:hover {\n  color: #34C759;\n}\n\n.remove-button:hover {\n  color: #FF3B30;\n}\n\n@keyframes slideIn {\n  from {\n    opacity: 0;\n    transform: translateY(-20px);\n  }\n  to {\n    opacity: 1;\n    transform: translateY(0);\n  }\n} "],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -512,7 +512,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `.gallery-container {
-  padding: 2rem;
+  padding: 1rem;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -521,7 +521,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.gallery-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .gallery-header h2 {
@@ -557,7 +557,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.gallery-container {
 .add-form {
   display: flex;
   gap: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   padding: 1.5rem;
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(10px);
@@ -600,42 +600,63 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.gallery-container {
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 2rem;
-  max-width: 800px;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 1rem;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
 .app-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 16px;
+  padding: 1.5rem;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
   cursor: pointer;
-  transition: all 0.3s ease;
-  aspect-ratio: 1;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .app-card:hover {
-  transform: translateY(-4px) scale(1.02);
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
 .app-icon {
   width: 64px;
   height: 64px;
   object-fit: contain;
-  transition: transform 0.2s ease;
+  border-radius: 12px;
 }
 
-.app-card:hover .app-icon {
-  transform: scale(1.1);
+.remove-app-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.1);
+  border: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s ease, background-color 0.2s ease;
+  color: #1d1d1f;
+}
+
+.app-card:hover .remove-app-button {
+  opacity: 1;
+}
+
+.remove-app-button:hover {
+  background: rgba(0, 0, 0, 0.2);
+  color: #FF3B30;
 }
 
 /* Add subtle pulsing shadow on hover */
@@ -660,7 +681,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.gallery-container {
   color: #1d1d1f;
   text-align: center;
   font-weight: 500;
-} `, "",{"version":3,"sources":["webpack://./src/components/ApplicationGallery.css"],"names":[],"mappings":"AAAA;EACE,aAAa;EACb,iBAAiB;EACjB,cAAc;AAChB;;AAEA;EACE,aAAa;EACb,8BAA8B;EAC9B,mBAAmB;EACnB,mBAAmB;AACrB;;AAEA;EACE,SAAS;EACT,cAAc;EACd,iBAAiB;EACjB,gBAAgB;EAChB,wBAAwB;AAC1B;;AAEA;EACE,uBAAuB;EACvB,mBAAmB;EACnB,YAAY;EACZ,YAAY;EACZ,kBAAkB;EAClB,eAAe;EACf,eAAe;EACf,gBAAgB;EAChB,yBAAyB;AAC3B;;AAEA;EACE,mBAAmB;EACnB,2BAA2B;AAC7B;;AAEA;EACE,wBAAwB;EACxB,mBAAmB;AACrB;;AAEA;EACE,aAAa;EACb,SAAS;EACT,mBAAmB;EACnB,eAAe;EACf,oCAAoC;EACpC,2BAA2B;EAC3B,mCAAmC;EACnC,mBAAmB;EACnB,oCAAoC;AACtC;;AAEA;EACE,OAAO;EACP,qBAAqB;EACrB,YAAY;EACZ,kBAAkB;EAClB,eAAe;EACf,oCAAoC;EACpC,aAAa;EACb,yBAAyB;AAC3B;;AAEA;EACE,iBAAiB;EACjB,4CAA4C;AAC9C;;AAEA;EACE,uBAAuB;EACvB,mBAAmB;EACnB,YAAY;EACZ,YAAY;EACZ,kBAAkB;EAClB,eAAe;EACf,gBAAgB;EAChB,yBAAyB;AAC3B;;AAEA;EACE,mBAAmB;EACnB,2BAA2B;AAC7B;;AAEA;EACE,aAAa;EACb,2DAA2D;EAC3D,SAAS;EACT,gBAAgB;EAChB,cAAc;AAChB;;AAEA;EACE,aAAa;EACb,mBAAmB;EACnB,uBAAuB;EACvB,eAAe;EACf,oCAAoC;EACpC,2BAA2B;EAC3B,mCAAmC;EACnC,mBAAmB;EACnB,0CAA0C;EAC1C,eAAe;EACf,yBAAyB;EACzB,eAAe;AACjB;;AAEA;EACE,uCAAuC;EACvC,oCAAoC;EACpC,0CAA0C;AAC5C;;AAEA;EACE,WAAW;EACX,YAAY;EACZ,mBAAmB;EACnB,+BAA+B;AACjC;;AAEA;EACE,qBAAqB;AACvB;;AAEA,uCAAuC;AACvC;EACE;IACE,4CAA4C;EAC9C;EACA;IACE,6CAA6C;EAC/C;EACA;IACE,0CAA0C;EAC5C;AACF;;AAEA;EACE,4BAA4B;AAC9B;;AAEA;EACE,eAAe;EACf,cAAc;EACd,kBAAkB;EAClB,gBAAgB;AAClB","sourcesContent":[".gallery-container {\n  padding: 2rem;\n  max-width: 1200px;\n  margin: 0 auto;\n}\n\n.gallery-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 2rem;\n}\n\n.gallery-header h2 {\n  margin: 0;\n  color: #1d1d1f;\n  font-size: 1.5rem;\n  font-weight: 500;\n  letter-spacing: -0.025em;\n}\n\n.add-button {\n  padding: 0.75rem 1.5rem;\n  background: #0071e3;\n  color: white;\n  border: none;\n  border-radius: 8px;\n  cursor: pointer;\n  font-size: 1rem;\n  font-weight: 500;\n  transition: all 0.2s ease;\n}\n\n.add-button:hover {\n  background: #0077ed;\n  transform: translateY(-1px);\n}\n\n.add-button:active {\n  transform: translateY(0);\n  background: #006edb;\n}\n\n.add-form {\n  display: flex;\n  gap: 1rem;\n  margin-bottom: 2rem;\n  padding: 1.5rem;\n  background: rgba(255, 255, 255, 0.7);\n  backdrop-filter: blur(10px);\n  -webkit-backdrop-filter: blur(10px);\n  border-radius: 12px;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n}\n\n.add-form input {\n  flex: 1;\n  padding: 0.75rem 1rem;\n  border: none;\n  border-radius: 8px;\n  font-size: 1rem;\n  background: rgba(255, 255, 255, 0.8);\n  outline: none;\n  transition: all 0.2s ease;\n}\n\n.add-form input:focus {\n  background: white;\n  box-shadow: 0 0 0 3px rgba(0, 125, 250, 0.3);\n}\n\n.add-form button {\n  padding: 0.75rem 1.5rem;\n  background: #0071e3;\n  color: white;\n  border: none;\n  border-radius: 8px;\n  cursor: pointer;\n  font-weight: 500;\n  transition: all 0.2s ease;\n}\n\n.add-form button:hover {\n  background: #0077ed;\n  transform: translateY(-1px);\n}\n\n.gallery-grid {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));\n  gap: 2rem;\n  max-width: 800px;\n  margin: 0 auto;\n}\n\n.app-card {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 1.5rem;\n  background: rgba(255, 255, 255, 0.7);\n  backdrop-filter: blur(10px);\n  -webkit-backdrop-filter: blur(10px);\n  border-radius: 16px;\n  border: 1px solid rgba(255, 255, 255, 0.3);\n  cursor: pointer;\n  transition: all 0.3s ease;\n  aspect-ratio: 1;\n}\n\n.app-card:hover {\n  transform: translateY(-4px) scale(1.02);\n  background: rgba(255, 255, 255, 0.9);\n  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);\n}\n\n.app-icon {\n  width: 64px;\n  height: 64px;\n  object-fit: contain;\n  transition: transform 0.2s ease;\n}\n\n.app-card:hover .app-icon {\n  transform: scale(1.1);\n}\n\n/* Add subtle pulsing shadow on hover */\n@keyframes pulse {\n  0% {\n    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);\n  }\n  70% {\n    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);\n  }\n  100% {\n    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);\n  }\n}\n\n.app-card:hover {\n  animation: pulse 2s infinite;\n}\n\n.app-name {\n  font-size: 1rem;\n  color: #1d1d1f;\n  text-align: center;\n  font-weight: 500;\n} "],"sourceRoot":""}]);
+} `, "",{"version":3,"sources":["webpack://./src/components/ApplicationGallery.css"],"names":[],"mappings":"AAAA;EACE,aAAa;EACb,iBAAiB;EACjB,cAAc;AAChB;;AAEA;EACE,aAAa;EACb,8BAA8B;EAC9B,mBAAmB;EACnB,mBAAmB;AACrB;;AAEA;EACE,SAAS;EACT,cAAc;EACd,iBAAiB;EACjB,gBAAgB;EAChB,wBAAwB;AAC1B;;AAEA;EACE,uBAAuB;EACvB,mBAAmB;EACnB,YAAY;EACZ,YAAY;EACZ,kBAAkB;EAClB,eAAe;EACf,eAAe;EACf,gBAAgB;EAChB,yBAAyB;AAC3B;;AAEA;EACE,mBAAmB;EACnB,2BAA2B;AAC7B;;AAEA;EACE,wBAAwB;EACxB,mBAAmB;AACrB;;AAEA;EACE,aAAa;EACb,SAAS;EACT,mBAAmB;EACnB,eAAe;EACf,oCAAoC;EACpC,2BAA2B;EAC3B,mCAAmC;EACnC,mBAAmB;EACnB,oCAAoC;AACtC;;AAEA;EACE,OAAO;EACP,qBAAqB;EACrB,YAAY;EACZ,kBAAkB;EAClB,eAAe;EACf,oCAAoC;EACpC,aAAa;EACb,yBAAyB;AAC3B;;AAEA;EACE,iBAAiB;EACjB,4CAA4C;AAC9C;;AAEA;EACE,uBAAuB;EACvB,mBAAmB;EACnB,YAAY;EACZ,YAAY;EACZ,kBAAkB;EAClB,eAAe;EACf,gBAAgB;EAChB,yBAAyB;AAC3B;;AAEA;EACE,mBAAmB;EACnB,2BAA2B;AAC7B;;AAEA;EACE,aAAa;EACb,4DAA4D;EAC5D,SAAS;EACT,iBAAiB;EACjB,cAAc;AAChB;;AAEA;EACE,kBAAkB;EAClB,oCAAoC;EACpC,mBAAmB;EACnB,eAAe;EACf,aAAa;EACb,sBAAsB;EACtB,mBAAmB;EACnB,uBAAuB;EACvB,eAAe;EACf,qDAAqD;EACrD,oCAAoC;AACtC;;AAEA;EACE,2BAA2B;EAC3B,yCAAyC;AAC3C;;AAEA;EACE,WAAW;EACX,YAAY;EACZ,mBAAmB;EACnB,mBAAmB;AACrB;;AAEA;EACE,kBAAkB;EAClB,QAAQ;EACR,UAAU;EACV,8BAA8B;EAC9B,YAAY;EACZ,WAAW;EACX,YAAY;EACZ,kBAAkB;EAClB,aAAa;EACb,mBAAmB;EACnB,uBAAuB;EACvB,eAAe;EACf,UAAU;EACV,yDAAyD;EACzD,cAAc;AAChB;;AAEA;EACE,UAAU;AACZ;;AAEA;EACE,8BAA8B;EAC9B,cAAc;AAChB;;AAEA,uCAAuC;AACvC;EACE;IACE,4CAA4C;EAC9C;EACA;IACE,6CAA6C;EAC/C;EACA;IACE,0CAA0C;EAC5C;AACF;;AAEA;EACE,4BAA4B;AAC9B;;AAEA;EACE,eAAe;EACf,cAAc;EACd,kBAAkB;EAClB,gBAAgB;AAClB","sourcesContent":[".gallery-container {\n  padding: 1rem;\n  max-width: 1200px;\n  margin: 0 auto;\n}\n\n.gallery-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 1rem;\n}\n\n.gallery-header h2 {\n  margin: 0;\n  color: #1d1d1f;\n  font-size: 1.5rem;\n  font-weight: 500;\n  letter-spacing: -0.025em;\n}\n\n.add-button {\n  padding: 0.75rem 1.5rem;\n  background: #0071e3;\n  color: white;\n  border: none;\n  border-radius: 8px;\n  cursor: pointer;\n  font-size: 1rem;\n  font-weight: 500;\n  transition: all 0.2s ease;\n}\n\n.add-button:hover {\n  background: #0077ed;\n  transform: translateY(-1px);\n}\n\n.add-button:active {\n  transform: translateY(0);\n  background: #006edb;\n}\n\n.add-form {\n  display: flex;\n  gap: 1rem;\n  margin-bottom: 1rem;\n  padding: 1.5rem;\n  background: rgba(255, 255, 255, 0.7);\n  backdrop-filter: blur(10px);\n  -webkit-backdrop-filter: blur(10px);\n  border-radius: 12px;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n}\n\n.add-form input {\n  flex: 1;\n  padding: 0.75rem 1rem;\n  border: none;\n  border-radius: 8px;\n  font-size: 1rem;\n  background: rgba(255, 255, 255, 0.8);\n  outline: none;\n  transition: all 0.2s ease;\n}\n\n.add-form input:focus {\n  background: white;\n  box-shadow: 0 0 0 3px rgba(0, 125, 250, 0.3);\n}\n\n.add-form button {\n  padding: 0.75rem 1.5rem;\n  background: #0071e3;\n  color: white;\n  border: none;\n  border-radius: 8px;\n  cursor: pointer;\n  font-weight: 500;\n  transition: all 0.2s ease;\n}\n\n.add-form button:hover {\n  background: #0077ed;\n  transform: translateY(-1px);\n}\n\n.gallery-grid {\n  display: grid;\n  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));\n  gap: 1rem;\n  max-width: 1200px;\n  margin: 0 auto;\n}\n\n.app-card {\n  position: relative;\n  background: rgba(255, 255, 255, 0.8);\n  border-radius: 16px;\n  padding: 1.5rem;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n  transition: transform 0.2s ease, box-shadow 0.2s ease;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n}\n\n.app-card:hover {\n  transform: translateY(-4px);\n  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);\n}\n\n.app-icon {\n  width: 64px;\n  height: 64px;\n  object-fit: contain;\n  border-radius: 12px;\n}\n\n.remove-app-button {\n  position: absolute;\n  top: 8px;\n  right: 8px;\n  background: rgba(0, 0, 0, 0.1);\n  border: none;\n  width: 24px;\n  height: 24px;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n  opacity: 0;\n  transition: opacity 0.2s ease, background-color 0.2s ease;\n  color: #1d1d1f;\n}\n\n.app-card:hover .remove-app-button {\n  opacity: 1;\n}\n\n.remove-app-button:hover {\n  background: rgba(0, 0, 0, 0.2);\n  color: #FF3B30;\n}\n\n/* Add subtle pulsing shadow on hover */\n@keyframes pulse {\n  0% {\n    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);\n  }\n  70% {\n    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);\n  }\n  100% {\n    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);\n  }\n}\n\n.app-card:hover {\n  animation: pulse 2s infinite;\n}\n\n.app-name {\n  font-size: 1rem;\n  color: #1d1d1f;\n  text-align: center;\n  font-weight: 500;\n} "],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -709,7 +730,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.search-container {
   border: none;
   border-radius: 12px;
   font-size: 1rem;
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   outline: none;
@@ -759,7 +780,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.search-container {
   transform: translateY(0);
   background: rgba(0, 110, 219, 0.9);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-} `, "",{"version":3,"sources":["webpack://./src/components/SearchBar.css"],"names":[],"mappings":"AAAA;EACE,UAAU;EACV,uBAAuB;EACvB,qBAAqB;EACrB,6BAA6B;EAC7B,gBAAgB;EAChB,SAAS;EACT,YAAY;EACZ,gBAAgB;AAClB;;AAEA;EACE,aAAa;EACb,WAAW;EACX,WAAW;AACb;;AAEA;EACE,OAAO;EACP,yBAAyB;EACzB,YAAY;EACZ,mBAAmB;EACnB,eAAe;EACf,oCAAoC;EACpC,2BAA2B;EAC3B,mCAAmC;EACnC,aAAa;EACb,yBAAyB;EACzB,cAAc;EACd,wCAAwC;AAC1C;;AAEA;EACE,oCAAoC;EACpC,8CAA8C;EAC9C,2BAA2B;AAC7B;;AAEA;EACE,4BAA4B;EAC5B,gBAAgB;AAClB;;AAEA;EACE,WAAW;EACX,YAAY;EACZ,kCAAkC;EAClC,YAAY;EACZ,YAAY;EACZ,mBAAmB;EACnB,eAAe;EACf,eAAe;EACf,gBAAgB;EAChB,yBAAyB;EACzB,wCAAwC;EACxC,2BAA2B;EAC3B,mCAAmC;EACnC,aAAa;EACb,mBAAmB;EACnB,uBAAuB;EACvB,UAAU;AACZ;;AAEA;EACE,gCAAgC;EAChC,2BAA2B;EAC3B,0CAA0C;AAC5C;;AAEA;EACE,wBAAwB;EACxB,kCAAkC;EAClC,wCAAwC;AAC1C","sourcesContent":[".search-container {\n  padding: 0;\n  background: transparent;\n  backdrop-filter: none;\n  -webkit-backdrop-filter: none;\n  border-radius: 0;\n  margin: 0;\n  border: none;\n  box-shadow: none;\n}\n\n.search-form {\n  display: flex;\n  gap: 0.5rem;\n  width: 100%;\n}\n\n.search-input {\n  flex: 1;\n  padding: 0.875rem 1.25rem;\n  border: none;\n  border-radius: 12px;\n  font-size: 1rem;\n  background: rgba(255, 255, 255, 0.4);\n  backdrop-filter: blur(10px);\n  -webkit-backdrop-filter: blur(10px);\n  outline: none;\n  transition: all 0.3s ease;\n  color: #1d1d1f;\n  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\n}\n\n.search-input:focus {\n  background: rgba(255, 255, 255, 0.5);\n  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);\n  transform: translateY(-1px);\n}\n\n.search-input::placeholder {\n  color: rgba(29, 29, 31, 0.7);\n  font-weight: 400;\n}\n\n.search-button {\n  width: 48px;\n  height: 48px;\n  background: rgba(0, 113, 227, 0.9);\n  color: white;\n  border: none;\n  border-radius: 12px;\n  cursor: pointer;\n  font-size: 1rem;\n  font-weight: 500;\n  transition: all 0.3s ease;\n  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\n  backdrop-filter: blur(10px);\n  -webkit-backdrop-filter: blur(10px);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 0;\n}\n\n.search-button:hover {\n  background: rgba(0, 119, 237, 1);\n  transform: translateY(-1px);\n  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);\n}\n\n.search-button:active {\n  transform: translateY(0);\n  background: rgba(0, 110, 219, 0.9);\n  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\n} "],"sourceRoot":""}]);
+} `, "",{"version":3,"sources":["webpack://./src/components/SearchBar.css"],"names":[],"mappings":"AAAA;EACE,UAAU;EACV,uBAAuB;EACvB,qBAAqB;EACrB,6BAA6B;EAC7B,gBAAgB;EAChB,SAAS;EACT,YAAY;EACZ,gBAAgB;AAClB;;AAEA;EACE,aAAa;EACb,WAAW;EACX,WAAW;AACb;;AAEA;EACE,OAAO;EACP,yBAAyB;EACzB,YAAY;EACZ,mBAAmB;EACnB,eAAe;EACf,oCAAoC;EACpC,2BAA2B;EAC3B,mCAAmC;EACnC,aAAa;EACb,yBAAyB;EACzB,cAAc;EACd,wCAAwC;AAC1C;;AAEA;EACE,oCAAoC;EACpC,8CAA8C;EAC9C,2BAA2B;AAC7B;;AAEA;EACE,4BAA4B;EAC5B,gBAAgB;AAClB;;AAEA;EACE,WAAW;EACX,YAAY;EACZ,kCAAkC;EAClC,YAAY;EACZ,YAAY;EACZ,mBAAmB;EACnB,eAAe;EACf,eAAe;EACf,gBAAgB;EAChB,yBAAyB;EACzB,wCAAwC;EACxC,2BAA2B;EAC3B,mCAAmC;EACnC,aAAa;EACb,mBAAmB;EACnB,uBAAuB;EACvB,UAAU;AACZ;;AAEA;EACE,gCAAgC;EAChC,2BAA2B;EAC3B,0CAA0C;AAC5C;;AAEA;EACE,wBAAwB;EACxB,kCAAkC;EAClC,wCAAwC;AAC1C","sourcesContent":[".search-container {\n  padding: 0;\n  background: transparent;\n  backdrop-filter: none;\n  -webkit-backdrop-filter: none;\n  border-radius: 0;\n  margin: 0;\n  border: none;\n  box-shadow: none;\n}\n\n.search-form {\n  display: flex;\n  gap: 0.5rem;\n  width: 100%;\n}\n\n.search-input {\n  flex: 1;\n  padding: 0.875rem 1.25rem;\n  border: none;\n  border-radius: 12px;\n  font-size: 1rem;\n  background: rgba(255, 255, 255, 0.7);\n  backdrop-filter: blur(10px);\n  -webkit-backdrop-filter: blur(10px);\n  outline: none;\n  transition: all 0.3s ease;\n  color: #1d1d1f;\n  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\n}\n\n.search-input:focus {\n  background: rgba(255, 255, 255, 0.5);\n  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);\n  transform: translateY(-1px);\n}\n\n.search-input::placeholder {\n  color: rgba(29, 29, 31, 0.7);\n  font-weight: 400;\n}\n\n.search-button {\n  width: 48px;\n  height: 48px;\n  background: rgba(0, 113, 227, 0.9);\n  color: white;\n  border: none;\n  border-radius: 12px;\n  cursor: pointer;\n  font-size: 1rem;\n  font-weight: 500;\n  transition: all 0.3s ease;\n  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\n  backdrop-filter: blur(10px);\n  -webkit-backdrop-filter: blur(10px);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 0;\n}\n\n.search-button:hover {\n  background: rgba(0, 119, 237, 1);\n  transform: translateY(-1px);\n  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);\n}\n\n.search-button:active {\n  transform: translateY(0);\n  background: rgba(0, 110, 219, 0.9);\n  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\n} "],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -36070,7 +36091,10 @@ const App = () => {
         setSelectedApps(prev => [...prev, appPath]);
         setIsDropdownOpen(false);
     };
-    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "app", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("header", { className: "app-header", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "header-content", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h1", { children: "Maqro" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_SearchBar__WEBPACK_IMPORTED_MODULE_2__["default"], { onSearch: handleSearch }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: "add-button", onClick: handleAddClick, children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M12 4V20M4 12H20", stroke: "white", strokeWidth: "2", strokeLinecap: "round" }) }) })] }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("main", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_ApplicationGallery__WEBPACK_IMPORTED_MODULE_3__["default"], { selectedApps: selectedApps }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_AppDropdown__WEBPACK_IMPORTED_MODULE_4__["default"], { isOpen: isDropdownOpen, onClose: handleCloseDropdown, onSelect: handleAppSelect, selectedApps: selectedApps })] }));
+    const handleRemoveApp = (appPath) => {
+        setSelectedApps(prev => prev.filter(path => path !== appPath));
+    };
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "app", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("header", { className: "app-header", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "header-content", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h1", { children: "Maqro" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_SearchBar__WEBPACK_IMPORTED_MODULE_2__["default"], { onSearch: handleSearch }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: "add-button", onClick: handleAddClick, children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M12 4V20M4 12H20", stroke: "white", strokeWidth: "2", strokeLinecap: "round" }) }) })] }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("main", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_ApplicationGallery__WEBPACK_IMPORTED_MODULE_3__["default"], { selectedApps: selectedApps, onRemoveApp: handleRemoveApp }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_AppDropdown__WEBPACK_IMPORTED_MODULE_4__["default"], { isOpen: isDropdownOpen, onClose: handleCloseDropdown, onSelect: handleAppSelect, selectedApps: selectedApps })] }));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);
 
@@ -36510,7 +36534,7 @@ const getAppIcon = (appPath) => {
         return _assets_images_slack_png__WEBPACK_IMPORTED_MODULE_7__;
     return '';
 };
-const ApplicationGallery = ({ selectedApps }) => {
+const ApplicationGallery = ({ selectedApps, onRemoveApp }) => {
     const [applications, setApplications] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([
         {
             id: '1',
@@ -36565,7 +36589,12 @@ const ApplicationGallery = ({ selectedApps }) => {
         setIsPopupOpen(false);
         setSelectedApp(null);
     };
-    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "gallery-container", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "gallery-grid", children: applications.map((app) => ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "app-card", onClick: () => handleAppClick(app), title: app.name, children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("img", { src: app.icon, alt: app.name, className: "app-icon" }) }, app.id))) }) }), selectedApp && ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_AppPopup__WEBPACK_IMPORTED_MODULE_3__["default"], { isOpen: isPopupOpen, onClose: handleClosePopup, app: selectedApp }))] }));
+    const handleRemoveApp = (e, appPath) => {
+        e.stopPropagation();
+        onRemoveApp(appPath);
+        setApplications(prev => prev.filter(app => app.path !== appPath));
+    };
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "gallery-container", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "gallery-grid", children: applications.map((app) => ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "app-card", onClick: () => handleAppClick(app), title: app.name, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("img", { src: app.icon, alt: app.name, className: "app-icon" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: "remove-app-button", onClick: (e) => handleRemoveApp(e, app.path), children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", { width: "16", height: "16", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M18 6L6 18M6 6L18 18", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round" }) }) })] }, app.id))) }) }), selectedApp && ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_AppPopup__WEBPACK_IMPORTED_MODULE_3__["default"], { isOpen: isPopupOpen, onClose: handleClosePopup, app: selectedApp }))] }));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ApplicationGallery);
 

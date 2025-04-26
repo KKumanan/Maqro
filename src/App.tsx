@@ -26,6 +26,10 @@ const App: React.FC = () => {
     setIsDropdownOpen(false);
   };
 
+  const handleRemoveApp = (appPath: string) => {
+    setSelectedApps(prev => prev.filter(path => path !== appPath));
+  };
+
   return (
     <div className="app">
       <header className="app-header">
@@ -40,7 +44,10 @@ const App: React.FC = () => {
         </div>
       </header>
       <main>
-        <ApplicationGallery selectedApps={selectedApps} />
+        <ApplicationGallery 
+          selectedApps={selectedApps} 
+          onRemoveApp={handleRemoveApp}
+        />
       </main>
       <AppDropdown
         isOpen={isDropdownOpen}

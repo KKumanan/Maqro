@@ -38,9 +38,10 @@ const getAppIcon = (appPath: string): string => {
 
 interface ApplicationGalleryProps {
   selectedApps: string[];
+  onRemoveApp: (appPath: string) => void;
 }
 
-const ApplicationGallery: React.FC<ApplicationGalleryProps> = ({ selectedApps }) => {
+const ApplicationGallery: React.FC<ApplicationGalleryProps> = ({ selectedApps, onRemoveApp }) => {
   const [applications, setApplications] = useState<Application[]>([
     { 
       id: '1', 
@@ -102,6 +103,12 @@ const ApplicationGallery: React.FC<ApplicationGalleryProps> = ({ selectedApps })
     setSelectedApp(null);
   };
 
+  const handleRemoveApp = (e: React.MouseEvent, appPath: string) => {
+    e.stopPropagation();
+    onRemoveApp(appPath);
+    setApplications(prev => prev.filter(app => app.path !== appPath));
+  };
+
   return (
     <>
       <div className="gallery-container">
@@ -114,6 +121,14 @@ const ApplicationGallery: React.FC<ApplicationGalleryProps> = ({ selectedApps })
               title={app.name}
             >
               <img src={app.icon} alt={app.name} className="app-icon" />
+              <button 
+                className="remove-app-button"
+                onClick={(e) => handleRemoveApp(e, app.path)}
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                </svg>
+              </button>
             </div>
           ))}
         </div>
