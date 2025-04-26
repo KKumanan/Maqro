@@ -1,6 +1,54 @@
 .app {
-  text-align: center;
+  min-height: 100vh;
+  background: linear-gradient(
+    135deg,
+    #f6f8ff 0%,
+    #e8ecfd 15%,
+    #f0e7ff 30%,
+    #ffe8f6 45%,
+    #fff0e8 60%,
+    #fff8e8 75%,
+    #f8fff0 90%,
+    #e8fff8 100%
+  );
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  animation: gradientShift 20s ease infinite;
+  background-size: 400% 400%;
+}
+
+.app-header {
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   padding: 2rem;
+  box-shadow: none;
+  margin-bottom: 2rem;
+  border-bottom: none;
+  position: relative;
+}
+
+.app-header::before {
+  content: none;
+}
+
+.app-header h1 {
+  text-align: center;
+  color: #1d1d1f;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  font-size: 2.5rem;
+  letter-spacing: -0.025em;
+  position: relative;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+main {
+  padding: 0 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
 }
 
 h1 {
@@ -11,4 +59,17 @@ h1 {
 p {
   color: #666;
   font-size: 1.2rem;
+}
+
+/* Add a subtle animation to the background */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 } 
