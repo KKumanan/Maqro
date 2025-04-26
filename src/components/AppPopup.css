@@ -106,12 +106,24 @@
 .macro-item {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   padding: 1rem;
   background: rgba(255, 255, 255, 0.8);
   border-radius: 12px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  min-height: 50px;
+}
+
+.macro-item.editing {
+  min-height: 160px;
+}
+
+.macro-divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.1);
+  margin: 1rem 0;
 }
 
 .macro-item:hover {
@@ -184,6 +196,77 @@
   color: #FF3B30;
 }
 
+.macro-edit-input {
+  width: 90%;
+  padding: 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.macro-edit-input:focus {
+  outline: none;
+  border-color: #007AFF;
+  box-shadow: 0 0 0 2px rgba(0, 122, 255, 0.2);
+}
+
+.keybind-input {
+  font-size: 0.875rem;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.additional-input {
+  width: 90%;
+  padding: 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  font-size: 0.875rem;
+  background: rgba(255, 255, 255, 0.9);
+  margin-top: 0.5rem;
+}
+
+.additional-input-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.brain-button {
+  background: linear-gradient(45deg, #FF69B4, #9370DB, #BA55D3);
+  background-size: 200% 200%;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  animation: gradientMove 5s ease infinite;
+}
+
+.brain-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.brain-button img {
+  width: 20px;
+  height: 20px;
+  filter: brightness(0) invert(1);
+}
+
+.save-button:hover {
+  color: #34C759;
+}
+
+.cancel-button:hover {
+  color: #FF3B30;
+}
+
 @keyframes slideIn {
   from {
     opacity: 0;
@@ -192,5 +275,17 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 } 

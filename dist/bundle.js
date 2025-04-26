@@ -398,12 +398,24 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.popup-container {
 .macro-item {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   padding: 1rem;
   background: rgba(255, 255, 255, 0.8);
   border-radius: 12px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  min-height: 50px;
+}
+
+.macro-item.editing {
+  min-height: 160px;
+}
+
+.macro-divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.1);
+  margin: 1rem 0;
 }
 
 .macro-item:hover {
@@ -476,6 +488,77 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.popup-container {
   color: #FF3B30;
 }
 
+.macro-edit-input {
+  width: 90%;
+  padding: 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.macro-edit-input:focus {
+  outline: none;
+  border-color: #007AFF;
+  box-shadow: 0 0 0 2px rgba(0, 122, 255, 0.2);
+}
+
+.keybind-input {
+  font-size: 0.875rem;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.additional-input {
+  width: 90%;
+  padding: 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  font-size: 0.875rem;
+  background: rgba(255, 255, 255, 0.9);
+  margin-top: 0.5rem;
+}
+
+.additional-input-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.brain-button {
+  background: linear-gradient(45deg, #FF69B4, #9370DB, #BA55D3);
+  background-size: 200% 200%;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  animation: gradientMove 5s ease infinite;
+}
+
+.brain-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.brain-button img {
+  width: 20px;
+  height: 20px;
+  filter: brightness(0) invert(1);
+}
+
+.save-button:hover {
+  color: #34C759;
+}
+
+.cancel-button:hover {
+  color: #FF3B30;
+}
+
 @keyframes slideIn {
   from {
     opacity: 0;
@@ -485,7 +568,19 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.popup-container {
     opacity: 1;
     transform: translateY(0);
   }
-} `, "",{"version":3,"sources":["webpack://./src/components/AppPopup.css"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,MAAM;EACN,OAAO;EACP,QAAQ;EACR,SAAS;EACT,8BAA8B;EAC9B,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,aAAa;EACb,0BAA0B;EAC1B,kCAAkC;AACpC;;AAEA;EACE,qCAAqC;EACrC,mBAAmB;EACnB,YAAY;EACZ,aAAa;EACb,gBAAgB;EAChB,yCAAyC;EACzC,4BAA4B;EAC5B,aAAa;EACb,sBAAsB;AACxB;;AAEA;EACE,aAAa;EACb,8BAA8B;EAC9B,mBAAmB;EACnB,oBAAoB;EACpB,2CAA2C;EAC3C,oCAAoC;EACpC,2BAA2B;EAC3B,mCAAmC;AACrC;;AAEA;EACE,aAAa;EACb,mBAAmB;EACnB,SAAS;AACX;;AAEA;EACE,WAAW;EACX,YAAY;EACZ,mBAAmB;EACnB,kBAAkB;AACpB;;AAEA;EACE,SAAS;EACT,kBAAkB;EAClB,gBAAgB;EAChB,cAAc;AAChB;;AAEA;EACE,gBAAgB;EAChB,YAAY;EACZ,eAAe;EACf,eAAe;EACf,cAAc;EACd,kBAAkB;EAClB,aAAa;EACb,mBAAmB;EACnB,uBAAuB;EACvB,sCAAsC;AACxC;;AAEA;EACE,qCAAqC;AACvC;;AAEA;EACE,OAAO;EACP,eAAe;EACf,gBAAgB;EAChB,aAAa;EACb,sBAAsB;EACtB,SAAS;AACX;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,SAAS;AACX;;AAEA;EACE,SAAS;EACT,mBAAmB;EACnB,gBAAgB;EAChB,cAAc;EACd,sBAAsB;EACtB,2CAA2C;AAC7C;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,SAAS;AACX;;AAEA;EACE,aAAa;EACb,8BAA8B;EAC9B,mBAAmB;EACnB,aAAa;EACb,oCAAoC;EACpC,mBAAmB;EACnB,oCAAoC;EACpC,qDAAqD;AACvD;;AAEA;EACE,2BAA2B;EAC3B,0CAA0C;AAC5C;;AAEA;EACE,OAAO;AACT;;AAEA;EACE,SAAS;EACT,eAAe;EACf,gBAAgB;EAChB,cAAc;AAChB;;AAEA;EACE,kBAAkB;EAClB,mBAAmB;EACnB,WAAW;EACX,+BAA+B;EAC/B,uBAAuB;EACvB,kBAAkB;EAClB,qBAAqB;AACvB;;AAEA;EACE,aAAa;EACb,YAAY;EACZ,iBAAiB;AACnB;;AAEA;EACE,gBAAgB;EAChB,YAAY;EACZ,gBAAgB;EAChB,eAAe;EACf,WAAW;EACX,kBAAkB;EAClB,aAAa;EACb,mBAAmB;EACnB,uBAAuB;EACvB,yBAAyB;AAC3B;;AAEA;EACE,qCAAqC;EACrC,cAAc;AAChB;;AAEA;EACE,cAAc;AAChB;;AAEA;EACE,WAAW;AACb;;AAEA;EACE,cAAc;AAChB;;AAEA;EACE,cAAc;AAChB;;AAEA;EACE,cAAc;AAChB;;AAEA;EACE;IACE,UAAU;IACV,4BAA4B;EAC9B;EACA;IACE,UAAU;IACV,wBAAwB;EAC1B;AACF","sourcesContent":[".popup-container {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1000;\n  backdrop-filter: blur(4px);\n  -webkit-backdrop-filter: blur(4px);\n}\n\n.popup-content {\n  background: rgba(255, 255, 255, 0.95);\n  border-radius: 16px;\n  width: 600px;\n  height: 450px;\n  overflow: hidden;\n  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);\n  animation: slideIn 0.3s ease;\n  display: flex;\n  flex-direction: column;\n}\n\n.popup-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 1rem 1.5rem;\n  border-bottom: 1px solid rgba(0, 0, 0, 0.1);\n  background: rgba(255, 255, 255, 0.8);\n  backdrop-filter: blur(10px);\n  -webkit-backdrop-filter: blur(10px);\n}\n\n.app-info {\n  display: flex;\n  align-items: center;\n  gap: 1rem;\n}\n\n.app-info .app-icon {\n  width: 32px;\n  height: 32px;\n  object-fit: contain;\n  border-radius: 8px;\n}\n\n.app-info h2 {\n  margin: 0;\n  font-size: 1.25rem;\n  font-weight: 500;\n  color: #1d1d1f;\n}\n\n.close-button {\n  background: none;\n  border: none;\n  padding: 0.5rem;\n  cursor: pointer;\n  color: #1d1d1f;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: background-color 0.2s ease;\n}\n\n.close-button:hover {\n  background-color: rgba(0, 0, 0, 0.05);\n}\n\n.popup-body {\n  flex: 1;\n  padding: 1.5rem;\n  overflow-y: auto;\n  display: flex;\n  flex-direction: column;\n  gap: 2rem;\n}\n\n.macro-section {\n  display: flex;\n  flex-direction: column;\n  gap: 1rem;\n}\n\n.section-title {\n  margin: 0;\n  font-size: 1.125rem;\n  font-weight: 600;\n  color: #1d1d1f;\n  padding-bottom: 0.5rem;\n  border-bottom: 1px solid rgba(0, 0, 0, 0.1);\n}\n\n.macros-list {\n  display: flex;\n  flex-direction: column;\n  gap: 1rem;\n}\n\n.macro-item {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 1rem;\n  background: rgba(255, 255, 255, 0.8);\n  border-radius: 12px;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  transition: transform 0.2s ease, box-shadow 0.2s ease;\n}\n\n.macro-item:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);\n}\n\n.macro-content {\n  flex: 1;\n}\n\n.macro-title {\n  margin: 0;\n  font-size: 1rem;\n  font-weight: 500;\n  color: #1d1d1f;\n}\n\n.macro-keybind {\n  margin-top: 0.5rem;\n  font-size: 0.875rem;\n  color: #666;\n  background: rgba(0, 0, 0, 0.05);\n  padding: 0.25rem 0.5rem;\n  border-radius: 4px;\n  display: inline-block;\n}\n\n.macro-actions {\n  display: flex;\n  gap: 0.75rem;\n  margin-left: 1rem;\n}\n\n.action-button {\n  background: none;\n  border: none;\n  padding: 0.75rem;\n  cursor: pointer;\n  color: #666;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: all 0.2s ease;\n}\n\n.action-button:hover {\n  background-color: rgba(0, 0, 0, 0.05);\n  color: #1d1d1f;\n}\n\n.edit-button:hover {\n  color: #007AFF;\n}\n\n.approve-button {\n  color: #666;\n}\n\n.approve-button.approved {\n  color: #34C759;\n}\n\n.approve-button:hover {\n  color: #34C759;\n}\n\n.remove-button:hover {\n  color: #FF3B30;\n}\n\n@keyframes slideIn {\n  from {\n    opacity: 0;\n    transform: translateY(-20px);\n  }\n  to {\n    opacity: 1;\n    transform: translateY(0);\n  }\n} "],"sourceRoot":""}]);
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+} `, "",{"version":3,"sources":["webpack://./src/components/AppPopup.css"],"names":[],"mappings":"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","sourcesContent":[".popup-container {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1000;\n  backdrop-filter: blur(4px);\n  -webkit-backdrop-filter: blur(4px);\n}\n\n.popup-content {\n  background: rgba(255, 255, 255, 0.95);\n  border-radius: 16px;\n  width: 600px;\n  height: 450px;\n  overflow: hidden;\n  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);\n  animation: slideIn 0.3s ease;\n  display: flex;\n  flex-direction: column;\n}\n\n.popup-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 1rem 1.5rem;\n  border-bottom: 1px solid rgba(0, 0, 0, 0.1);\n  background: rgba(255, 255, 255, 0.8);\n  backdrop-filter: blur(10px);\n  -webkit-backdrop-filter: blur(10px);\n}\n\n.app-info {\n  display: flex;\n  align-items: center;\n  gap: 1rem;\n}\n\n.app-info .app-icon {\n  width: 32px;\n  height: 32px;\n  object-fit: contain;\n  border-radius: 8px;\n}\n\n.app-info h2 {\n  margin: 0;\n  font-size: 1.25rem;\n  font-weight: 500;\n  color: #1d1d1f;\n}\n\n.close-button {\n  background: none;\n  border: none;\n  padding: 0.5rem;\n  cursor: pointer;\n  color: #1d1d1f;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: background-color 0.2s ease;\n}\n\n.close-button:hover {\n  background-color: rgba(0, 0, 0, 0.05);\n}\n\n.popup-body {\n  flex: 1;\n  padding: 1.5rem;\n  overflow-y: auto;\n  display: flex;\n  flex-direction: column;\n  gap: 2rem;\n}\n\n.macro-section {\n  display: flex;\n  flex-direction: column;\n  gap: 1rem;\n}\n\n.section-title {\n  margin: 0;\n  font-size: 1.125rem;\n  font-weight: 600;\n  color: #1d1d1f;\n  padding-bottom: 0.5rem;\n  border-bottom: 1px solid rgba(0, 0, 0, 0.1);\n}\n\n.macros-list {\n  display: flex;\n  flex-direction: column;\n  gap: 1rem;\n}\n\n.macro-item {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  padding: 1rem;\n  background: rgba(255, 255, 255, 0.8);\n  border-radius: 12px;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  transition: transform 0.2s ease, box-shadow 0.2s ease;\n  min-height: 50px;\n}\n\n.macro-item.editing {\n  min-height: 160px;\n}\n\n.macro-divider {\n  width: 100%;\n  height: 1px;\n  background: rgba(0, 0, 0, 0.1);\n  margin: 1rem 0;\n}\n\n.macro-item:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);\n}\n\n.macro-content {\n  flex: 1;\n}\n\n.macro-title {\n  margin: 0;\n  font-size: 1rem;\n  font-weight: 500;\n  color: #1d1d1f;\n}\n\n.macro-keybind {\n  margin-top: 0.5rem;\n  font-size: 0.875rem;\n  color: #666;\n  background: rgba(0, 0, 0, 0.05);\n  padding: 0.25rem 0.5rem;\n  border-radius: 4px;\n  display: inline-block;\n}\n\n.macro-actions {\n  display: flex;\n  gap: 0.75rem;\n  margin-left: 1rem;\n}\n\n.action-button {\n  background: none;\n  border: none;\n  padding: 0.75rem;\n  cursor: pointer;\n  color: #666;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: all 0.2s ease;\n}\n\n.action-button:hover {\n  background-color: rgba(0, 0, 0, 0.05);\n  color: #1d1d1f;\n}\n\n.edit-button:hover {\n  color: #007AFF;\n}\n\n.approve-button {\n  color: #666;\n}\n\n.approve-button.approved {\n  color: #34C759;\n}\n\n.approve-button:hover {\n  color: #34C759;\n}\n\n.remove-button:hover {\n  color: #FF3B30;\n}\n\n.macro-edit-input {\n  width: 90%;\n  padding: 0.5rem;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  border-radius: 4px;\n  font-size: 1rem;\n  margin-bottom: 0.5rem;\n  background: rgba(255, 255, 255, 0.9);\n}\n\n.macro-edit-input:focus {\n  outline: none;\n  border-color: #007AFF;\n  box-shadow: 0 0 0 2px rgba(0, 122, 255, 0.2);\n}\n\n.keybind-input {\n  font-size: 0.875rem;\n  background: rgba(0, 0, 0, 0.05);\n}\n\n.additional-input {\n  width: 90%;\n  padding: 0.5rem;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  border-radius: 4px;\n  font-size: 0.875rem;\n  background: rgba(255, 255, 255, 0.9);\n  margin-top: 0.5rem;\n}\n\n.additional-input-container {\n  display: flex;\n  align-items: center;\n  gap: 0.5rem;\n  width: 100%;\n}\n\n.brain-button {\n  background: linear-gradient(45deg, #FF69B4, #9370DB, #BA55D3);\n  background-size: 200% 200%;\n  border: none;\n  border-radius: 4px;\n  padding: 0.5rem;\n  cursor: pointer;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: all 0.3s ease;\n  animation: gradientMove 5s ease infinite;\n}\n\n.brain-button:hover {\n  transform: scale(1.05);\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);\n}\n\n.brain-button img {\n  width: 20px;\n  height: 20px;\n  filter: brightness(0) invert(1);\n}\n\n.save-button:hover {\n  color: #34C759;\n}\n\n.cancel-button:hover {\n  color: #FF3B30;\n}\n\n@keyframes slideIn {\n  from {\n    opacity: 0;\n    transform: translateY(-20px);\n  }\n  to {\n    opacity: 1;\n    transform: translateY(0);\n  }\n}\n\n@keyframes gradientMove {\n  0% {\n    background-position: 0% 50%;\n  }\n  50% {\n    background-position: 100% 50%;\n  }\n  100% {\n    background-position: 0% 50%;\n  }\n} "],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -600,10 +695,17 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.gallery-container {
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.gallery-grid .app-card .app-icon {
+  width: 64px !important;
+  height: 64px !important;
+  object-fit: contain;
+  border-radius: 12px;
 }
 
 .app-card {
@@ -623,13 +725,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.gallery-container {
 .app-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-}
-
-.app-icon {
-  width: 64px;
-  height: 64px;
-  object-fit: contain;
-  border-radius: 12px;
 }
 
 .remove-app-button {
@@ -681,7 +776,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.gallery-container {
   color: #1d1d1f;
   text-align: center;
   font-weight: 500;
-} `, "",{"version":3,"sources":["webpack://./src/components/ApplicationGallery.css"],"names":[],"mappings":"AAAA;EACE,aAAa;EACb,iBAAiB;EACjB,cAAc;AAChB;;AAEA;EACE,aAAa;EACb,8BAA8B;EAC9B,mBAAmB;EACnB,mBAAmB;AACrB;;AAEA;EACE,SAAS;EACT,cAAc;EACd,iBAAiB;EACjB,gBAAgB;EAChB,wBAAwB;AAC1B;;AAEA;EACE,uBAAuB;EACvB,mBAAmB;EACnB,YAAY;EACZ,YAAY;EACZ,kBAAkB;EAClB,eAAe;EACf,eAAe;EACf,gBAAgB;EAChB,yBAAyB;AAC3B;;AAEA;EACE,mBAAmB;EACnB,2BAA2B;AAC7B;;AAEA;EACE,wBAAwB;EACxB,mBAAmB;AACrB;;AAEA;EACE,aAAa;EACb,SAAS;EACT,mBAAmB;EACnB,eAAe;EACf,oCAAoC;EACpC,2BAA2B;EAC3B,mCAAmC;EACnC,mBAAmB;EACnB,oCAAoC;AACtC;;AAEA;EACE,OAAO;EACP,qBAAqB;EACrB,YAAY;EACZ,kBAAkB;EAClB,eAAe;EACf,oCAAoC;EACpC,aAAa;EACb,yBAAyB;AAC3B;;AAEA;EACE,iBAAiB;EACjB,4CAA4C;AAC9C;;AAEA;EACE,uBAAuB;EACvB,mBAAmB;EACnB,YAAY;EACZ,YAAY;EACZ,kBAAkB;EAClB,eAAe;EACf,gBAAgB;EAChB,yBAAyB;AAC3B;;AAEA;EACE,mBAAmB;EACnB,2BAA2B;AAC7B;;AAEA;EACE,aAAa;EACb,4DAA4D;EAC5D,SAAS;EACT,iBAAiB;EACjB,cAAc;AAChB;;AAEA;EACE,kBAAkB;EAClB,oCAAoC;EACpC,mBAAmB;EACnB,eAAe;EACf,aAAa;EACb,sBAAsB;EACtB,mBAAmB;EACnB,uBAAuB;EACvB,eAAe;EACf,qDAAqD;EACrD,oCAAoC;AACtC;;AAEA;EACE,2BAA2B;EAC3B,yCAAyC;AAC3C;;AAEA;EACE,WAAW;EACX,YAAY;EACZ,mBAAmB;EACnB,mBAAmB;AACrB;;AAEA;EACE,kBAAkB;EAClB,QAAQ;EACR,UAAU;EACV,8BAA8B;EAC9B,YAAY;EACZ,WAAW;EACX,YAAY;EACZ,kBAAkB;EAClB,aAAa;EACb,mBAAmB;EACnB,uBAAuB;EACvB,eAAe;EACf,UAAU;EACV,yDAAyD;EACzD,cAAc;AAChB;;AAEA;EACE,UAAU;AACZ;;AAEA;EACE,8BAA8B;EAC9B,cAAc;AAChB;;AAEA,uCAAuC;AACvC;EACE;IACE,4CAA4C;EAC9C;EACA;IACE,6CAA6C;EAC/C;EACA;IACE,0CAA0C;EAC5C;AACF;;AAEA;EACE,4BAA4B;AAC9B;;AAEA;EACE,eAAe;EACf,cAAc;EACd,kBAAkB;EAClB,gBAAgB;AAClB","sourcesContent":[".gallery-container {\n  padding: 1rem;\n  max-width: 1200px;\n  margin: 0 auto;\n}\n\n.gallery-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 1rem;\n}\n\n.gallery-header h2 {\n  margin: 0;\n  color: #1d1d1f;\n  font-size: 1.5rem;\n  font-weight: 500;\n  letter-spacing: -0.025em;\n}\n\n.add-button {\n  padding: 0.75rem 1.5rem;\n  background: #0071e3;\n  color: white;\n  border: none;\n  border-radius: 8px;\n  cursor: pointer;\n  font-size: 1rem;\n  font-weight: 500;\n  transition: all 0.2s ease;\n}\n\n.add-button:hover {\n  background: #0077ed;\n  transform: translateY(-1px);\n}\n\n.add-button:active {\n  transform: translateY(0);\n  background: #006edb;\n}\n\n.add-form {\n  display: flex;\n  gap: 1rem;\n  margin-bottom: 1rem;\n  padding: 1.5rem;\n  background: rgba(255, 255, 255, 0.7);\n  backdrop-filter: blur(10px);\n  -webkit-backdrop-filter: blur(10px);\n  border-radius: 12px;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n}\n\n.add-form input {\n  flex: 1;\n  padding: 0.75rem 1rem;\n  border: none;\n  border-radius: 8px;\n  font-size: 1rem;\n  background: rgba(255, 255, 255, 0.8);\n  outline: none;\n  transition: all 0.2s ease;\n}\n\n.add-form input:focus {\n  background: white;\n  box-shadow: 0 0 0 3px rgba(0, 125, 250, 0.3);\n}\n\n.add-form button {\n  padding: 0.75rem 1.5rem;\n  background: #0071e3;\n  color: white;\n  border: none;\n  border-radius: 8px;\n  cursor: pointer;\n  font-weight: 500;\n  transition: all 0.2s ease;\n}\n\n.add-form button:hover {\n  background: #0077ed;\n  transform: translateY(-1px);\n}\n\n.gallery-grid {\n  display: grid;\n  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));\n  gap: 1rem;\n  max-width: 1200px;\n  margin: 0 auto;\n}\n\n.app-card {\n  position: relative;\n  background: rgba(255, 255, 255, 0.8);\n  border-radius: 16px;\n  padding: 1.5rem;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n  transition: transform 0.2s ease, box-shadow 0.2s ease;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n}\n\n.app-card:hover {\n  transform: translateY(-4px);\n  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);\n}\n\n.app-icon {\n  width: 64px;\n  height: 64px;\n  object-fit: contain;\n  border-radius: 12px;\n}\n\n.remove-app-button {\n  position: absolute;\n  top: 8px;\n  right: 8px;\n  background: rgba(0, 0, 0, 0.1);\n  border: none;\n  width: 24px;\n  height: 24px;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n  opacity: 0;\n  transition: opacity 0.2s ease, background-color 0.2s ease;\n  color: #1d1d1f;\n}\n\n.app-card:hover .remove-app-button {\n  opacity: 1;\n}\n\n.remove-app-button:hover {\n  background: rgba(0, 0, 0, 0.2);\n  color: #FF3B30;\n}\n\n/* Add subtle pulsing shadow on hover */\n@keyframes pulse {\n  0% {\n    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);\n  }\n  70% {\n    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);\n  }\n  100% {\n    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);\n  }\n}\n\n.app-card:hover {\n  animation: pulse 2s infinite;\n}\n\n.app-name {\n  font-size: 1rem;\n  color: #1d1d1f;\n  text-align: center;\n  font-weight: 500;\n} "],"sourceRoot":""}]);
+} `, "",{"version":3,"sources":["webpack://./src/components/ApplicationGallery.css"],"names":[],"mappings":"AAAA;EACE,aAAa;EACb,iBAAiB;EACjB,cAAc;AAChB;;AAEA;EACE,aAAa;EACb,8BAA8B;EAC9B,mBAAmB;EACnB,mBAAmB;AACrB;;AAEA;EACE,SAAS;EACT,cAAc;EACd,iBAAiB;EACjB,gBAAgB;EAChB,wBAAwB;AAC1B;;AAEA;EACE,uBAAuB;EACvB,mBAAmB;EACnB,YAAY;EACZ,YAAY;EACZ,kBAAkB;EAClB,eAAe;EACf,eAAe;EACf,gBAAgB;EAChB,yBAAyB;AAC3B;;AAEA;EACE,mBAAmB;EACnB,2BAA2B;AAC7B;;AAEA;EACE,wBAAwB;EACxB,mBAAmB;AACrB;;AAEA;EACE,aAAa;EACb,SAAS;EACT,mBAAmB;EACnB,eAAe;EACf,oCAAoC;EACpC,2BAA2B;EAC3B,mCAAmC;EACnC,mBAAmB;EACnB,oCAAoC;AACtC;;AAEA;EACE,OAAO;EACP,qBAAqB;EACrB,YAAY;EACZ,kBAAkB;EAClB,eAAe;EACf,oCAAoC;EACpC,aAAa;EACb,yBAAyB;AAC3B;;AAEA;EACE,iBAAiB;EACjB,4CAA4C;AAC9C;;AAEA;EACE,uBAAuB;EACvB,mBAAmB;EACnB,YAAY;EACZ,YAAY;EACZ,kBAAkB;EAClB,eAAe;EACf,gBAAgB;EAChB,yBAAyB;AAC3B;;AAEA;EACE,mBAAmB;EACnB,2BAA2B;AAC7B;;AAEA;EACE,aAAa;EACb,qCAAqC;EACrC,SAAS;EACT,iBAAiB;EACjB,cAAc;AAChB;;AAEA;EACE,sBAAsB;EACtB,uBAAuB;EACvB,mBAAmB;EACnB,mBAAmB;AACrB;;AAEA;EACE,kBAAkB;EAClB,oCAAoC;EACpC,mBAAmB;EACnB,eAAe;EACf,aAAa;EACb,sBAAsB;EACtB,mBAAmB;EACnB,uBAAuB;EACvB,eAAe;EACf,qDAAqD;EACrD,oCAAoC;AACtC;;AAEA;EACE,2BAA2B;EAC3B,yCAAyC;AAC3C;;AAEA;EACE,kBAAkB;EAClB,QAAQ;EACR,UAAU;EACV,8BAA8B;EAC9B,YAAY;EACZ,WAAW;EACX,YAAY;EACZ,kBAAkB;EAClB,aAAa;EACb,mBAAmB;EACnB,uBAAuB;EACvB,eAAe;EACf,UAAU;EACV,yDAAyD;EACzD,cAAc;AAChB;;AAEA;EACE,UAAU;AACZ;;AAEA;EACE,8BAA8B;EAC9B,cAAc;AAChB;;AAEA,uCAAuC;AACvC;EACE;IACE,4CAA4C;EAC9C;EACA;IACE,6CAA6C;EAC/C;EACA;IACE,0CAA0C;EAC5C;AACF;;AAEA;EACE,4BAA4B;AAC9B;;AAEA;EACE,eAAe;EACf,cAAc;EACd,kBAAkB;EAClB,gBAAgB;AAClB","sourcesContent":[".gallery-container {\n  padding: 1rem;\n  max-width: 1200px;\n  margin: 0 auto;\n}\n\n.gallery-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 1rem;\n}\n\n.gallery-header h2 {\n  margin: 0;\n  color: #1d1d1f;\n  font-size: 1.5rem;\n  font-weight: 500;\n  letter-spacing: -0.025em;\n}\n\n.add-button {\n  padding: 0.75rem 1.5rem;\n  background: #0071e3;\n  color: white;\n  border: none;\n  border-radius: 8px;\n  cursor: pointer;\n  font-size: 1rem;\n  font-weight: 500;\n  transition: all 0.2s ease;\n}\n\n.add-button:hover {\n  background: #0077ed;\n  transform: translateY(-1px);\n}\n\n.add-button:active {\n  transform: translateY(0);\n  background: #006edb;\n}\n\n.add-form {\n  display: flex;\n  gap: 1rem;\n  margin-bottom: 1rem;\n  padding: 1.5rem;\n  background: rgba(255, 255, 255, 0.7);\n  backdrop-filter: blur(10px);\n  -webkit-backdrop-filter: blur(10px);\n  border-radius: 12px;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n}\n\n.add-form input {\n  flex: 1;\n  padding: 0.75rem 1rem;\n  border: none;\n  border-radius: 8px;\n  font-size: 1rem;\n  background: rgba(255, 255, 255, 0.8);\n  outline: none;\n  transition: all 0.2s ease;\n}\n\n.add-form input:focus {\n  background: white;\n  box-shadow: 0 0 0 3px rgba(0, 125, 250, 0.3);\n}\n\n.add-form button {\n  padding: 0.75rem 1.5rem;\n  background: #0071e3;\n  color: white;\n  border: none;\n  border-radius: 8px;\n  cursor: pointer;\n  font-weight: 500;\n  transition: all 0.2s ease;\n}\n\n.add-form button:hover {\n  background: #0077ed;\n  transform: translateY(-1px);\n}\n\n.gallery-grid {\n  display: grid;\n  grid-template-columns: repeat(4, 1fr);\n  gap: 1rem;\n  max-width: 1200px;\n  margin: 0 auto;\n}\n\n.gallery-grid .app-card .app-icon {\n  width: 64px !important;\n  height: 64px !important;\n  object-fit: contain;\n  border-radius: 12px;\n}\n\n.app-card {\n  position: relative;\n  background: rgba(255, 255, 255, 0.8);\n  border-radius: 16px;\n  padding: 1.5rem;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n  transition: transform 0.2s ease, box-shadow 0.2s ease;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n}\n\n.app-card:hover {\n  transform: translateY(-4px);\n  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);\n}\n\n.remove-app-button {\n  position: absolute;\n  top: 8px;\n  right: 8px;\n  background: rgba(0, 0, 0, 0.1);\n  border: none;\n  width: 24px;\n  height: 24px;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n  opacity: 0;\n  transition: opacity 0.2s ease, background-color 0.2s ease;\n  color: #1d1d1f;\n}\n\n.app-card:hover .remove-app-button {\n  opacity: 1;\n}\n\n.remove-app-button:hover {\n  background: rgba(0, 0, 0, 0.2);\n  color: #FF3B30;\n}\n\n/* Add subtle pulsing shadow on hover */\n@keyframes pulse {\n  0% {\n    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);\n  }\n  70% {\n    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);\n  }\n  100% {\n    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);\n  }\n}\n\n.app-card:hover {\n  animation: pulse 2s infinite;\n}\n\n.app-name {\n  font-size: 1rem;\n  color: #1d1d1f;\n  text-align: center;\n  font-weight: 500;\n} "],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -36101,6 +36196,16 @@ const App = () => {
 
 /***/ }),
 
+/***/ "./src/assets/images/brain.png":
+/*!*************************************!*\
+  !*** ./src/assets/images/brain.png ***!
+  \*************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "assets/53e028d41da51a1d9e73.png";
+
+/***/ }),
+
 /***/ "./src/assets/images/chrome.png":
 /*!**************************************!*\
   !*** ./src/assets/images/chrome.png ***!
@@ -36377,10 +36482,67 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-/* harmony import */ var _AppPopup_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AppPopup.css */ "./src/components/AppPopup.css");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _AppPopup_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AppPopup.css */ "./src/components/AppPopup.css");
+/* harmony import */ var _assets_images_brain_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../assets/images/brain.png */ "./src/assets/images/brain.png");
+
+
 
 
 const AppPopup = ({ isOpen, onClose, app }) => {
+    const [editingMacroId, setEditingMacroId] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(null);
+    const [editedTitle, setEditedTitle] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)('');
+    const [editedKeybind, setEditedKeybind] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)('');
+    const [editedDescription, setEditedDescription] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)('');
+    const [isCapturingKeys, setIsCapturingKeys] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
+    const keybindInputRef = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(null);
+    const formatKeybind = (keys) => {
+        return keys
+            .map(key => {
+            // Format special keys
+            if (key === 'Control')
+                return 'Ctrl';
+            if (key === ' ')
+                return 'Space';
+            if (key === 'ArrowUp')
+                return '↑';
+            if (key === 'ArrowDown')
+                return '↓';
+            if (key === 'ArrowLeft')
+                return '←';
+            if (key === 'ArrowRight')
+                return '→';
+            return key.toLowerCase();
+        })
+            .join(' + ');
+    };
+    const handleKeyDown = (e) => {
+        if (!isCapturingKeys)
+            return;
+        e.preventDefault();
+        const keys = [];
+        if (e.ctrlKey)
+            keys.push('Control');
+        if (e.altKey)
+            keys.push('Alt');
+        if (e.shiftKey)
+            keys.push('Shift');
+        if (e.metaKey)
+            keys.push('Meta');
+        // Only add the key if it's not a modifier
+        if (!['Control', 'Alt', 'Shift', 'Meta'].includes(e.key)) {
+            keys.push(e.key);
+        }
+        setEditedKeybind(formatKeybind(keys));
+    };
+    const handleKeybindFocus = () => {
+        setIsCapturingKeys(true);
+        setEditedKeybind('');
+    };
+    const handleKeybindBlur = () => {
+        setIsCapturingKeys(false);
+    };
     if (!isOpen)
         return null;
     // Sample data - this would come from your state management in a real app
@@ -36412,7 +36574,19 @@ const AppPopup = ({ isOpen, onClose, app }) => {
             isApproved: true
         }
     ];
-    const renderMacroList = (macros, title) => ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "macro-section", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h3", { className: "section-title", children: title }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "macros-list", children: macros.map((macro) => ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "macro-item", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "macro-content", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h3", { className: "macro-title", children: macro.title }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "macro-keybind", children: macro.keybind })] }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "macro-actions", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: "action-button edit-button", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("svg", { width: "20", height: "20", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M11 4H4C3.46957 4 2.96086 4.21071 2.58579 4.58579C2.21071 4.96086 2 5.46957 2 6V20C2 20.5304 2.21071 21.0391 2.58579 21.4142C2.96086 21.7893 3.46957 22 4 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V13", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M18.5 2.50001C18.8978 2.10219 19.4374 1.87869 20 1.87869C20.5626 1.87869 21.1022 2.10219 21.5 2.50001C21.8978 2.89784 22.1213 3.4374 22.1213 4.00001C22.1213 4.56262 21.8978 5.10219 21.5 5.50001L12 15L8 16L9 12L18.5 2.50001Z", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" })] }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: "action-button remove-button", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("svg", { width: "20", height: "20", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M3 6H5H21", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M19 6V20C19 20.5304 18.7893 21.0391 18.4142 21.4142C18.0391 21.7893 17.5304 22 17 22H7C6.46957 22 5.96086 21.7893 5.58579 21.4142C5.21071 21.0391 5 20.5304 5 20V6M8 6V4C8 3.46957 8.21071 2.96086 8.58579 2.58579C8.96086 2.21071 9.46957 2 10 2H14C14.5304 2 15.0391 2.21071 15.4142 2.58579C15.7893 2.96086 16 3.46957 16 4V6", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" })] }) }), title === "Suggested Macros" && ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: `action-button approve-button ${macro.isApproved ? 'approved' : ''}`, children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", { width: "20", height: "20", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M20 6L9 17L4 12", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }) }) }))] })] }, macro.id))) })] }));
+    const handleEditClick = (macro) => {
+        setEditingMacroId(macro.id);
+        setEditedTitle(macro.title);
+        setEditedKeybind(macro.keybind);
+    };
+    const handleSaveClick = (macroId) => {
+        // Here you would update the macro in your state management
+        setEditingMacroId(null);
+    };
+    const handleCancelClick = () => {
+        setEditingMacroId(null);
+    };
+    const renderMacroList = (macros, title) => ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "macro-section", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h3", { className: "section-title", children: title }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "macros-list", children: macros.map((macro) => ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: `macro-item ${editingMacroId === macro.id ? 'editing' : ''}`, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "macro-content", children: editingMacroId === macro.id ? ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", { type: "text", value: editedTitle, onChange: (e) => setEditedTitle(e.target.value), className: "macro-edit-input", placeholder: "Macro Title" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", { ref: keybindInputRef, type: "text", value: editedKeybind, onKeyDown: handleKeyDown, onFocus: handleKeybindFocus, onBlur: handleKeybindBlur, className: "macro-edit-input keybind-input", placeholder: "Click and press keys...", readOnly: true }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "macro-divider" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "additional-input-container", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", { type: "text", value: editedDescription, onChange: (e) => setEditedDescription(e.target.value), className: "macro-edit-input additional-input", placeholder: "Make Any Changes..." }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: "brain-button", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("img", { src: _assets_images_brain_png__WEBPACK_IMPORTED_MODULE_3__, alt: "Brain" }) })] })] })) : ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h3", { className: "macro-title", children: macro.title }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "macro-keybind", children: macro.keybind })] })) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "macro-actions", children: editingMacroId === macro.id ? ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: "action-button save-button", onClick: () => handleSaveClick(macro.id), children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", { width: "20", height: "20", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M20 6L9 17L4 12", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }) }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: "action-button cancel-button", onClick: handleCancelClick, children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", { width: "20", height: "20", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M18 6L6 18M6 6L18 18", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round" }) }) })] })) : ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: "action-button edit-button", onClick: () => handleEditClick(macro), children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("svg", { width: "20", height: "20", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M11 4H4C3.46957 4 2.96086 4.21071 2.58579 4.58579C2.21071 4.96086 2 5.46957 2 6V20C2 20.5304 2.21071 21.0391 2.58579 21.4142C2.96086 21.7893 3.46957 22 4 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V13", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M18.5 2.50001C18.8978 2.10219 19.4374 1.87869 20 1.87869C20.5626 1.87869 21.1022 2.10219 21.5 2.50001C21.8978 2.89784 22.1213 3.4374 22.1213 4.00001C22.1213 4.56262 21.8978 5.10219 21.5 5.50001L12 15L8 16L9 12L18.5 2.50001Z", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" })] }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: "action-button remove-button", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("svg", { width: "20", height: "20", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M3 6H5H21", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M19 6V20C19 20.5304 18.7893 21.0391 18.4142 21.4142C18.0391 21.7893 17.5304 22 17 22H7C6.46957 22 5.96086 21.7893 5.58579 21.4142C5.21071 21.0391 5 20.5304 5 20V6M8 6V4C8 3.46957 8.21071 2.96086 8.58579 2.58579C8.96086 2.21071 9.46957 2 10 2H14C14.5304 2 15.0391 2.21071 15.4142 2.58579C15.7893 2.96086 16 3.46957 16 4V6", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" })] }) }), title === "Suggested Macros" && ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: `action-button approve-button ${macro.isApproved ? 'approved' : ''}`, children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", { width: "20", height: "20", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M20 6L9 17L4 12", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }) }) }))] })) })] }, macro.id))) })] }));
     return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "popup-container", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "popup-content", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "popup-header", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "app-info", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("img", { src: app.icon, alt: app.name, className: "app-icon" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h2", { children: app.name })] }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: "close-button", onClick: onClose, children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", { width: "16", height: "16", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M18 6L6 18M6 6L18 18", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round" }) }) })] }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "popup-body", children: [renderMacroList(suggestedMacros, "Suggested Macros"), renderMacroList(savedMacros, "Saved Macros")] })] }) }));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AppPopup);
