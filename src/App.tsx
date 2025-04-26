@@ -1,18 +1,29 @@
 import React, { useState } from 'react';
 import SearchBar from './components/SearchBar';
 import ApplicationGallery from './components/ApplicationGallery';
+import AppDropdown from './components/AppDropdown';
 import './App.css';
 
 const App: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [selectedApps, setSelectedApps] = useState<string[]>([]);
 
   const handleSearch = (query: string) => {
     setSearchQuery(query);
   };
 
   const handleAddClick = () => {
-    // This will be implemented later to add new applications
-    console.log('Add button clicked');
+    setIsDropdownOpen(true);
+  };
+
+  const handleCloseDropdown = () => {
+    setIsDropdownOpen(false);
+  };
+
+  const handleAppSelect = (appPath: string) => {
+    setSelectedApps(prev => [...prev, appPath]);
+    setIsDropdownOpen(false);
   };
 
   return (
@@ -29,8 +40,14 @@ const App: React.FC = () => {
         </div>
       </header>
       <main>
-        <ApplicationGallery />
+        <ApplicationGallery selectedApps={selectedApps} />
       </main>
+      <AppDropdown
+        isOpen={isDropdownOpen}
+        onClose={handleCloseDropdown}
+        onSelect={handleAppSelect}
+        selectedApps={selectedApps}
+      />
     </div>
   );
 };
