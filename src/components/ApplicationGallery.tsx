@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import './ApplicationGallery.css';
 
 // Import app logos
-import vscodeIcon from '../assets/images/vscode.svg';
-import spotifyIcon from '../assets/images/spotify.svg';
-import notionIcon from '../assets/images/notion.svg';
-import chromeIcon from '../assets/images/chrome.svg';
+import vscodeIcon from '../assets/images/vscode.png';
+import spotifyIcon from '../assets/images/spotify.png';
+import notionIcon from '../assets/images/notion.png';
+import slackIcon from '../assets/images/slack.png';
 
 interface Application {
   id: string;
@@ -36,9 +36,9 @@ const ApplicationGallery: React.FC = () => {
     },
     { 
       id: '4', 
-      name: 'Chrome', 
-      icon: chromeIcon, 
-      path: '/Applications/Google Chrome.app'
+      name: 'Slack', 
+      icon: slackIcon, 
+      path: '/Applications/Slack.app'
     },
   ]);
 

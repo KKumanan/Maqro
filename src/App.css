@@ -2,14 +2,14 @@
   min-height: 100vh;
   background: linear-gradient(
     135deg,
-    #f6f8ff 0%,
-    #e8ecfd 15%,
-    #f0e7ff 30%,
-    #ffe8f6 45%,
-    #fff0e8 60%,
-    #fff8e8 75%,
-    #f8fff0 90%,
-    #e8fff8 100%
+    #eef0f8 0%,
+    #d8dcf0 15%,
+    #e0d7f0 30%,
+    #f0d8e6 45%,
+    #f0e0d8 60%,
+    #f0e8d8 75%,
+    #e8f0e0 90%,
+    #d8f0e8 100%
   );
   font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -29,19 +29,57 @@
   position: relative;
 }
 
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
 .app-header::before {
   content: none;
 }
 
 .app-header h1 {
-  text-align: center;
   color: #1d1d1f;
-  margin-bottom: 1.5rem;
   font-weight: 500;
   font-size: 2.5rem;
   letter-spacing: -0.025em;
   position: relative;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 0;
+  white-space: nowrap;
+  min-width: 120px;
+}
+
+.search-container {
+  flex: 1;
+  max-width: 600px;
+}
+
+.add-button {
+  background-color: #34C759;
+  border: none;
+  border-radius: 12px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+}
+
+.add-button:hover {
+  background-color: #30B350;
+  transform: scale(1.05);
+}
+
+.add-button:active {
+  transform: scale(0.95);
 }
 
 main {

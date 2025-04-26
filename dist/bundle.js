@@ -25,14 +25,14 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.app {
   min-height: 100vh;
   background: linear-gradient(
     135deg,
-    #f6f8ff 0%,
-    #e8ecfd 15%,
-    #f0e7ff 30%,
-    #ffe8f6 45%,
-    #fff0e8 60%,
-    #fff8e8 75%,
-    #f8fff0 90%,
-    #e8fff8 100%
+    #eef0f8 0%,
+    #d8dcf0 15%,
+    #e0d7f0 30%,
+    #f0d8e6 45%,
+    #f0e0d8 60%,
+    #f0e8d8 75%,
+    #e8f0e0 90%,
+    #d8f0e8 100%
   );
   font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -52,19 +52,57 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.app {
   position: relative;
 }
 
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
 .app-header::before {
   content: none;
 }
 
 .app-header h1 {
-  text-align: center;
   color: #1d1d1f;
-  margin-bottom: 1.5rem;
   font-weight: 500;
   font-size: 2.5rem;
   letter-spacing: -0.025em;
   position: relative;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 0;
+  white-space: nowrap;
+  min-width: 120px;
+}
+
+.search-container {
+  flex: 1;
+  max-width: 600px;
+}
+
+.add-button {
+  background-color: #34C759;
+  border: none;
+  border-radius: 12px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+}
+
+.add-button:hover {
+  background-color: #30B350;
+  transform: scale(1.05);
+}
+
+.add-button:active {
+  transform: scale(0.95);
 }
 
 main {
@@ -95,7 +133,7 @@ p {
   100% {
     background-position: 0% 50%;
   }
-} `, "",{"version":3,"sources":["webpack://./src/App.css"],"names":[],"mappings":"AAAA;EACE,iBAAiB;EACjB;;;;;;;;;;GAUC;EACD,6HAA6H;EAC7H,mCAAmC;EACnC,kCAAkC;EAClC,0CAA0C;EAC1C,0BAA0B;AAC5B;;AAEA;EACE,uBAAuB;EACvB,qBAAqB;EACrB,6BAA6B;EAC7B,aAAa;EACb,gBAAgB;EAChB,mBAAmB;EACnB,mBAAmB;EACnB,kBAAkB;AACpB;;AAEA;EACE,aAAa;AACf;;AAEA;EACE,kBAAkB;EAClB,cAAc;EACd,qBAAqB;EACrB,gBAAgB;EAChB,iBAAiB;EACjB,wBAAwB;EACxB,kBAAkB;EAClB,yCAAyC;AAC3C;;AAEA;EACE,eAAe;EACf,iBAAiB;EACjB,cAAc;EACd,kBAAkB;AACpB;;AAEA;EACE,WAAW;EACX,mBAAmB;AACrB;;AAEA;EACE,WAAW;EACX,iBAAiB;AACnB;;AAEA,6CAA6C;AAC7C;EACE;IACE,2BAA2B;EAC7B;EACA;IACE,6BAA6B;EAC/B;EACA;IACE,2BAA2B;EAC7B;AACF","sourcesContent":[".app {\n  min-height: 100vh;\n  background: linear-gradient(\n    135deg,\n    #f6f8ff 0%,\n    #e8ecfd 15%,\n    #f0e7ff 30%,\n    #ffe8f6 45%,\n    #fff0e8 60%,\n    #fff8e8 75%,\n    #f8fff0 90%,\n    #e8fff8 100%\n  );\n  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', Helvetica, Arial, sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  animation: gradientShift 20s ease infinite;\n  background-size: 400% 400%;\n}\n\n.app-header {\n  background: transparent;\n  backdrop-filter: none;\n  -webkit-backdrop-filter: none;\n  padding: 2rem;\n  box-shadow: none;\n  margin-bottom: 2rem;\n  border-bottom: none;\n  position: relative;\n}\n\n.app-header::before {\n  content: none;\n}\n\n.app-header h1 {\n  text-align: center;\n  color: #1d1d1f;\n  margin-bottom: 1.5rem;\n  font-weight: 500;\n  font-size: 2.5rem;\n  letter-spacing: -0.025em;\n  position: relative;\n  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n\nmain {\n  padding: 0 2rem;\n  max-width: 1400px;\n  margin: 0 auto;\n  position: relative;\n}\n\nh1 {\n  color: #333;\n  margin-bottom: 1rem;\n}\n\np {\n  color: #666;\n  font-size: 1.2rem;\n}\n\n/* Add a subtle animation to the background */\n@keyframes gradientShift {\n  0% {\n    background-position: 0% 50%;\n  }\n  50% {\n    background-position: 100% 50%;\n  }\n  100% {\n    background-position: 0% 50%;\n  }\n} "],"sourceRoot":""}]);
+} `, "",{"version":3,"sources":["webpack://./src/App.css"],"names":[],"mappings":"AAAA;EACE,iBAAiB;EACjB;;;;;;;;;;GAUC;EACD,6HAA6H;EAC7H,mCAAmC;EACnC,kCAAkC;EAClC,0CAA0C;EAC1C,0BAA0B;AAC5B;;AAEA;EACE,uBAAuB;EACvB,qBAAqB;EACrB,6BAA6B;EAC7B,aAAa;EACb,gBAAgB;EAChB,mBAAmB;EACnB,mBAAmB;EACnB,kBAAkB;AACpB;;AAEA;EACE,aAAa;EACb,mBAAmB;EACnB,WAAW;EACX,iBAAiB;EACjB,cAAc;AAChB;;AAEA;EACE,aAAa;AACf;;AAEA;EACE,cAAc;EACd,gBAAgB;EAChB,iBAAiB;EACjB,wBAAwB;EACxB,kBAAkB;EAClB,yCAAyC;EACzC,SAAS;EACT,mBAAmB;EACnB,gBAAgB;AAClB;;AAEA;EACE,OAAO;EACP,gBAAgB;AAClB;;AAEA;EACE,yBAAyB;EACzB,YAAY;EACZ,mBAAmB;EACnB,WAAW;EACX,YAAY;EACZ,aAAa;EACb,mBAAmB;EACnB,uBAAuB;EACvB,eAAe;EACf,2DAA2D;EAC3D,wCAAwC;EACxC,cAAc;AAChB;;AAEA;EACE,yBAAyB;EACzB,sBAAsB;AACxB;;AAEA;EACE,sBAAsB;AACxB;;AAEA;EACE,eAAe;EACf,iBAAiB;EACjB,cAAc;EACd,kBAAkB;AACpB;;AAEA;EACE,WAAW;EACX,mBAAmB;AACrB;;AAEA;EACE,WAAW;EACX,iBAAiB;AACnB;;AAEA,6CAA6C;AAC7C;EACE;IACE,2BAA2B;EAC7B;EACA;IACE,6BAA6B;EAC/B;EACA;IACE,2BAA2B;EAC7B;AACF","sourcesContent":[".app {\n  min-height: 100vh;\n  background: linear-gradient(\n    135deg,\n    #eef0f8 0%,\n    #d8dcf0 15%,\n    #e0d7f0 30%,\n    #f0d8e6 45%,\n    #f0e0d8 60%,\n    #f0e8d8 75%,\n    #e8f0e0 90%,\n    #d8f0e8 100%\n  );\n  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', Helvetica, Arial, sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  animation: gradientShift 20s ease infinite;\n  background-size: 400% 400%;\n}\n\n.app-header {\n  background: transparent;\n  backdrop-filter: none;\n  -webkit-backdrop-filter: none;\n  padding: 2rem;\n  box-shadow: none;\n  margin-bottom: 2rem;\n  border-bottom: none;\n  position: relative;\n}\n\n.header-content {\n  display: flex;\n  align-items: center;\n  gap: 1.5rem;\n  max-width: 1400px;\n  margin: 0 auto;\n}\n\n.app-header::before {\n  content: none;\n}\n\n.app-header h1 {\n  color: #1d1d1f;\n  font-weight: 500;\n  font-size: 2.5rem;\n  letter-spacing: -0.025em;\n  position: relative;\n  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n  margin: 0;\n  white-space: nowrap;\n  min-width: 120px;\n}\n\n.search-container {\n  flex: 1;\n  max-width: 600px;\n}\n\n.add-button {\n  background-color: #34C759;\n  border: none;\n  border-radius: 12px;\n  width: 48px;\n  height: 48px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n  transition: transform 0.2s ease, background-color 0.2s ease;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n  flex-shrink: 0;\n}\n\n.add-button:hover {\n  background-color: #30B350;\n  transform: scale(1.05);\n}\n\n.add-button:active {\n  transform: scale(0.95);\n}\n\nmain {\n  padding: 0 2rem;\n  max-width: 1400px;\n  margin: 0 auto;\n  position: relative;\n}\n\nh1 {\n  color: #333;\n  margin-bottom: 1rem;\n}\n\np {\n  color: #666;\n  font-size: 1.2rem;\n}\n\n/* Add a subtle animation to the background */\n@keyframes gradientShift {\n  0% {\n    background-position: 0% 50%;\n  }\n  50% {\n    background-position: 100% 50%;\n  }\n  100% {\n    background-position: 0% 50%;\n  }\n} "],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -302,7 +340,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.search-container {
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
   border-radius: 0;
-  margin-bottom: 2rem;
+  margin: 0;
   border: none;
   box-shadow: none;
 }
@@ -310,8 +348,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.search-container {
 .search-form {
   display: flex;
   gap: 0.5rem;
-  max-width: 600px;
-  margin: 0 auto;
+  width: 100%;
 }
 
 .search-input {
@@ -341,7 +378,8 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.search-container {
 }
 
 .search-button {
-  padding: 0.875rem 1.5rem;
+  width: 48px;
+  height: 48px;
   background: rgba(0, 113, 227, 0.8);
   color: white;
   border: none;
@@ -353,6 +391,10 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.search-container {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
 }
 
 .search-button:hover {
@@ -365,7 +407,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.search-container {
   transform: translateY(0);
   background: rgba(0, 110, 219, 0.8);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-} `, "",{"version":3,"sources":["webpack://./src/components/SearchBar.css"],"names":[],"mappings":"AAAA;EACE,UAAU;EACV,uBAAuB;EACvB,qBAAqB;EACrB,6BAA6B;EAC7B,gBAAgB;EAChB,mBAAmB;EACnB,YAAY;EACZ,gBAAgB;AAClB;;AAEA;EACE,aAAa;EACb,WAAW;EACX,gBAAgB;EAChB,cAAc;AAChB;;AAEA;EACE,OAAO;EACP,yBAAyB;EACzB,YAAY;EACZ,mBAAmB;EACnB,eAAe;EACf,qCAAqC;EACrC,2BAA2B;EAC3B,mCAAmC;EACnC,aAAa;EACb,yBAAyB;EACzB,cAAc;EACd,wCAAwC;AAC1C;;AAEA;EACE,qCAAqC;EACrC,8CAA8C;EAC9C,2BAA2B;AAC7B;;AAEA;EACE,4BAA4B;EAC5B,gBAAgB;AAClB;;AAEA;EACE,wBAAwB;EACxB,kCAAkC;EAClC,YAAY;EACZ,YAAY;EACZ,mBAAmB;EACnB,eAAe;EACf,eAAe;EACf,gBAAgB;EAChB,yBAAyB;EACzB,wCAAwC;EACxC,2BAA2B;EAC3B,mCAAmC;AACrC;;AAEA;EACE,kCAAkC;EAClC,2BAA2B;EAC3B,0CAA0C;AAC5C;;AAEA;EACE,wBAAwB;EACxB,kCAAkC;EAClC,wCAAwC;AAC1C","sourcesContent":[".search-container {\n  padding: 0;\n  background: transparent;\n  backdrop-filter: none;\n  -webkit-backdrop-filter: none;\n  border-radius: 0;\n  margin-bottom: 2rem;\n  border: none;\n  box-shadow: none;\n}\n\n.search-form {\n  display: flex;\n  gap: 0.5rem;\n  max-width: 600px;\n  margin: 0 auto;\n}\n\n.search-input {\n  flex: 1;\n  padding: 0.875rem 1.25rem;\n  border: none;\n  border-radius: 12px;\n  font-size: 1rem;\n  background: rgba(255, 255, 255, 0.15);\n  backdrop-filter: blur(10px);\n  -webkit-backdrop-filter: blur(10px);\n  outline: none;\n  transition: all 0.3s ease;\n  color: #1d1d1f;\n  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\n}\n\n.search-input:focus {\n  background: rgba(255, 255, 255, 0.25);\n  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);\n  transform: translateY(-1px);\n}\n\n.search-input::placeholder {\n  color: rgba(29, 29, 31, 0.7);\n  font-weight: 400;\n}\n\n.search-button {\n  padding: 0.875rem 1.5rem;\n  background: rgba(0, 113, 227, 0.8);\n  color: white;\n  border: none;\n  border-radius: 12px;\n  cursor: pointer;\n  font-size: 1rem;\n  font-weight: 500;\n  transition: all 0.3s ease;\n  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\n  backdrop-filter: blur(10px);\n  -webkit-backdrop-filter: blur(10px);\n}\n\n.search-button:hover {\n  background: rgba(0, 119, 237, 0.9);\n  transform: translateY(-1px);\n  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);\n}\n\n.search-button:active {\n  transform: translateY(0);\n  background: rgba(0, 110, 219, 0.8);\n  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\n} "],"sourceRoot":""}]);
+} `, "",{"version":3,"sources":["webpack://./src/components/SearchBar.css"],"names":[],"mappings":"AAAA;EACE,UAAU;EACV,uBAAuB;EACvB,qBAAqB;EACrB,6BAA6B;EAC7B,gBAAgB;EAChB,SAAS;EACT,YAAY;EACZ,gBAAgB;AAClB;;AAEA;EACE,aAAa;EACb,WAAW;EACX,WAAW;AACb;;AAEA;EACE,OAAO;EACP,yBAAyB;EACzB,YAAY;EACZ,mBAAmB;EACnB,eAAe;EACf,qCAAqC;EACrC,2BAA2B;EAC3B,mCAAmC;EACnC,aAAa;EACb,yBAAyB;EACzB,cAAc;EACd,wCAAwC;AAC1C;;AAEA;EACE,qCAAqC;EACrC,8CAA8C;EAC9C,2BAA2B;AAC7B;;AAEA;EACE,4BAA4B;EAC5B,gBAAgB;AAClB;;AAEA;EACE,WAAW;EACX,YAAY;EACZ,kCAAkC;EAClC,YAAY;EACZ,YAAY;EACZ,mBAAmB;EACnB,eAAe;EACf,eAAe;EACf,gBAAgB;EAChB,yBAAyB;EACzB,wCAAwC;EACxC,2BAA2B;EAC3B,mCAAmC;EACnC,aAAa;EACb,mBAAmB;EACnB,uBAAuB;EACvB,UAAU;AACZ;;AAEA;EACE,kCAAkC;EAClC,2BAA2B;EAC3B,0CAA0C;AAC5C;;AAEA;EACE,wBAAwB;EACxB,kCAAkC;EAClC,wCAAwC;AAC1C","sourcesContent":[".search-container {\n  padding: 0;\n  background: transparent;\n  backdrop-filter: none;\n  -webkit-backdrop-filter: none;\n  border-radius: 0;\n  margin: 0;\n  border: none;\n  box-shadow: none;\n}\n\n.search-form {\n  display: flex;\n  gap: 0.5rem;\n  width: 100%;\n}\n\n.search-input {\n  flex: 1;\n  padding: 0.875rem 1.25rem;\n  border: none;\n  border-radius: 12px;\n  font-size: 1rem;\n  background: rgba(255, 255, 255, 0.15);\n  backdrop-filter: blur(10px);\n  -webkit-backdrop-filter: blur(10px);\n  outline: none;\n  transition: all 0.3s ease;\n  color: #1d1d1f;\n  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\n}\n\n.search-input:focus {\n  background: rgba(255, 255, 255, 0.25);\n  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);\n  transform: translateY(-1px);\n}\n\n.search-input::placeholder {\n  color: rgba(29, 29, 31, 0.7);\n  font-weight: 400;\n}\n\n.search-button {\n  width: 48px;\n  height: 48px;\n  background: rgba(0, 113, 227, 0.8);\n  color: white;\n  border: none;\n  border-radius: 12px;\n  cursor: pointer;\n  font-size: 1rem;\n  font-weight: 500;\n  transition: all 0.3s ease;\n  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\n  backdrop-filter: blur(10px);\n  -webkit-backdrop-filter: blur(10px);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 0;\n}\n\n.search-button:hover {\n  background: rgba(0, 119, 237, 0.9);\n  transform: translateY(-1px);\n  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);\n}\n\n.search-button:active {\n  transform: translateY(0);\n  background: rgba(0, 110, 219, 0.8);\n  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\n} "],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -35662,149 +35704,54 @@ const App = () => {
     const handleSearch = (query) => {
         setSearchQuery(query);
     };
-    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "app", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("header", { className: "app-header", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h1", { children: "Maqro" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_SearchBar__WEBPACK_IMPORTED_MODULE_2__["default"], { onSearch: handleSearch })] }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("main", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_ApplicationGallery__WEBPACK_IMPORTED_MODULE_3__["default"], {}) })] }));
+    const handleAddClick = () => {
+        // This will be implemented later to add new applications
+        console.log('Add button clicked');
+    };
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "app", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("header", { className: "app-header", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "header-content", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h1", { children: "Maqro" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_SearchBar__WEBPACK_IMPORTED_MODULE_2__["default"], { onSearch: handleSearch }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: "add-button", onClick: handleAddClick, children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M12 4V20M4 12H20", stroke: "white", strokeWidth: "2", strokeLinecap: "round" }) }) })] }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("main", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_ApplicationGallery__WEBPACK_IMPORTED_MODULE_3__["default"], {}) })] }));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);
 
 
 /***/ }),
 
-/***/ "./src/assets/images/chrome.svg":
+/***/ "./src/assets/images/notion.png":
 /*!**************************************!*\
-  !*** ./src/assets/images/chrome.svg ***!
+  !*** ./src/assets/images/notion.png ***!
   \**************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _path, _path2, _path3, _path4, _path5;
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
-
-var SvgChrome = function SvgChrome(props) {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("svg", _extends({
-    xmlns: "http://www.w3.org/2000/svg",
-    width: 256,
-    height: 256,
-    fill: "none"
-  }, props), _path || (_path = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
-    fill: "#E8F0FE",
-    d: "M128 232c57.438 0 104-46.562 104-104S185.438 24 128 24 24 70.562 24 128s46.562 104 104 104"
-  })), _path2 || (_path2 = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
-    fill: "#4285F4",
-    d: "M128 80c21.094 0 38 16.906 38 38s-16.906 38-38 38-38-16.906-38-38 16.906-38 38-38"
-  })), _path3 || (_path3 = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
-    fill: "#EA4335",
-    d: "M128 80c21.094 0 38 16.906 38 38H90c0-21.094 16.906-38 38-38"
-  })), _path4 || (_path4 = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
-    fill: "#34A853",
-    d: "M90 118h76l-18.5 31.196-19.5 31.196-19.5-31.196z"
-  })), _path5 || (_path5 = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
-    fill: "#FBBC04",
-    d: "M128 118h38l-18.5 31.196-19.5 31.196z"
-  })));
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SvgChrome);
+module.exports = __webpack_require__.p + "assets/35f5f4c2ffc2f081d2cc.png";
 
 /***/ }),
 
-/***/ "./src/assets/images/notion.svg":
-/*!**************************************!*\
-  !*** ./src/assets/images/notion.svg ***!
-  \**************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ "./src/assets/images/slack.png":
+/*!*************************************!*\
+  !*** ./src/assets/images/slack.png ***!
+  \*************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _path;
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
-
-var SvgNotion = function SvgNotion(props) {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("svg", _extends({
-    xmlns: "http://www.w3.org/2000/svg",
-    width: 256,
-    height: 256,
-    fill: "none"
-  }, props), _path || (_path = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
-    fill: "#000",
-    d: "M33.5 24a9.5 9.5 0 0 0-9.5 9.5v189a9.5 9.5 0 0 0 9.5 9.5h189a9.5 9.5 0 0 0 9.5-9.5v-189a9.5 9.5 0 0 0-9.5-9.5zm87.25 40H176a4 4 0 0 1 4 4v120a4 4 0 0 1-4 4H80a4 4 0 0 1-4-4V68a4 4 0 0 1 4-4zm0 12H88v104h80V76zm0 12H156v12h-35.25zm0 24H156v12h-35.25zm-20-24h8v12h-8zm0 24h8v12h-8zm0 24h8v12h-8zm20 0H156v12h-35.25z"
-  })));
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SvgNotion);
+module.exports = __webpack_require__.p + "assets/566a720fce6f2901700a.png";
 
 /***/ }),
 
-/***/ "./src/assets/images/spotify.svg":
+/***/ "./src/assets/images/spotify.png":
 /*!***************************************!*\
-  !*** ./src/assets/images/spotify.svg ***!
+  !*** ./src/assets/images/spotify.png ***!
   \***************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _path;
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
-
-var SvgSpotify = function SvgSpotify(props) {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("svg", _extends({
-    xmlns: "http://www.w3.org/2000/svg",
-    width: 256,
-    height: 256,
-    fill: "none"
-  }, props), _path || (_path = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
-    fill: "#1DB954",
-    d: "M128 24C70.562 24 24 70.562 24 128s46.562 104 104 104 104-46.562 104-104S185.438 24 128 24m48.984 152.984c-1.812 2.625-5.25 3.438-7.875 1.625-25.156-15.968-56.953-19.593-97.406-10.968-3 .625-5.812-1.375-6.437-4.375s1.375-5.813 4.375-6.438c44.14-9.437 79.125-5.25 107.343 12.281 2.625 1.813 3.438 5.25 1.625 7.875Zm12.875-29.125c-2.25 3.25-6.625 4.25-9.875 2-28.75-18.375-72.125-23.75-108.75-13.375-3.625 1-7.437-1.187-8.437-4.812s1.187-7.438 4.812-8.438c41.625-11.625 89.625-5.625 122.625 15.25 3.25 2.25 4.25 6.625 2 9.875zm.875-29.875c-34-21.187-91.625-22.937-126.625-11.562-4.312 1.187-8.875-1.375-10.062-5.688-1.188-4.312 1.375-8.875 5.687-10.062 40.375-12.875 104.125-10.75 143.375 13.437 3.875 2.375 5.063 7.5 2.688 11.313-2.375 3.875-7.5 5.062-11.313 2.687z"
-  })));
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SvgSpotify);
+module.exports = __webpack_require__.p + "assets/a957514da3886dead5c0.png";
 
 /***/ }),
 
-/***/ "./src/assets/images/vscode.svg":
+/***/ "./src/assets/images/vscode.png":
 /*!**************************************!*\
-  !*** ./src/assets/images/vscode.svg ***!
+  !*** ./src/assets/images/vscode.png ***!
   \**************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _path, _path2, _path3;
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
-
-var SvgVscode = function SvgVscode(props) {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("svg", _extends({
-    xmlns: "http://www.w3.org/2000/svg",
-    width: 256,
-    height: 256,
-    fill: "none"
-  }, props), _path || (_path = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
-    fill: "#0065A9",
-    d: "M191.97 23.25v209.5c0 6.223-7.067 9.8-12.193 6.307l-142-98.75c-3.087-2.097-5.027-5.574-5.027-9.284v-6.046c0-3.71 1.94-7.187 5.027-9.284l142-98.75c5.126-3.493 12.193.084 12.193 6.307"
-  })), _path2 || (_path2 = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
-    fill: "#007ACC",
-    d: "M191.97 124.977v6.046c0 3.71-1.94 7.187-5.027 9.284l-142 98.75c-5.126 3.493-12.193-.084-12.193-6.307V23.25c0-6.223 7.067-9.8 12.193-6.307l142 98.75c3.087 2.097 5.027 5.574 5.027 9.284"
-  })), _path3 || (_path3 = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
-    stroke: "#1F9CF0",
-    strokeWidth: 4,
-    d: "M179.777 239.057c5.126 3.493 12.193-.084 12.193-6.307V23.25c0-6.223-7.067-9.8-12.193-6.307l-142 98.75c-3.087 2.097-5.027 5.574-5.027 9.284v6.046c0 3.71 1.94 7.187 5.027 9.284zm0 0H44.943c-5.126 3.493-12.193-.084-12.193-6.307V23.25c0-6.223 7.067-9.8 12.193-6.307h134.834"
-  })));
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SvgVscode);
+module.exports = __webpack_require__.p + "assets/5b3fd9133c72218e1ef0.png";
 
 /***/ }),
 
@@ -35876,10 +35823,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _ApplicationGallery_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ApplicationGallery.css */ "./src/components/ApplicationGallery.css");
-/* harmony import */ var _assets_images_vscode_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../assets/images/vscode.svg */ "./src/assets/images/vscode.svg");
-/* harmony import */ var _assets_images_spotify_svg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../assets/images/spotify.svg */ "./src/assets/images/spotify.svg");
-/* harmony import */ var _assets_images_notion_svg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../assets/images/notion.svg */ "./src/assets/images/notion.svg");
-/* harmony import */ var _assets_images_chrome_svg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../assets/images/chrome.svg */ "./src/assets/images/chrome.svg");
+/* harmony import */ var _assets_images_vscode_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../assets/images/vscode.png */ "./src/assets/images/vscode.png");
+/* harmony import */ var _assets_images_spotify_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../assets/images/spotify.png */ "./src/assets/images/spotify.png");
+/* harmony import */ var _assets_images_notion_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../assets/images/notion.png */ "./src/assets/images/notion.png");
+/* harmony import */ var _assets_images_slack_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../assets/images/slack.png */ "./src/assets/images/slack.png");
 
 
 
@@ -35893,26 +35840,26 @@ const ApplicationGallery = () => {
         {
             id: '1',
             name: 'VS Code',
-            icon: _assets_images_vscode_svg__WEBPACK_IMPORTED_MODULE_3__["default"],
+            icon: _assets_images_vscode_png__WEBPACK_IMPORTED_MODULE_3__,
             path: '/Applications/Visual Studio Code.app'
         },
         {
             id: '2',
             name: 'Spotify',
-            icon: _assets_images_spotify_svg__WEBPACK_IMPORTED_MODULE_4__["default"],
+            icon: _assets_images_spotify_png__WEBPACK_IMPORTED_MODULE_4__,
             path: '/Applications/Spotify.app'
         },
         {
             id: '3',
             name: 'Notion',
-            icon: _assets_images_notion_svg__WEBPACK_IMPORTED_MODULE_5__["default"],
+            icon: _assets_images_notion_png__WEBPACK_IMPORTED_MODULE_5__,
             path: '/Applications/Notion.app'
         },
         {
             id: '4',
-            name: 'Chrome',
-            icon: _assets_images_chrome_svg__WEBPACK_IMPORTED_MODULE_6__["default"],
-            path: '/Applications/Google Chrome.app'
+            name: 'Slack',
+            icon: _assets_images_slack_png__WEBPACK_IMPORTED_MODULE_6__,
+            path: '/Applications/Slack.app'
         },
     ]);
     const handleLaunchApp = (path) => {
@@ -36118,6 +36065,18 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/global */
+/******/ 	(() => {
+/******/ 		__webpack_require__.g = (function() {
+/******/ 			if (typeof globalThis === 'object') return globalThis;
+/******/ 			try {
+/******/ 				return this || new Function('return this')();
+/******/ 			} catch (e) {
+/******/ 				if (typeof window === 'object') return window;
+/******/ 			}
+/******/ 		})();
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
@@ -36141,6 +36100,29 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 /******/ 			if (!module.children) module.children = [];
 /******/ 			return module;
 /******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	(() => {
+/******/ 		var scriptUrl;
+/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
+/******/ 		var document = __webpack_require__.g.document;
+/******/ 		if (!scriptUrl && document) {
+/******/ 			if (document.currentScript && document.currentScript.tagName.toUpperCase() === 'SCRIPT')
+/******/ 				scriptUrl = document.currentScript.src;
+/******/ 			if (!scriptUrl) {
+/******/ 				var scripts = document.getElementsByTagName("script");
+/******/ 				if(scripts.length) {
+/******/ 					var i = scripts.length - 1;
+/******/ 					while (i > -1 && (!scriptUrl || !/^http(s?):/.test(scriptUrl))) scriptUrl = scripts[i--].src;
+/******/ 				}
+/******/ 			}
+/******/ 		}
+/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
+/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
+/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
+/******/ 		scriptUrl = scriptUrl.replace(/^blob:/, "").replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
+/******/ 		__webpack_require__.p = scriptUrl;
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/nonce */
