@@ -1,56 +1,53 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './AppPopup.css';
+import macroData from '../data/dummy_macro_feed.json';
 
 interface Macro {
   id: string;
   title: string;
   keybind: string;
   isApproved: boolean;
+  applications: string[];
+}
+
+interface App {
+  name: string;
+  icon: string;
+  path: string;
 }
 
 interface AppPopupProps {
   isOpen: boolean;
   onClose: () => void;
-  app: {
-    name: string;
-    icon: string;
-    path: string;
-  };
+  app: App;
 }
 
 const AppPopup: React.FC<AppPopupProps> = ({ isOpen, onClose, app }) => {
+  const [suggestedMacros, setSuggestedMacros] = useState<Macro[]>([]);
+  const [savedMacros, setSavedMacros] = useState<Macro[]>([]);
+
+  useEffect(() => {
+    // Create a new array of macros for the current application
+    const appMacros = macroData.macros.reduce<Macro[]>((acc, macro) => {
+      // Check each application in the macro's applications array
+      macro.applications.forEach(targetApp => {
+        if (targetApp === app.name) {
+          // If this macro is for the current app, add it to the accumulator
+          acc.push(macro);
+        }
+      });
+      return acc;
+    }, []);
+    
+    // Split into suggested and saved macros
+    const suggested = appMacros.filter(macro => !macro.isApproved);
+    const saved = appMacros.filter(macro => macro.isApproved);
+    
+    setSuggestedMacros(suggested);
+    setSavedMacros(saved);
+  }, [app.name]);
+
   if (!isOpen) return null;
-
-  // Sample data - this would come from your state management in a real app
-  const suggestedMacros: Macro[] = [
-    {
-      id: '1',
-      title: 'Play Study Playlist',
-      keybind: 'Ctrl + s + p',
-      isApproved: false
-    },
-    {
-      id: '2',
-      title: 'Skip Track',
-      keybind: 'Ctrl + s',
-      isApproved: false
-    }
-  ];
-
-  const savedMacros: Macro[] = [
-    {
-      id: '3',
-      title: 'Play/Pause',
-      keybind: 'Ctrl + p',
-      isApproved: true
-    },
-    {
-      id: '4',
-      title: 'Volume Up',
-      keybind: 'Ctrl + ↑',
-      isApproved: true
-    }
-  ];
 
   const renderMacroList = (macros: Macro[], title: string) => (
     <div className="macro-section">
@@ -82,7 +79,6 @@ const AppPopup: React.FC<AppPopupProps> = ({ isOpen, onClose, app }) => {
                   </svg>
                 </button>
               )}
-  
             </div>
           </div>
         ))}
@@ -105,8 +101,13 @@ const AppPopup: React.FC<AppPopupProps> = ({ isOpen, onClose, app }) => {
           </button>
         </div>
         <div className="popup-body">
-            {renderMacroList(suggestedMacros, "Suggested Macros")}
-            {renderMacroList(savedMacros, "Saved Macros")}
+          {suggestedMacros.length > 0 && renderMacroList(suggestedMacros, "Suggested Macros")}
+          {savedMacros.length > 0 && renderMacroList(savedMacros, "Saved Macros")}
+          {suggestedMacros.length === 0 && savedMacros.length === 0 && (
+            <div className="no-macros">
+              <p>No macros available for this application.</p>
+            </div>
+          )}
         </div>
       </div>
     </div>

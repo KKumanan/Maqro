@@ -1,0 +1,172 @@
+{
+  "macros": [
+    {
+      "id": "macro-1",
+      "title": "Play/Pause",
+      "keybind": "Ctrl + p",
+      "isApproved": true,
+      "applications": ["Spotify", "Google Chrome", "Discord"]
+    },
+    {
+      "id": "macro-2",
+      "title": "Volume Up",
+      "keybind": "Ctrl + ↑",
+      "isApproved": true,
+      "applications": ["Spotify", "Google Chrome", "Discord", "Steam"]
+    },
+    {
+      "id": "macro-3",
+      "title": "Next Track",
+      "keybind": "Ctrl + →",
+      "isApproved": true,
+      "applications": ["Spotify", "Google Chrome", "Discord"]
+    },
+    {
+      "id": "macro-4",
+      "title": "Play Study Playlist",
+      "keybind": "Ctrl + s + p",
+      "isApproved": false,
+      "applications": ["Spotify"]
+    },
+    {
+      "id": "macro-5",
+      "title": "Format Document",
+      "keybind": "Shift + Alt + F",
+      "isApproved": true,
+      "applications": ["VS Code", "Figma"]
+    },
+    {
+      "id": "macro-6",
+      "title": "Quick Open",
+      "keybind": "Ctrl + P",
+      "isApproved": true,
+      "applications": ["VS Code", "Google Chrome", "Figma", "Photoshop", "Discord"]
+    },
+    {
+      "id": "macro-7",
+      "title": "Toggle Terminal",
+      "keybind": "Ctrl + `",
+      "isApproved": false,
+      "applications": ["VS Code", "Figma"]
+    },
+    {
+      "id": "macro-8",
+      "title": "Split Editor",
+      "keybind": "Ctrl + \\",
+      "isApproved": false,
+      "applications": ["VS Code", "Figma", "Photoshop"]
+    },
+    {
+      "id": "macro-9",
+      "title": "New Tab",
+      "keybind": "Ctrl + T",
+      "isApproved": true,
+      "applications": ["Google Chrome", "VS Code", "Figma", "Photoshop"]
+    },
+    {
+      "id": "macro-10",
+      "title": "Close Tab",
+      "keybind": "Ctrl + W",
+      "isApproved": true,
+      "applications": ["Google Chrome", "VS Code", "Figma", "Photoshop", "Discord"]
+    },
+    {
+      "id": "macro-11",
+      "title": "Switch to Last Tab",
+      "keybind": "Ctrl + 9",
+      "isApproved": false,
+      "applications": ["Google Chrome", "VS Code", "Figma", "Photoshop"]
+    },
+    {
+      "id": "macro-12",
+      "title": "Bookmark Page",
+      "keybind": "Ctrl + D",
+      "isApproved": false,
+      "applications": ["Google Chrome"]
+    },
+    {
+      "id": "macro-13",
+      "title": "New Page",
+      "keybind": "Cmd + N",
+      "isApproved": true,
+      "applications": ["Notion", "Figma", "Photoshop"]
+    },
+    {
+      "id": "macro-14",
+      "title": "Search",
+      "keybind": "Cmd + P",
+      "isApproved": true,
+      "applications": ["Notion", "VS Code", "Figma", "Photoshop", "Discord"]
+    },
+    {
+      "id": "macro-15",
+      "title": "Toggle Sidebar",
+      "keybind": "Cmd + \\",
+      "isApproved": true,
+      "applications": ["Notion", "VS Code", "Figma", "Photoshop", "Discord"]
+    },
+    {
+      "id": "macro-16",
+      "title": "Send Message",
+      "keybind": "Cmd + Enter",
+      "isApproved": true,
+      "applications": ["Slack", "Discord"]
+    },
+    {
+      "id": "macro-17",
+      "title": "Search Messages",
+      "keybind": "Cmd + F",
+      "isApproved": true,
+      "applications": ["Slack", "Discord", "Google Chrome", "VS Code", "Figma", "Photoshop"]
+    },
+    {
+      "id": "macro-18",
+      "title": "Toggle Thread",
+      "keybind": "Cmd + T",
+      "isApproved": false,
+      "applications": ["Slack", "Discord"]
+    },
+    {
+      "id": "macro-19",
+      "title": "Zoom In",
+      "keybind": "Cmd + +",
+      "isApproved": true,
+      "applications": ["Figma", "Photoshop", "Google Chrome", "VS Code"]
+    },
+    {
+      "id": "macro-20",
+      "title": "Zoom Out",
+      "keybind": "Cmd + -",
+      "isApproved": true,
+      "applications": ["Figma", "Photoshop", "Google Chrome", "VS Code"]
+    },
+    {
+      "id": "macro-21",
+      "title": "Toggle Mute",
+      "keybind": "Cmd + M",
+      "isApproved": true,
+      "applications": ["Discord", "Slack", "Google Chrome"]
+    },
+    {
+      "id": "macro-22",
+      "title": "Toggle Camera",
+      "keybind": "Cmd + E",
+      "isApproved": true,
+      "applications": ["Discord", "Slack"]
+    },
+    {
+      "id": "macro-23",
+      "title": "Toggle Fullscreen",
+      "keybind": "Cmd + F",
+      "isApproved": true,
+      "applications": ["Steam", "Google Chrome", "VS Code", "Figma", "Photoshop"]
+    },
+    {
+      "id": "macro-24",
+      "title": "Take Screenshot",
+      "keybind": "Cmd + Shift + 4",
+      "isApproved": true,
+      "applications": ["Steam", "Google Chrome", "VS Code", "Figma", "Photoshop"]
+    }
+  ]
+} 

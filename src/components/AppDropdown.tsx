@@ -34,7 +34,7 @@ const AppDropdown: React.FC<AppDropdownProps> = ({ isOpen, onClose, onSelect, se
       icon: discordIcon
     },
     {
-      name: 'Chrome',
+      name: 'Google Chrome',
       path: '/Applications/Google Chrome.app',
       icon: chromeIcon
     },
