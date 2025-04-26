@@ -488,6 +488,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.popup-container {
   color: #FF3B30;
 }
 
+<<<<<<< HEAD
 .macro-edit-input {
   width: 90%;
   padding: 0.5rem;
@@ -557,6 +558,27 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.popup-container {
 
 .cancel-button:hover {
   color: #FF3B30;
+=======
+.macro-apps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.app-tag {
+  background-color: #e0e0e0;
+  color: #666;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.8em;
+  font-weight: 500;
+}
+
+.app-tag.current-app {
+  background-color: #007AFF;
+  color: white;
+>>>>>>> macro-json-api
 }
 
 @keyframes slideIn {
@@ -568,6 +590,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.popup-container {
     opacity: 1;
     transform: translateY(0);
   }
+<<<<<<< HEAD
 }
 
 @keyframes gradientMove {
@@ -581,6 +604,9 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.popup-container {
     background-position: 0% 50%;
   }
 } `, "",{"version":3,"sources":["webpack://./src/components/AppPopup.css"],"names":[],"mappings":"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","sourcesContent":[".popup-container {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1000;\n  backdrop-filter: blur(4px);\n  -webkit-backdrop-filter: blur(4px);\n}\n\n.popup-content {\n  background: rgba(255, 255, 255, 0.95);\n  border-radius: 16px;\n  width: 600px;\n  height: 450px;\n  overflow: hidden;\n  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);\n  animation: slideIn 0.3s ease;\n  display: flex;\n  flex-direction: column;\n}\n\n.popup-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 1rem 1.5rem;\n  border-bottom: 1px solid rgba(0, 0, 0, 0.1);\n  background: rgba(255, 255, 255, 0.8);\n  backdrop-filter: blur(10px);\n  -webkit-backdrop-filter: blur(10px);\n}\n\n.app-info {\n  display: flex;\n  align-items: center;\n  gap: 1rem;\n}\n\n.app-info .app-icon {\n  width: 32px;\n  height: 32px;\n  object-fit: contain;\n  border-radius: 8px;\n}\n\n.app-info h2 {\n  margin: 0;\n  font-size: 1.25rem;\n  font-weight: 500;\n  color: #1d1d1f;\n}\n\n.close-button {\n  background: none;\n  border: none;\n  padding: 0.5rem;\n  cursor: pointer;\n  color: #1d1d1f;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: background-color 0.2s ease;\n}\n\n.close-button:hover {\n  background-color: rgba(0, 0, 0, 0.05);\n}\n\n.popup-body {\n  flex: 1;\n  padding: 1.5rem;\n  overflow-y: auto;\n  display: flex;\n  flex-direction: column;\n  gap: 2rem;\n}\n\n.macro-section {\n  display: flex;\n  flex-direction: column;\n  gap: 1rem;\n}\n\n.section-title {\n  margin: 0;\n  font-size: 1.125rem;\n  font-weight: 600;\n  color: #1d1d1f;\n  padding-bottom: 0.5rem;\n  border-bottom: 1px solid rgba(0, 0, 0, 0.1);\n}\n\n.macros-list {\n  display: flex;\n  flex-direction: column;\n  gap: 1rem;\n}\n\n.macro-item {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  padding: 1rem;\n  background: rgba(255, 255, 255, 0.8);\n  border-radius: 12px;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  transition: transform 0.2s ease, box-shadow 0.2s ease;\n  min-height: 50px;\n}\n\n.macro-item.editing {\n  min-height: 160px;\n}\n\n.macro-divider {\n  width: 100%;\n  height: 1px;\n  background: rgba(0, 0, 0, 0.1);\n  margin: 1rem 0;\n}\n\n.macro-item:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);\n}\n\n.macro-content {\n  flex: 1;\n}\n\n.macro-title {\n  margin: 0;\n  font-size: 1rem;\n  font-weight: 500;\n  color: #1d1d1f;\n}\n\n.macro-keybind {\n  margin-top: 0.5rem;\n  font-size: 0.875rem;\n  color: #666;\n  background: rgba(0, 0, 0, 0.05);\n  padding: 0.25rem 0.5rem;\n  border-radius: 4px;\n  display: inline-block;\n}\n\n.macro-actions {\n  display: flex;\n  gap: 0.75rem;\n  margin-left: 1rem;\n}\n\n.action-button {\n  background: none;\n  border: none;\n  padding: 0.75rem;\n  cursor: pointer;\n  color: #666;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: all 0.2s ease;\n}\n\n.action-button:hover {\n  background-color: rgba(0, 0, 0, 0.05);\n  color: #1d1d1f;\n}\n\n.edit-button:hover {\n  color: #007AFF;\n}\n\n.approve-button {\n  color: #666;\n}\n\n.approve-button.approved {\n  color: #34C759;\n}\n\n.approve-button:hover {\n  color: #34C759;\n}\n\n.remove-button:hover {\n  color: #FF3B30;\n}\n\n.macro-edit-input {\n  width: 90%;\n  padding: 0.5rem;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  border-radius: 4px;\n  font-size: 1rem;\n  margin-bottom: 0.5rem;\n  background: rgba(255, 255, 255, 0.9);\n}\n\n.macro-edit-input:focus {\n  outline: none;\n  border-color: #007AFF;\n  box-shadow: 0 0 0 2px rgba(0, 122, 255, 0.2);\n}\n\n.keybind-input {\n  font-size: 0.875rem;\n  background: rgba(0, 0, 0, 0.05);\n}\n\n.additional-input {\n  width: 90%;\n  padding: 0.5rem;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  border-radius: 4px;\n  font-size: 0.875rem;\n  background: rgba(255, 255, 255, 0.9);\n  margin-top: 0.5rem;\n}\n\n.additional-input-container {\n  display: flex;\n  align-items: center;\n  gap: 0.5rem;\n  width: 100%;\n}\n\n.brain-button {\n  background: linear-gradient(45deg, #FF69B4, #9370DB, #BA55D3);\n  background-size: 200% 200%;\n  border: none;\n  border-radius: 4px;\n  padding: 0.5rem;\n  cursor: pointer;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: all 0.3s ease;\n  animation: gradientMove 5s ease infinite;\n}\n\n.brain-button:hover {\n  transform: scale(1.05);\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);\n}\n\n.brain-button img {\n  width: 20px;\n  height: 20px;\n  filter: brightness(0) invert(1);\n}\n\n.save-button:hover {\n  color: #34C759;\n}\n\n.cancel-button:hover {\n  color: #FF3B30;\n}\n\n@keyframes slideIn {\n  from {\n    opacity: 0;\n    transform: translateY(-20px);\n  }\n  to {\n    opacity: 1;\n    transform: translateY(0);\n  }\n}\n\n@keyframes gradientMove {\n  0% {\n    background-position: 0% 50%;\n  }\n  50% {\n    background-position: 100% 50%;\n  }\n  100% {\n    background-position: 0% 50%;\n  }\n} "],"sourceRoot":""}]);
+=======
+} `, "",{"version":3,"sources":["webpack://./src/components/AppPopup.css"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,MAAM;EACN,OAAO;EACP,QAAQ;EACR,SAAS;EACT,8BAA8B;EAC9B,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,aAAa;EACb,0BAA0B;EAC1B,kCAAkC;AACpC;;AAEA;EACE,qCAAqC;EACrC,mBAAmB;EACnB,YAAY;EACZ,aAAa;EACb,gBAAgB;EAChB,yCAAyC;EACzC,4BAA4B;EAC5B,aAAa;EACb,sBAAsB;AACxB;;AAEA;EACE,aAAa;EACb,8BAA8B;EAC9B,mBAAmB;EACnB,oBAAoB;EACpB,2CAA2C;EAC3C,oCAAoC;EACpC,2BAA2B;EAC3B,mCAAmC;AACrC;;AAEA;EACE,aAAa;EACb,mBAAmB;EACnB,SAAS;AACX;;AAEA;EACE,WAAW;EACX,YAAY;EACZ,mBAAmB;EACnB,kBAAkB;AACpB;;AAEA;EACE,SAAS;EACT,kBAAkB;EAClB,gBAAgB;EAChB,cAAc;AAChB;;AAEA;EACE,gBAAgB;EAChB,YAAY;EACZ,eAAe;EACf,eAAe;EACf,cAAc;EACd,kBAAkB;EAClB,aAAa;EACb,mBAAmB;EACnB,uBAAuB;EACvB,sCAAsC;AACxC;;AAEA;EACE,qCAAqC;AACvC;;AAEA;EACE,OAAO;EACP,eAAe;EACf,gBAAgB;EAChB,aAAa;EACb,sBAAsB;EACtB,SAAS;AACX;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,SAAS;AACX;;AAEA;EACE,SAAS;EACT,mBAAmB;EACnB,gBAAgB;EAChB,cAAc;EACd,sBAAsB;EACtB,2CAA2C;AAC7C;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,SAAS;AACX;;AAEA;EACE,aAAa;EACb,8BAA8B;EAC9B,mBAAmB;EACnB,aAAa;EACb,oCAAoC;EACpC,mBAAmB;EACnB,oCAAoC;EACpC,qDAAqD;AACvD;;AAEA;EACE,2BAA2B;EAC3B,0CAA0C;AAC5C;;AAEA;EACE,OAAO;AACT;;AAEA;EACE,SAAS;EACT,eAAe;EACf,gBAAgB;EAChB,cAAc;AAChB;;AAEA;EACE,kBAAkB;EAClB,mBAAmB;EACnB,WAAW;EACX,+BAA+B;EAC/B,uBAAuB;EACvB,kBAAkB;EAClB,qBAAqB;AACvB;;AAEA;EACE,aAAa;EACb,YAAY;EACZ,iBAAiB;AACnB;;AAEA;EACE,gBAAgB;EAChB,YAAY;EACZ,gBAAgB;EAChB,eAAe;EACf,WAAW;EACX,kBAAkB;EAClB,aAAa;EACb,mBAAmB;EACnB,uBAAuB;EACvB,yBAAyB;AAC3B;;AAEA;EACE,qCAAqC;EACrC,cAAc;AAChB;;AAEA;EACE,cAAc;AAChB;;AAEA;EACE,WAAW;AACb;;AAEA;EACE,cAAc;AAChB;;AAEA;EACE,cAAc;AAChB;;AAEA;EACE,cAAc;AAChB;;AAEA;EACE,aAAa;EACb,eAAe;EACf,QAAQ;EACR,eAAe;AACjB;;AAEA;EACE,yBAAyB;EACzB,WAAW;EACX,gBAAgB;EAChB,kBAAkB;EAClB,gBAAgB;EAChB,gBAAgB;AAClB;;AAEA;EACE,yBAAyB;EACzB,YAAY;AACd;;AAEA;EACE;IACE,UAAU;IACV,4BAA4B;EAC9B;EACA;IACE,UAAU;IACV,wBAAwB;EAC1B;AACF","sourcesContent":[".popup-container {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1000;\n  backdrop-filter: blur(4px);\n  -webkit-backdrop-filter: blur(4px);\n}\n\n.popup-content {\n  background: rgba(255, 255, 255, 0.95);\n  border-radius: 16px;\n  width: 600px;\n  height: 450px;\n  overflow: hidden;\n  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);\n  animation: slideIn 0.3s ease;\n  display: flex;\n  flex-direction: column;\n}\n\n.popup-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 1rem 1.5rem;\n  border-bottom: 1px solid rgba(0, 0, 0, 0.1);\n  background: rgba(255, 255, 255, 0.8);\n  backdrop-filter: blur(10px);\n  -webkit-backdrop-filter: blur(10px);\n}\n\n.app-info {\n  display: flex;\n  align-items: center;\n  gap: 1rem;\n}\n\n.app-info .app-icon {\n  width: 32px;\n  height: 32px;\n  object-fit: contain;\n  border-radius: 8px;\n}\n\n.app-info h2 {\n  margin: 0;\n  font-size: 1.25rem;\n  font-weight: 500;\n  color: #1d1d1f;\n}\n\n.close-button {\n  background: none;\n  border: none;\n  padding: 0.5rem;\n  cursor: pointer;\n  color: #1d1d1f;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: background-color 0.2s ease;\n}\n\n.close-button:hover {\n  background-color: rgba(0, 0, 0, 0.05);\n}\n\n.popup-body {\n  flex: 1;\n  padding: 1.5rem;\n  overflow-y: auto;\n  display: flex;\n  flex-direction: column;\n  gap: 2rem;\n}\n\n.macro-section {\n  display: flex;\n  flex-direction: column;\n  gap: 1rem;\n}\n\n.section-title {\n  margin: 0;\n  font-size: 1.125rem;\n  font-weight: 600;\n  color: #1d1d1f;\n  padding-bottom: 0.5rem;\n  border-bottom: 1px solid rgba(0, 0, 0, 0.1);\n}\n\n.macros-list {\n  display: flex;\n  flex-direction: column;\n  gap: 1rem;\n}\n\n.macro-item {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 1rem;\n  background: rgba(255, 255, 255, 0.8);\n  border-radius: 12px;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  transition: transform 0.2s ease, box-shadow 0.2s ease;\n}\n\n.macro-item:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);\n}\n\n.macro-content {\n  flex: 1;\n}\n\n.macro-title {\n  margin: 0;\n  font-size: 1rem;\n  font-weight: 500;\n  color: #1d1d1f;\n}\n\n.macro-keybind {\n  margin-top: 0.5rem;\n  font-size: 0.875rem;\n  color: #666;\n  background: rgba(0, 0, 0, 0.05);\n  padding: 0.25rem 0.5rem;\n  border-radius: 4px;\n  display: inline-block;\n}\n\n.macro-actions {\n  display: flex;\n  gap: 0.75rem;\n  margin-left: 1rem;\n}\n\n.action-button {\n  background: none;\n  border: none;\n  padding: 0.75rem;\n  cursor: pointer;\n  color: #666;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: all 0.2s ease;\n}\n\n.action-button:hover {\n  background-color: rgba(0, 0, 0, 0.05);\n  color: #1d1d1f;\n}\n\n.edit-button:hover {\n  color: #007AFF;\n}\n\n.approve-button {\n  color: #666;\n}\n\n.approve-button.approved {\n  color: #34C759;\n}\n\n.approve-button:hover {\n  color: #34C759;\n}\n\n.remove-button:hover {\n  color: #FF3B30;\n}\n\n.macro-apps {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 4px;\n  margin-top: 4px;\n}\n\n.app-tag {\n  background-color: #e0e0e0;\n  color: #666;\n  padding: 2px 6px;\n  border-radius: 4px;\n  font-size: 0.8em;\n  font-weight: 500;\n}\n\n.app-tag.current-app {\n  background-color: #007AFF;\n  color: white;\n}\n\n@keyframes slideIn {\n  from {\n    opacity: 0;\n    transform: translateY(-20px);\n  }\n  to {\n    opacity: 1;\n    transform: translateY(0);\n  }\n} "],"sourceRoot":""}]);
+>>>>>>> macro-json-api
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -36163,31 +36189,40 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_ApplicationGallery__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/ApplicationGallery */ "./src/components/ApplicationGallery.tsx");
 /* harmony import */ var _components_AppDropdown__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/AppDropdown */ "./src/components/AppDropdown.tsx");
 /* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./App.css */ "./src/App.css");
+var __spreadArray = (undefined && undefined.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+};
 
 
 
 
 
 
-const App = () => {
-    const [searchQuery, setSearchQuery] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)('');
-    const [isDropdownOpen, setIsDropdownOpen] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
-    const [selectedApps, setSelectedApps] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]);
-    const handleSearch = (query) => {
+var App = function () {
+    var _a = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''), searchQuery = _a[0], setSearchQuery = _a[1];
+    var _b = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false), isDropdownOpen = _b[0], setIsDropdownOpen = _b[1];
+    var _c = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]), selectedApps = _c[0], setSelectedApps = _c[1];
+    var handleSearch = function (query) {
         setSearchQuery(query);
     };
-    const handleAddClick = () => {
+    var handleAddClick = function () {
         setIsDropdownOpen(true);
     };
-    const handleCloseDropdown = () => {
+    var handleCloseDropdown = function () {
         setIsDropdownOpen(false);
     };
-    const handleAppSelect = (appPath) => {
-        setSelectedApps(prev => [...prev, appPath]);
+    var handleAppSelect = function (appPath) {
+        setSelectedApps(function (prev) { return __spreadArray(__spreadArray([], prev, true), [appPath], false); });
         setIsDropdownOpen(false);
     };
-    const handleRemoveApp = (appPath) => {
-        setSelectedApps(prev => prev.filter(path => path !== appPath));
+    var handleRemoveApp = function (appPath) {
+        setSelectedApps(function (prev) { return prev.filter(function (path) { return path !== appPath; }); });
     };
     return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "app", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("header", { className: "app-header", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "header-content", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h1", { children: "Maqro" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_SearchBar__WEBPACK_IMPORTED_MODULE_2__["default"], { onSearch: handleSearch }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: "add-button", onClick: handleAddClick, children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M12 4V20M4 12H20", stroke: "white", strokeWidth: "2", strokeLinecap: "round" }) }) })] }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("main", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_ApplicationGallery__WEBPACK_IMPORTED_MODULE_3__["default"], { selectedApps: selectedApps, onRemoveApp: handleRemoveApp }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_AppDropdown__WEBPACK_IMPORTED_MODULE_4__["default"], { isOpen: isDropdownOpen, onClose: handleCloseDropdown, onSelect: handleAppSelect, selectedApps: selectedApps })] }));
 };
@@ -36378,8 +36413,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const AppDropdown = ({ isOpen, onClose, onSelect, selectedApps }) => {
-    const [availableApps, setAvailableApps] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([
+var AppDropdown = function (_a) {
+    var isOpen = _a.isOpen, onClose = _a.onClose, onSelect = _a.onSelect, selectedApps = _a.selectedApps;
+    var _b = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([
         {
             name: 'Figma',
             path: '/Applications/Figma.app',
@@ -36391,7 +36427,7 @@ const AppDropdown = ({ isOpen, onClose, onSelect, selectedApps }) => {
             icon: _assets_images_discord_png__WEBPACK_IMPORTED_MODULE_4__
         },
         {
-            name: 'Chrome',
+            name: 'Google Chrome',
             path: '/Applications/Google Chrome.app',
             icon: _assets_images_chrome_png__WEBPACK_IMPORTED_MODULE_5__
         },
@@ -36405,12 +36441,12 @@ const AppDropdown = ({ isOpen, onClose, onSelect, selectedApps }) => {
             path: '/Applications/Adobe Photoshop 2024.app',
             icon: _assets_images_photoshop_png__WEBPACK_IMPORTED_MODULE_7__
         }
-    ]);
+    ]), availableApps = _b[0], setAvailableApps = _b[1];
     // Filter out apps that are already in the gallery
-    const filteredApps = availableApps.filter(app => !selectedApps.includes(app.path));
+    var filteredApps = availableApps.filter(function (app) { return !selectedApps.includes(app.path); });
     if (!isOpen)
         return null;
-    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "dropdown-container", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "dropdown-content", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "dropdown-header", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h3", { children: "Recently Used" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: "close-button", onClick: onClose, children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", { width: "16", height: "16", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M18 6L6 18M6 6L18 18", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round" }) }) })] }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "apps-list", children: filteredApps.map((app, index) => ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("button", { className: "app-item", onClick: () => onSelect(app.path), children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("img", { src: app.icon, alt: app.name, className: "app-icon" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", { children: app.name })] }, index))) })] }) }));
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "dropdown-container", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "dropdown-content", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "dropdown-header", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h3", { children: "Recently Used" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: "close-button", onClick: onClose, children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", { width: "16", height: "16", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M18 6L6 18M6 6L18 18", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round" }) }) })] }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "apps-list", children: filteredApps.map(function (app, index) { return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("button", { className: "app-item", onClick: function () { return onSelect(app.path); }, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("img", { src: app.icon, alt: app.name, className: "app-icon" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", { children: app.name })] }, index)); }) })] }) }));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AppDropdown);
 
@@ -36485,6 +36521,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _AppPopup_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AppPopup.css */ "./src/components/AppPopup.css");
+<<<<<<< HEAD
 /* harmony import */ var _assets_images_brain_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../assets/images/brain.png */ "./src/assets/images/brain.png");
 
 
@@ -36588,6 +36625,39 @@ const AppPopup = ({ isOpen, onClose, app }) => {
     };
     const renderMacroList = (macros, title) => ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "macro-section", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h3", { className: "section-title", children: title }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "macros-list", children: macros.map((macro) => ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: `macro-item ${editingMacroId === macro.id ? 'editing' : ''}`, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "macro-content", children: editingMacroId === macro.id ? ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", { type: "text", value: editedTitle, onChange: (e) => setEditedTitle(e.target.value), className: "macro-edit-input", placeholder: "Macro Title" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", { ref: keybindInputRef, type: "text", value: editedKeybind, onKeyDown: handleKeyDown, onFocus: handleKeybindFocus, onBlur: handleKeybindBlur, className: "macro-edit-input keybind-input", placeholder: "Click and press keys...", readOnly: true }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "macro-divider" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "additional-input-container", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", { type: "text", value: editedDescription, onChange: (e) => setEditedDescription(e.target.value), className: "macro-edit-input additional-input", placeholder: "Make Any Changes..." }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: "brain-button", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("img", { src: _assets_images_brain_png__WEBPACK_IMPORTED_MODULE_3__, alt: "Brain" }) })] })] })) : ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h3", { className: "macro-title", children: macro.title }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "macro-keybind", children: macro.keybind })] })) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "macro-actions", children: editingMacroId === macro.id ? ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: "action-button save-button", onClick: () => handleSaveClick(macro.id), children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", { width: "20", height: "20", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M20 6L9 17L4 12", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }) }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: "action-button cancel-button", onClick: handleCancelClick, children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", { width: "20", height: "20", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M18 6L6 18M6 6L18 18", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round" }) }) })] })) : ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: "action-button edit-button", onClick: () => handleEditClick(macro), children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("svg", { width: "20", height: "20", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M11 4H4C3.46957 4 2.96086 4.21071 2.58579 4.58579C2.21071 4.96086 2 5.46957 2 6V20C2 20.5304 2.21071 21.0391 2.58579 21.4142C2.96086 21.7893 3.46957 22 4 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V13", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M18.5 2.50001C18.8978 2.10219 19.4374 1.87869 20 1.87869C20.5626 1.87869 21.1022 2.10219 21.5 2.50001C21.8978 2.89784 22.1213 3.4374 22.1213 4.00001C22.1213 4.56262 21.8978 5.10219 21.5 5.50001L12 15L8 16L9 12L18.5 2.50001Z", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" })] }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: "action-button remove-button", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("svg", { width: "20", height: "20", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M3 6H5H21", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M19 6V20C19 20.5304 18.7893 21.0391 18.4142 21.4142C18.0391 21.7893 17.5304 22 17 22H7C6.46957 22 5.96086 21.7893 5.58579 21.4142C5.21071 21.0391 5 20.5304 5 20V6M8 6V4C8 3.46957 8.21071 2.96086 8.58579 2.58579C8.96086 2.21071 9.46957 2 10 2H14C14.5304 2 15.0391 2.21071 15.4142 2.58579C15.7893 2.96086 16 3.46957 16 4V6", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" })] }) }), title === "Suggested Macros" && ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: `action-button approve-button ${macro.isApproved ? 'approved' : ''}`, children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", { width: "20", height: "20", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M20 6L9 17L4 12", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }) }) }))] })) })] }, macro.id))) })] }));
     return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "popup-container", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "popup-content", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "popup-header", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "app-info", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("img", { src: app.icon, alt: app.name, className: "app-icon" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h2", { children: app.name })] }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: "close-button", onClick: onClose, children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", { width: "16", height: "16", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M18 6L6 18M6 6L18 18", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round" }) }) })] }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "popup-body", children: [renderMacroList(suggestedMacros, "Suggested Macros"), renderMacroList(savedMacros, "Saved Macros")] })] }) }));
+=======
+/* harmony import */ var _data_dummy_macro_feed_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../data/dummy_macro_feed.json */ "./src/data/dummy_macro_feed.json");
+
+
+
+
+var AppPopup = function (_a) {
+    var isOpen = _a.isOpen, onClose = _a.onClose, app = _a.app;
+    var _b = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]), suggestedMacros = _b[0], setSuggestedMacros = _b[1];
+    var _c = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]), savedMacros = _c[0], setSavedMacros = _c[1];
+    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+        // Create a new array of macros for the current application
+        var appMacros = _data_dummy_macro_feed_json__WEBPACK_IMPORTED_MODULE_3__.macros.reduce(function (acc, macro) {
+            // Check each application in the macro's applications array
+            macro.applications.forEach(function (targetApp) {
+                if (targetApp === app.name) {
+                    // If this macro is for the current app, add it to the accumulator
+                    acc.push(macro);
+                }
+            });
+            return acc;
+        }, []);
+        // Split into suggested and saved macros
+        var suggested = appMacros.filter(function (macro) { return !macro.isApproved; });
+        var saved = appMacros.filter(function (macro) { return macro.isApproved; });
+        setSuggestedMacros(suggested);
+        setSavedMacros(saved);
+    }, [app.name]);
+    if (!isOpen)
+        return null;
+    var renderMacroList = function (macros, title) { return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "macro-section", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h3", { className: "section-title", children: title }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "macros-list", children: macros.map(function (macro) { return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "macro-item", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "macro-content", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h3", { className: "macro-title", children: macro.title }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "macro-keybind", children: macro.keybind })] }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "macro-actions", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: "action-button edit-button", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("svg", { width: "20", height: "20", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M11 4H4C3.46957 4 2.96086 4.21071 2.58579 4.58579C2.21071 4.96086 2 5.46957 2 6V20C2 20.5304 2.21071 21.0391 2.58579 21.4142C2.96086 21.7893 3.46957 22 4 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V13", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M18.5 2.50001C18.8978 2.10219 19.4374 1.87869 20 1.87869C20.5626 1.87869 21.1022 2.10219 21.5 2.50001C21.8978 2.89784 22.1213 3.4374 22.1213 4.00001C22.1213 4.56262 21.8978 5.10219 21.5 5.50001L12 15L8 16L9 12L18.5 2.50001Z", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" })] }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: "action-button remove-button", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("svg", { width: "20", height: "20", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M3 6H5H21", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M19 6V20C19 20.5304 18.7893 21.0391 18.4142 21.4142C18.0391 21.7893 17.5304 22 17 22H7C6.46957 22 5.96086 21.7893 5.58579 21.4142C5.21071 21.0391 5 20.5304 5 20V6M8 6V4C8 3.46957 8.21071 2.96086 8.58579 2.58579C8.96086 2.21071 9.46957 2 10 2H14C14.5304 2 15.0391 2.21071 15.4142 2.58579C15.7893 2.96086 16 3.46957 16 4V6", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" })] }) }), title === "Suggested Macros" && ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: "action-button approve-button ".concat(macro.isApproved ? 'approved' : ''), children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", { width: "20", height: "20", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M20 6L9 17L4 12", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }) }) }))] })] }, macro.id)); }) })] })); };
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "popup-container", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "popup-content", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "popup-header", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "app-info", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("img", { src: app.icon, alt: app.name, className: "app-icon" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h2", { children: app.name })] }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: "close-button", onClick: onClose, children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", { width: "16", height: "16", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M18 6L6 18M6 6L18 18", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round" }) }) })] }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "popup-body", children: [suggestedMacros.length > 0 && renderMacroList(suggestedMacros, "Suggested Macros"), savedMacros.length > 0 && renderMacroList(savedMacros, "Saved Macros"), suggestedMacros.length === 0 && savedMacros.length === 0 && ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "no-macros", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", { children: "No macros available for this application." }) }))] })] }) }));
+>>>>>>> macro-json-api
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AppPopup);
 
@@ -36672,6 +36742,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _assets_images_chrome_png__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../assets/images/chrome.png */ "./src/assets/images/chrome.png");
 /* harmony import */ var _assets_images_steam_png__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../assets/images/steam.png */ "./src/assets/images/steam.png");
 /* harmony import */ var _assets_images_photoshop_png__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../assets/images/photoshop.png */ "./src/assets/images/photoshop.png");
+var __spreadArray = (undefined && undefined.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+};
 
 
 
@@ -36686,8 +36765,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const getAppIcon = (appPath) => {
-    const appName = appPath.toLowerCase();
+var getAppIcon = function (appPath) {
+    var appName = appPath.toLowerCase();
     if (appName.includes('google chrome'))
         return _assets_images_chrome_png__WEBPACK_IMPORTED_MODULE_10__;
     if (appName.includes('photoshop'))
@@ -36708,8 +36787,9 @@ const getAppIcon = (appPath) => {
         return _assets_images_slack_png__WEBPACK_IMPORTED_MODULE_7__;
     return '';
 };
-const ApplicationGallery = ({ selectedApps, onRemoveApp }) => {
-    const [applications, setApplications] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([
+var ApplicationGallery = function (_a) {
+    var selectedApps = _a.selectedApps, onRemoveApp = _a.onRemoveApp;
+    var _b = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([
         {
             id: '1',
             name: 'VS Code',
@@ -36734,41 +36814,42 @@ const ApplicationGallery = ({ selectedApps, onRemoveApp }) => {
             icon: _assets_images_slack_png__WEBPACK_IMPORTED_MODULE_7__,
             path: '/Applications/Slack.app'
         },
-    ]);
-    const [selectedApp, setSelectedApp] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(null);
-    const [isPopupOpen, setIsPopupOpen] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
-    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
+    ]), applications = _b[0], setApplications = _b[1];
+    var _c = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(null), selectedApp = _c[0], setSelectedApp = _c[1];
+    var _d = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false), isPopupOpen = _d[0], setIsPopupOpen = _d[1];
+    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
         // Add new selected apps to the gallery
-        selectedApps.forEach(appPath => {
-            if (!applications.some(app => app.path === appPath)) {
-                const appName = appPath.split('/').pop()?.replace('.app', '') || '';
-                const icon = getAppIcon(appPath);
+        selectedApps.forEach(function (appPath) {
+            var _a;
+            if (!applications.some(function (app) { return app.path === appPath; })) {
+                var appName = ((_a = appPath.split('/').pop()) === null || _a === void 0 ? void 0 : _a.replace('.app', '')) || '';
+                var icon = getAppIcon(appPath);
                 if (icon) {
-                    const newApp = {
+                    var newApp_1 = {
                         id: Date.now().toString(),
                         name: appName,
                         icon: icon,
                         path: appPath
                     };
-                    setApplications(prev => [...prev, newApp]);
+                    setApplications(function (prev) { return __spreadArray(__spreadArray([], prev, true), [newApp_1], false); });
                 }
             }
         });
     }, [selectedApps]);
-    const handleAppClick = (app) => {
+    var handleAppClick = function (app) {
         setSelectedApp(app);
         setIsPopupOpen(true);
     };
-    const handleClosePopup = () => {
+    var handleClosePopup = function () {
         setIsPopupOpen(false);
         setSelectedApp(null);
     };
-    const handleRemoveApp = (e, appPath) => {
+    var handleRemoveApp = function (e, appPath) {
         e.stopPropagation();
         onRemoveApp(appPath);
-        setApplications(prev => prev.filter(app => app.path !== appPath));
+        setApplications(function (prev) { return prev.filter(function (app) { return app.path !== appPath; }); });
     };
-    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "gallery-container", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "gallery-grid", children: applications.map((app) => ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "app-card", onClick: () => handleAppClick(app), title: app.name, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("img", { src: app.icon, alt: app.name, className: "app-icon" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: "remove-app-button", onClick: (e) => handleRemoveApp(e, app.path), children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", { width: "16", height: "16", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M18 6L6 18M6 6L18 18", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round" }) }) })] }, app.id))) }) }), selectedApp && ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_AppPopup__WEBPACK_IMPORTED_MODULE_3__["default"], { isOpen: isPopupOpen, onClose: handleClosePopup, app: selectedApp }))] }));
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "gallery-container", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "gallery-grid", children: applications.map(function (app) { return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "app-card", onClick: function () { return handleAppClick(app); }, title: app.name, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("img", { src: app.icon, alt: app.name, className: "app-icon" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: "remove-app-button", onClick: function (e) { return handleRemoveApp(e, app.path); }, children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", { width: "16", height: "16", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M18 6L6 18M6 6L18 18", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round" }) }) })] }, app.id)); }) }) }), selectedApp && ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_AppPopup__WEBPACK_IMPORTED_MODULE_3__["default"], { isOpen: isPopupOpen, onClose: handleClosePopup, app: selectedApp }))] }));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ApplicationGallery);
 
@@ -36846,16 +36927,27 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const SearchBar = ({ onSearch }) => {
-    const [searchQuery, setSearchQuery] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)('');
-    const handleSearch = (e) => {
+var SearchBar = function (_a) {
+    var onSearch = _a.onSearch;
+    var _b = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''), searchQuery = _b[0], setSearchQuery = _b[1];
+    var handleSearch = function (e) {
         e.preventDefault();
         onSearch(searchQuery);
     };
-    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "search-container", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("form", { onSubmit: handleSearch, className: "search-form", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", { type: "text", value: searchQuery, onChange: (e) => setSearchQuery(e.target.value), placeholder: "Search applications...", className: "search-input" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { type: "submit", className: "search-button", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("svg", { width: "20", height: "20", viewBox: "0 0 20 20", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M9 17C13.4183 17 17 13.4183 17 9C17 4.58172 13.4183 1 9 1C4.58172 1 1 4.58172 1 9C1 13.4183 4.58172 17 9 17Z", stroke: "white", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M19 19L14.65 14.65", stroke: "white", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" })] }) })] }) }));
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "search-container", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("form", { onSubmit: handleSearch, className: "search-form", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", { type: "text", value: searchQuery, onChange: function (e) { return setSearchQuery(e.target.value); }, placeholder: "Search applications...", className: "search-input" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { type: "submit", className: "search-button", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("svg", { width: "20", height: "20", viewBox: "0 0 20 20", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M9 17C13.4183 17 17 13.4183 17 9C17 4.58172 13.4183 1 9 1C4.58172 1 1 4.58172 1 9C1 13.4183 4.58172 17 9 17Z", stroke: "white", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M19 19L14.65 14.65", stroke: "white", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" })] }) })] }) }));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SearchBar);
 
+
+/***/ }),
+
+/***/ "./src/data/dummy_macro_feed.json":
+/*!****************************************!*\
+  !*** ./src/data/dummy_macro_feed.json ***!
+  \****************************************/
+/***/ ((module) => {
+
+module.exports = /*#__PURE__*/JSON.parse('{"macros":[{"id":"macro-1","title":"Play/Pause","keybind":"Ctrl + p","isApproved":true,"applications":["Spotify","Google Chrome","Discord"]},{"id":"macro-2","title":"Volume Up","keybind":"Ctrl + ↑","isApproved":true,"applications":["Spotify","Google Chrome","Discord","Steam"]},{"id":"macro-3","title":"Next Track","keybind":"Ctrl + →","isApproved":true,"applications":["Spotify","Google Chrome","Discord"]},{"id":"macro-4","title":"Play Study Playlist","keybind":"Ctrl + s + p","isApproved":false,"applications":["Spotify"]},{"id":"macro-5","title":"Format Document","keybind":"Shift + Alt + F","isApproved":true,"applications":["VS Code","Figma"]},{"id":"macro-6","title":"Quick Open","keybind":"Ctrl + P","isApproved":true,"applications":["VS Code","Google Chrome","Figma","Photoshop","Discord"]},{"id":"macro-7","title":"Toggle Terminal","keybind":"Ctrl + `","isApproved":false,"applications":["VS Code","Figma"]},{"id":"macro-8","title":"Split Editor","keybind":"Ctrl + \\\\","isApproved":false,"applications":["VS Code","Figma","Photoshop"]},{"id":"macro-9","title":"New Tab","keybind":"Ctrl + T","isApproved":true,"applications":["Google Chrome","VS Code","Figma","Photoshop"]},{"id":"macro-10","title":"Close Tab","keybind":"Ctrl + W","isApproved":true,"applications":["Google Chrome","VS Code","Figma","Photoshop","Discord"]},{"id":"macro-11","title":"Switch to Last Tab","keybind":"Ctrl + 9","isApproved":false,"applications":["Google Chrome","VS Code","Figma","Photoshop"]},{"id":"macro-12","title":"Bookmark Page","keybind":"Ctrl + D","isApproved":false,"applications":["Google Chrome"]},{"id":"macro-13","title":"New Page","keybind":"Cmd + N","isApproved":true,"applications":["Notion","Figma","Photoshop"]},{"id":"macro-14","title":"Search","keybind":"Cmd + P","isApproved":true,"applications":["Notion","VS Code","Figma","Photoshop","Discord"]},{"id":"macro-15","title":"Toggle Sidebar","keybind":"Cmd + \\\\","isApproved":true,"applications":["Notion","VS Code","Figma","Photoshop","Discord"]},{"id":"macro-16","title":"Send Message","keybind":"Cmd + Enter","isApproved":true,"applications":["Slack","Discord"]},{"id":"macro-17","title":"Search Messages","keybind":"Cmd + F","isApproved":true,"applications":["Slack","Discord","Google Chrome","VS Code","Figma","Photoshop"]},{"id":"macro-18","title":"Toggle Thread","keybind":"Cmd + T","isApproved":false,"applications":["Slack","Discord"]},{"id":"macro-19","title":"Zoom In","keybind":"Cmd + +","isApproved":true,"applications":["Figma","Photoshop","Google Chrome","VS Code"]},{"id":"macro-20","title":"Zoom Out","keybind":"Cmd + -","isApproved":true,"applications":["Figma","Photoshop","Google Chrome","VS Code"]},{"id":"macro-21","title":"Toggle Mute","keybind":"Cmd + M","isApproved":true,"applications":["Discord","Slack","Google Chrome"]},{"id":"macro-22","title":"Toggle Camera","keybind":"Cmd + E","isApproved":true,"applications":["Discord","Slack"]},{"id":"macro-23","title":"Toggle Fullscreen","keybind":"Cmd + F","isApproved":true,"applications":["Steam","Google Chrome","VS Code","Figma","Photoshop"]},{"id":"macro-24","title":"Take Screenshot","keybind":"Cmd + Shift + 4","isApproved":true,"applications":["Steam","Google Chrome","VS Code","Figma","Photoshop"]}]}');
 
 /***/ }),
 
@@ -37051,7 +37143,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const root = react_dom_client__WEBPACK_IMPORTED_MODULE_2__.createRoot(document.getElementById('root'));
+var container = document.getElementById('root');
+if (!container)
+    throw new Error('Failed to find the root element');
+var root = (0,react_dom_client__WEBPACK_IMPORTED_MODULE_2__.createRoot)(container);
 root.render((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)((react__WEBPACK_IMPORTED_MODULE_1___default().StrictMode), { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_App__WEBPACK_IMPORTED_MODULE_3__["default"], {}) }));
 
 })();
