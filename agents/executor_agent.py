@@ -2,14 +2,14 @@ import json
 import yaml
 import time
 import os
+import sys
+import subprocess
 import pyautogui
 import socket
 from flask import Flask, request, jsonify
 from uagents import Agent, Context, Protocol
 from uagents.setup import fund_agent_if_low
 import threading
-import sys
-import subprocess
 
 app = Flask(__name__)
 
@@ -57,12 +57,9 @@ def execute_step(step):
     app = step['app'].lower()  # Convert app name to lowercase
     action = step['action'].lower()  # Convert action to lowercase
     args = step['args']
-    
-    print(f"DEBUG: Processing step with app='{app}' (original: '{step['app']}'), action='{action}'")
 
     try:
         if app in ["code", "vscode"]:
-            print(f"DEBUG: Matched app: {app}")
             if action == "open_file":
                 # Replace timestamp placeholder with actual timestamp
                 file_path = args['path'].replace('${timestamp}', time.strftime('%Y%m%d_%H%M%S'))
@@ -74,23 +71,11 @@ def execute_step(step):
                     f.write('')
                 os.system(f"code {file_path}")
                 time.sleep(2)  # Wait for file to open
-                
-                # Ensure VSCode is in focus and the file is active
-                os.system("osascript -e 'tell application \"Visual Studio Code\" to activate'")
-                time.sleep(1)
-                # Use keyboard shortcut to focus editor (Cmd+1)
-                pyautogui.hotkey('command', '1')
-                pyautogui.press('backspace')
-                time.sleep(0.5)
             elif action == "type":
                 print(f"Typing text: {args['text']}")
                 # Ensure VSCode is in focus
                 os.system("osascript -e 'tell application \"Visual Studio Code\" to activate'")
                 time.sleep(1)
-                # Use keyboard shortcut to focus editor (Cmd+1)
-                pyautogui.hotkey('command', '1')
-                pyautogui.press('backspace')
-                time.sleep(0.5)
                 # Type the text
                 pyautogui.write(args['text'])
                 time.sleep(1)  # Wait for typing to complete
@@ -105,16 +90,8 @@ def execute_step(step):
             else:
                 raise ValueError(f"Unknown action for {app}: {action}")
         elif app == "spotify":
-            print(f"DEBUG: Matched app: {app}")
             if action == "play_playlist":
                 playlist_url = args.get('url', "https://open.spotify.com/playlist/37i9dQZF1DXcBWIGoYBM5M")
-                
-                # Convert Spotify URI format to web URL format if needed
-                if playlist_url.startswith('spotify:playlist:'):
-                    playlist_id = playlist_url.replace('spotify:playlist:', '')
-                    playlist_url = f"https://open.spotify.com/playlist/{playlist_id}"
-                    print(f"Converted Spotify URI to web URL: {playlist_url}")
-                
                 print(f"Opening Spotify playlist: {playlist_url}")
                 
                 # On macOS: force-open in Chrome
@@ -133,11 +110,13 @@ def execute_step(step):
             else:
                 raise ValueError(f"Unknown action for {app}: {action}")
         else:
-            print(f"DEBUG: No match for app: '{app}'")
             raise ValueError(f"Unknown app: {app}")
     except Exception as e:
         print(f"Error executing step: {str(e)}")
         raise
+
+
+
 
 @app.route('/macro', methods=['POST'])
 def handle_macro():
@@ -178,3 +157,15 @@ def run_flask():
         app.run(host='127.0.0.1', port=EXECUTOR_PORT, debug=False)
     except Exception as e:
         print(f"Error starting Flask server: {str(e)}")
+
+if __name__ == "__main__":
+    # Start Flask in a separate thread
+    flask_thread = threading.Thread(target=run_flask)
+    flask_thread.daemon = True
+    flask_thread.start()
+    
+    # Give Flask time to start
+    time.sleep(2)
+    
+    # Run the uAgent
+    executor.run() 
