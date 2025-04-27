@@ -69,11 +69,23 @@ def execute_step(step):
                     f.write('')
                 os.system(f"code {file_path}")
                 time.sleep(2)  # Wait for file to open
+                
+                # Ensure VSCode is in focus and the file is active
+                os.system("osascript -e 'tell application \"Visual Studio Code\" to activate'")
+                time.sleep(1)
+                # Use keyboard shortcut to focus editor (Cmd+1)
+                pyautogui.hotkey('command', '1')
+                pyautogui.press('backspace')
+                time.sleep(0.5)
             elif action == "type":
                 print(f"Typing text: {args['text']}")
                 # Ensure VSCode is in focus
                 os.system("osascript -e 'tell application \"Visual Studio Code\" to activate'")
                 time.sleep(1)
+                # Use keyboard shortcut to focus editor (Cmd+1)
+                pyautogui.hotkey('command', '1')
+                pyautogui.press('backspace')
+                time.sleep(0.5)
                 # Type the text
                 pyautogui.write(args['text'])
                 time.sleep(1)  # Wait for typing to complete
