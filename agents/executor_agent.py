@@ -8,6 +8,8 @@ from flask import Flask, request, jsonify
 from uagents import Agent, Context, Protocol
 from uagents.setup import fund_agent_if_low
 import threading
+import sys
+import subprocess
 
 app = Flask(__name__)
 
@@ -52,12 +54,15 @@ async def startup(ctx: Context):
         print("Warning: Could not fund agent wallet. Continuing without funding.")
 
 def execute_step(step):
-    app = step['app']
-    action = step['action']
+    app = step['app'].lower()  # Convert app name to lowercase
+    action = step['action'].lower()  # Convert action to lowercase
     args = step['args']
     
+    print(f"DEBUG: Processing step with app='{app}' (original: '{step['app']}'), action='{action}'")
+
     try:
-        if app in ["Code", "VSCode"]:
+        if app in ["code", "vscode"]:
+            print(f"DEBUG: Matched app: {app}")
             if action == "open_file":
                 # Replace timestamp placeholder with actual timestamp
                 file_path = args['path'].replace('${timestamp}', time.strftime('%Y%m%d_%H%M%S'))
@@ -99,7 +104,36 @@ def execute_step(step):
                 time.sleep(1)  # Wait for save to complete
             else:
                 raise ValueError(f"Unknown action for {app}: {action}")
+        elif app == "spotify":
+            print(f"DEBUG: Matched app: {app}")
+            if action == "play_playlist":
+                playlist_url = args.get('url', "https://open.spotify.com/playlist/37i9dQZF1DXcBWIGoYBM5M")
+                
+                # Convert Spotify URI format to web URL format if needed
+                if playlist_url.startswith('spotify:playlist:'):
+                    playlist_id = playlist_url.replace('spotify:playlist:', '')
+                    playlist_url = f"https://open.spotify.com/playlist/{playlist_id}"
+                    print(f"Converted Spotify URI to web URL: {playlist_url}")
+                
+                print(f"Opening Spotify playlist: {playlist_url}")
+                
+                # On macOS: force-open in Chrome
+                if sys.platform == "darwin":
+                    subprocess.Popen(["open", "-a", "Google Chrome", playlist_url])
+                # On Windows:
+                elif sys.platform.startswith("win"):
+                    subprocess.Popen(["cmd", "/c", "start", "chrome", playlist_url], shell=True)
+                # On Linux:
+                else:
+                    subprocess.Popen(["google-chrome", playlist_url])
+                time.sleep(2)  # wait for page to load
+                
+                # Toggle play/pause
+                pyautogui.press("space")
+            else:
+                raise ValueError(f"Unknown action for {app}: {action}")
         else:
+            print(f"DEBUG: No match for app: '{app}'")
             raise ValueError(f"Unknown app: {app}")
     except Exception as e:
         print(f"Error executing step: {str(e)}")
@@ -144,15 +178,3 @@ def run_flask():
         app.run(host='127.0.0.1', port=EXECUTOR_PORT, debug=False)
     except Exception as e:
         print(f"Error starting Flask server: {str(e)}")
-
-if __name__ == "__main__":
-    # Start Flask in a separate thread
-    flask_thread = threading.Thread(target=run_flask)
-    flask_thread.daemon = True
-    flask_thread.start()
-    
-    # Give Flask time to start
-    time.sleep(2)
-    
-    # Run the uAgent
-    executor.run() 
