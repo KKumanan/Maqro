@@ -22,8 +22,6 @@ sleep 3
 echo "Starting frontend..."
 npm run dev
 # Start trainer agent
-echo "Starting trainer agent..."
-python trainer_agent.py
 
 
 # Cleanup
