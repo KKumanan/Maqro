@@ -160,9 +160,59 @@ const AppPopup: React.FC<AppPopupProps> = ({ isOpen, onClose, app }) => {
     }
   };
 
-  const handleExecuteMacro = (macroId: string) => {
-    // TODO: Implement macro execution logic
-    console.log(`Executing macro: ${macroId}`);
+  const handleExecuteMacro = async (macroId: string) => {
+    try {
+      // Find the macro in either suggested or saved macros
+      const macro = [...suggestedMacros, ...savedMacros].find(m => m.id === macroId);
+      
+      if (!macro) {
+        console.error('Macro not found');
+        return;
+      }
+
+      // Convert the macro to the format expected by the executor agent
+      const executorMacro = {
+        id: macro.id,
+        steps: [
+          {
+            app: "Code",
+            action: "open_file",
+            args: {
+              path: `${macro.id}.py`
+            }
+          },
+          {
+            app: "Code",
+            action: "type",
+            args: {
+              text: macro.title
+            }
+          },
+          {
+            app: "Code",
+            action: "save_file",
+            args: {}
+          }
+        ]
+      };
+
+      // Send the macro to the executor agent
+      const response = await fetch('http://localhost:8002/macro', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(executorMacro),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to execute macro');
+      }
+
+      console.log('Macro executed successfully');
+    } catch (error) {
+      console.error('Error executing macro:', error);
+    }
   };
 
   const renderMacroList = (macros: Macro[], title: string) => (
