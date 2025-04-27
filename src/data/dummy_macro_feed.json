@@ -29,20 +29,6 @@
       "applications": ["Spotify"]
     },
     {
-      "id": "macro-5",
-      "title": "Format Document",
-      "keybind": "Shift + Alt + F",
-      "isApproved": true,
-      "applications": ["VS Code", "Figma"]
-    },
-    {
-      "id": "macro-6",
-      "title": "Quick Open",
-      "keybind": "Ctrl + P",
-      "isApproved": true,
-      "applications": ["VS Code", "Google Chrome", "Figma", "Photoshop", "Discord"]
-    },
-    {
       "id": "macro-7",
       "title": "Toggle Terminal",
       "keybind": "Ctrl + `",
@@ -64,20 +50,6 @@
       "applications": ["Google Chrome", "VS Code", "Figma", "Photoshop"]
     },
     {
-      "id": "macro-10",
-      "title": "Close Tab",
-      "keybind": "Ctrl + W",
-      "isApproved": true,
-      "applications": ["Google Chrome", "VS Code", "Figma", "Photoshop", "Discord"]
-    },
-    {
-      "id": "macro-11",
-      "title": "Switch to Last Tab",
-      "keybind": "Ctrl + 9",
-      "isApproved": false,
-      "applications": ["Google Chrome", "VS Code", "Figma", "Photoshop"]
-    },
-    {
       "id": "macro-12",
       "title": "Bookmark Page",
       "keybind": "Ctrl + D",
@@ -90,13 +62,6 @@
       "keybind": "Cmd + N",
       "isApproved": true,
       "applications": ["Notion", "Figma", "Photoshop"]
-    },
-    {
-      "id": "macro-14",
-      "title": "Search",
-      "keybind": "Cmd + P",
-      "isApproved": true,
-      "applications": ["Notion", "VS Code", "Figma", "Photoshop", "Discord"]
     },
     {
       "id": "macro-15",
@@ -127,20 +92,6 @@
       "applications": ["Slack", "Discord"]
     },
     {
-      "id": "macro-19",
-      "title": "Zoom In",
-      "keybind": "Cmd + +",
-      "isApproved": true,
-      "applications": ["Figma", "Photoshop", "Google Chrome", "VS Code"]
-    },
-    {
-      "id": "macro-20",
-      "title": "Zoom Out",
-      "keybind": "Cmd + -",
-      "isApproved": true,
-      "applications": ["Figma", "Photoshop", "Google Chrome", "VS Code"]
-    },
-    {
       "id": "macro-21",
       "title": "Toggle Mute",
       "keybind": "Cmd + M",
@@ -153,13 +104,6 @@
       "keybind": "Cmd + E",
       "isApproved": true,
       "applications": ["Discord", "Slack"]
-    },
-    {
-      "id": "macro-23",
-      "title": "Toggle Fullscreen",
-      "keybind": "Cmd + F",
-      "isApproved": true,
-      "applications": ["Steam", "Google Chrome", "VS Code", "Figma", "Photoshop"]
     },
     {
       "id": "macro-24",
