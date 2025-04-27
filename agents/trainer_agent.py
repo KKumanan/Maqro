@@ -39,25 +39,42 @@ def call_asi1_mini(prompt):
         "max_tokens": 1000
     }
     
-    try:
-        response = requests.post(
-            "https://api.asi-1.ai/v1/chat/completions",
-            headers=headers,
-            json=data,
-            timeout=30
-        )
-        
-        if response.status_code == 200:
-            return response.json()['choices'][0]['message']['content']
-        else:
-            print(f"Error response from ASI-1: {response.text}")
-            raise Exception(f"ASI-1 API error: {response.status_code}")
-    except requests.exceptions.RequestException as e:
-        print(f"Network error: {str(e)}")
-        raise
-    except Exception as e:
-        print(f"Unexpected error: {str(e)}")
-        raise
+    max_retries = 3
+    retry_count = 0
+    
+    while retry_count < max_retries:
+        try:
+            print(f"Attempting to connect to ASI-1 API (attempt {retry_count + 1}/{max_retries})...")
+            response = requests.post(
+                "https://api.asi-1.ai/v1/chat/completions",
+                headers=headers,
+                json=data,
+                timeout=30
+            )
+            
+            if response.status_code == 200:
+                return response.json()['choices'][0]['message']['content']
+            else:
+                print(f"Error response from ASI-1: {response.text}")
+                if response.status_code == 401:
+                    print("Authentication error: Please check your API key")
+                    raise Exception("Invalid API key")
+                elif response.status_code == 404:
+                    print("API endpoint not found: Please check the API URL")
+                    raise Exception("Invalid API endpoint")
+                else:
+                    raise Exception(f"ASI-1 API error: {response.status_code}")
+        except requests.exceptions.RequestException as e:
+            print(f"Network error: {str(e)}")
+            if retry_count < max_retries - 1:
+                print("Retrying in 2 seconds...")
+                time.sleep(2)
+            retry_count += 1
+        except Exception as e:
+            print(f"Unexpected error: {str(e)}")
+            raise
+    
+    raise Exception("Failed to connect to ASI-1 API after multiple attempts")
 
 def refine_macro(macro):
     print("\nWhat improvements would you like to make to this macro?")
@@ -70,11 +87,12 @@ def refine_macro(macro):
 
 The user wants to: {user_input}
 
-Please help me refine this macro. Return the complete JSON of the refined macro, maintaining the same structure but with your improvements.
+Please help me refine this macro. Return ONLY the JSON of the refined macro, maintaining the same structure but with your improvements.
 Make sure to:
 1. Keep the same basic structure (id and steps array)
 2. Only modify the steps that need improvement
 3. Return valid JSON that can be parsed directly
+4. Do not include any explanatory text, just the JSON
 
 Here's the refined macro:"""
     
@@ -89,7 +107,11 @@ Here's the refined macro:"""
             import re
             json_match = re.search(r'\{.*\}', refined_json, re.DOTALL)
             if json_match:
-                return json.loads(json_match.group())
+                try:
+                    return json.loads(json_match.group())
+                except json.JSONDecodeError:
+                    print("Found JSON-like text but it's not valid JSON. Using original macro.")
+                    return macro
             else:
                 print("Could not find valid JSON in the response. Using original macro.")
                 return macro
@@ -99,16 +121,41 @@ Here's the refined macro:"""
         return macro
 
 def send_to_executor(macro):
-    response = requests.post(
-        f"http://localhost:{EXECUTOR_PORT}/macro",
-        json=macro
-    )
-    return response.json()
+    max_retries = 3
+    retry_count = 0
+    last_error = None
+    
+    while retry_count < max_retries:
+        try:
+            print(f"Attempting to connect to executor (attempt {retry_count + 1}/{max_retries})...")
+            response = requests.post(
+                f"http://127.0.0.1:{EXECUTOR_PORT}/macro",
+                json=macro,
+                timeout=10
+            )
+            return response.json()
+        except requests.exceptions.ConnectionError as e:
+            last_error = e
+            print(f"Connection failed (attempt {retry_count + 1}/{max_retries}): {str(e)}")
+            if retry_count < max_retries - 1:
+                print("Retrying in 2 seconds...")
+                time.sleep(2)
+            retry_count += 1
+        except Exception as e:
+            print(f"Unexpected error: {str(e)}")
+            return {"status": "error", "message": str(e)}
+    
+    print(f"Failed to connect to executor after {max_retries} attempts")
+    return {"status": "error", "message": f"Could not connect to executor: {str(last_error)}"}
 
 def main():
     # Load workflow
-    with open(WORKFLOW_PATH, 'r') as f:
-        workflow = json.load(f)
+    try:
+        with open(WORKFLOW_PATH, 'r') as f:
+            workflow = json.load(f)
+    except Exception as e:
+        print(f"Error loading workflow: {str(e)}")
+        return
     
     print("\nProposed macro:")
     print(json.dumps(workflow, indent=2))
@@ -120,12 +167,23 @@ def main():
             print("\nSending to executor...")
             result = send_to_executor(workflow)
             print(f"Result: {result}")
-            break
+            if result.get('status') == 'error':
+                print("Would you like to try again? [y/n]")
+                if input().lower() != 'y':
+                    break
+            else:
+                break
         elif choice == 'r':
             print("\nRefining macro...")
-            workflow = refine_macro(workflow)
-            print("\nRefined macro:")
-            print(json.dumps(workflow, indent=2))
+            try:
+                workflow = refine_macro(workflow)
+                print("\nRefined macro:")
+                print(json.dumps(workflow, indent=2))
+            except Exception as e:
+                print(f"Error during refinement: {str(e)}")
+                print("Would you like to try again? [y/n]")
+                if input().lower() != 'y':
+                    break
         else:
             print("Invalid choice. Please enter 'a' or 'r'.")
 

@@ -21,14 +21,22 @@ EXECUTOR_PORT = config['executor']['port']
 
 def is_port_in_use(port):
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-        return s.connect_ex(('localhost', port)) == 0
+        try:
+            s.bind(('localhost', port))
+            return False
+        except socket.error:
+            return True
 
 def kill_process_on_port(port):
-    if os.name == 'nt':  # Windows
-        os.system(f'netstat -ano | findstr :{port}')
-        os.system(f'taskkill /F /PID {port}')
-    else:  # Unix/Linux/MacOS
-        os.system(f'lsof -ti:{port} | xargs kill -9')
+    try:
+        if os.name == 'nt':  # Windows
+            os.system(f'netstat -ano | findstr :{port}')
+            os.system(f'taskkill /F /PID {port}')
+        else:  # Unix/Linux/MacOS
+            os.system(f'lsof -ti:{port} | xargs kill -9')
+        time.sleep(2)  # Give more time for the port to be freed
+    except Exception as e:
+        print(f"Warning: Failed to kill process on port {port}: {str(e)}")
 
 executor = Agent(
     name="macro_executor",
@@ -48,42 +56,93 @@ def execute_step(step):
     action = step['action']
     args = step['args']
     
-    if app == "Code":
-        if action == "open_file":
-            os.system(f"code {args['path']}")
-            time.sleep(1)  # Wait for file to open
-        elif action == "type":
-            pyautogui.write(args['text'])
-        elif action == "save_file":
-            pyautogui.hotkey('command', 's')
-            time.sleep(0.5)
-    else:
-        raise ValueError(f"Unknown app: {app}")
+    try:
+        if app in ["Code", "VSCode"]:
+            if action == "open_file":
+                file_path = os.path.abspath(args['path'])
+                print(f"Opening file: {file_path}")
+                if os.path.exists(file_path):
+                    os.system(f"code {file_path}")
+                    time.sleep(2)  # Wait for file to open
+                else:
+                    print(f"Warning: File {file_path} does not exist")
+                    # Create the file if it doesn't exist
+                    with open(file_path, 'w') as f:
+                        f.write('')
+                    os.system(f"code {file_path}")
+                    time.sleep(2)
+            elif action == "type":
+                print(f"Typing text: {args['text']}")
+                # Ensure VSCode is in focus
+                os.system("osascript -e 'tell application \"Visual Studio Code\" to activate'")
+                time.sleep(1)
+                # Type the text
+                pyautogui.write(args['text'])
+                time.sleep(1)  # Wait for typing to complete
+            elif action == "save_file":
+                print("Saving file...")
+                # Ensure VSCode is in focus
+                os.system("osascript -e 'tell application \"Visual Studio Code\" to activate'")
+                time.sleep(0.5)
+                # Save the file
+                pyautogui.hotkey('command', 's')
+                time.sleep(1)  # Wait for save to complete
+            else:
+                raise ValueError(f"Unknown action for {app}: {action}")
+        else:
+            raise ValueError(f"Unknown app: {app}")
+    except Exception as e:
+        print(f"Error executing step: {str(e)}")
+        raise
 
 @app.route('/macro', methods=['POST'])
 def handle_macro():
     try:
         macro = request.json
+        print(f"Received macro: {json.dumps(macro, indent=2)}")
+        
         for step in macro['steps']:
+            print(f"\nExecuting step: {json.dumps(step, indent=2)}")
             execute_step(step)
-        return jsonify({"status": "ok"})
+            time.sleep(1)  # Add delay between steps
+            
+        return jsonify({"status": "ok", "message": "Macro executed successfully"})
     except Exception as e:
-        return jsonify({"status": "error", "message": str(e)}), 500
+        error_msg = f"Error executing macro: {str(e)}"
+        print(error_msg)
+        return jsonify({"status": "error", "message": error_msg}), 500
 
 def run_flask():
-    # Check if port is in use and kill the process if it is
-    if is_port_in_use(EXECUTOR_PORT):
-        print(f"Port {EXECUTOR_PORT} is in use. Attempting to free it...")
-        kill_process_on_port(EXECUTOR_PORT)
-        time.sleep(1)  # Wait for port to be freed
+    max_retries = 3
+    retry_count = 0
     
-    app.run(host='0.0.0.0', port=EXECUTOR_PORT)
+    while retry_count < max_retries:
+        if is_port_in_use(EXECUTOR_PORT):
+            print(f"Port {EXECUTOR_PORT} is in use. Attempting to free it...")
+            kill_process_on_port(EXECUTOR_PORT)
+            time.sleep(2)  # Wait for port to be freed
+            retry_count += 1
+        else:
+            break
+    
+    if retry_count == max_retries:
+        print(f"Error: Could not free port {EXECUTOR_PORT} after {max_retries} attempts")
+        return
+    
+    try:
+        print(f"Starting Flask server on port {EXECUTOR_PORT}...")
+        app.run(host='127.0.0.1', port=EXECUTOR_PORT, debug=False)
+    except Exception as e:
+        print(f"Error starting Flask server: {str(e)}")
 
 if __name__ == "__main__":
     # Start Flask in a separate thread
     flask_thread = threading.Thread(target=run_flask)
     flask_thread.daemon = True
     flask_thread.start()
+    
+    # Give Flask time to start
+    time.sleep(2)
     
     # Run the uAgent
     executor.run() 
