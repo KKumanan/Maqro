@@ -301,4 +301,26 @@
   100% {
     background-position: 0% 50%;
   }
+}
+
+.loading-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+
+.loading-circle-path {
+  animation: rotate 1s linear infinite;
+  transform-origin: center;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 } 

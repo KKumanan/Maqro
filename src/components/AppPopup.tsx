@@ -29,6 +29,7 @@ const AppPopup: React.FC<AppPopupProps> = ({ isOpen, onClose, app }) => {
   const [editedKeybind, setEditedKeybind] = useState('');
   const [editedDescription, setEditedDescription] = useState('');
   const [isCapturingKeys, setIsCapturingKeys] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const keybindInputRef = useRef<HTMLInputElement>(null);
 
   const formatKeybind = (keys: string[]) => {
@@ -215,6 +216,19 @@ const AppPopup: React.FC<AppPopupProps> = ({ isOpen, onClose, app }) => {
     }
   };
 
+  const handleBrainButtonClick = () => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setEditedTitle("Create Swift File");
+      // Focus on the title input to make the change visible
+      const titleInput = document.querySelector('.macro-edit-input') as HTMLInputElement;
+      if (titleInput) {
+        titleInput.focus();
+      }
+      setIsLoading(false);
+    }, 4000);
+  };
+
   const renderMacroList = (macros: Macro[], title: string) => (
     <div className="macro-section">
       <h3 className="section-title">{title}</h3>
@@ -251,8 +265,16 @@ const AppPopup: React.FC<AppPopupProps> = ({ isOpen, onClose, app }) => {
                       className="macro-edit-input additional-input"
                       placeholder="Make Any Changes..."
                     />
-                    <button className="brain-button">
-                      <img src={brainIcon} alt="Brain" />
+                    <button className="brain-button" onClick={handleBrainButtonClick}>
+                      {isLoading ? (
+                        <div className="loading-circle">
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle className="loading-circle-path" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                          </svg>
+                        </div>
+                      ) : (
+                        <img src={brainIcon} alt="Brain" />
+                      )}
                     </button>
                   </div>
                 </>
