@@ -167,6 +167,13 @@
       "keybind": "Cmd + Shift + 4",
       "isApproved": true,
       "applications": ["Steam", "Google Chrome", "VS Code", "Figma", "Photoshop"]
+    },
+    {
+      "id": "macro-25",
+      "title": "Create Python File",
+      "keybind": "Cmd + p + f",
+      "isApproved": false,
+      "applications": ["VS Code"]
     }
   ]
 } 
