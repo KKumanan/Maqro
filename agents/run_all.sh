@@ -19,11 +19,15 @@ EXECUTOR_PID=$!
 # Wait for executor to start
 sleep 3
 
+echo "Starting frontend..."
+npm run dev
 # Start trainer agent
 echo "Starting trainer agent..."
 python trainer_agent.py
+
 
 # Cleanup
 echo "Cleaning up..."
 kill $EXECUTOR_PID 2>/dev/null || true
 lsof -ti:8001,8002 | xargs kill -9 2>/dev/null || true 
+
