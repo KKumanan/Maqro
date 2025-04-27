@@ -1,0 +1,26 @@
+trainer:
+  seed: "TRAINER_SEED_123"
+  port: 8001
+executor:
+  seed: "EXECUTOR_SEED_456"
+  port: 8002
+paths:
+  session_log: "session.log"
+  workflow: "workflows.json"
+asi1:
+  model: "asi-1-mini"
+  api_key: "sk_7ffa5e40c15b48fd9da6173d6c735c0b3eede2f5fa964d2d8a86a6926dc6b92d"
+workflow_demo:
+  id: "demo1"
+  steps:
+    - app: "Code"
+      action: "open_file"
+      args:
+        path: "demo.py"
+    - app: "Code"
+      action: "type"
+      args:
+        text: "print('Hello, world!')"
+    - app: "Code"
+      action: "save_file"
+      args: {} 
