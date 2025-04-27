@@ -33,7 +33,7 @@ def call_asi1_mini(prompt):
     }
     
     data = {
-        "model": "asi-1-mini",
+        "model": "asi1-mini",
         "messages": [{"role": "user", "content": prompt}],
         "temperature": 0.7,
         "max_tokens": 1000
@@ -46,7 +46,7 @@ def call_asi1_mini(prompt):
         try:
             print(f"Attempting to connect to ASI-1 API (attempt {retry_count + 1}/{max_retries})...")
             response = requests.post(
-                "https://api.asi-1.ai/v1/chat/completions",
+                "https://api.asi1.ai/v1/chat/completions",
                 headers=headers,
                 json=data,
                 timeout=30
@@ -79,42 +79,96 @@ def call_asi1_mini(prompt):
 def refine_macro(macro):
     print("\nWhat improvements would you like to make to this macro?")
     print("You can describe your desired changes in natural language.")
-    print("For example: 'Add a delay between steps' or 'Make the typing faster'")
+    print("Examples:")
+    print("- Change the file type to Swift instead of Python")
+    print("- After pushing to GitHub, open Notion to track the PR and send a Slack message")
+    print("- Add a delay between steps")
+    print("- Make the typing faster")
     user_input = input("\nYour refinement request: ")
     
-    prompt = f"""I have a macro that I want to improve. Here's the current macro:
-{json.dumps(macro, indent=2)}
+    # Format the steps for the prompt
+    steps_text = "\n".join([f"{i+1}. {step['app']} {step['action']}: {json.dumps(step['args'])}" 
+                           for i, step in enumerate(macro['steps'])])
+    
+    prompt = f"""You are refining a workflow that consists of:
+{steps_text}
 
-The user wants to: {user_input}
+User instruction: {user_input}
 
-Please help me refine this macro. Return ONLY the JSON of the refined macro, maintaining the same structure but with your improvements.
-Make sure to:
-1. Keep the same basic structure (id and steps array)
-2. Only modify the steps that need improvement
-3. Return valid JSON that can be parsed directly
-4. Do not include any explanatory text, just the JSON
+Return ONLY a JSON array of steps that implements the requested changes. The steps should follow this format:
+[
+  {{
+    "app": "AppName",  // e.g., "Code", "Notion", "Slack", "GitHub"
+    "action": "action_name",  // e.g., "open_file", "type", "save_file", "open_url", "send_message"
+    "args": {{}}  // Arguments specific to the action
+  }}
+]
 
-Here's the refined macro:"""
+Available apps and their actions:
+1. Code:
+   - open_file: {{"path": "filename.ext"}}
+   - type: {{"text": "content to type"}}
+   - save_file: {{}}
+   
+2. Notion:
+   - open_url: {{"url": "notion_page_url"}}
+   - create_page: {{"title": "page_title", "content": "page_content"}}
+   
+3. Slack:
+   - send_message: {{"channel": "channel_name", "message": "message_text"}}
+   
+4. GitHub:
+   - open_pr: {{"repo": "repo_name", "branch": "branch_name"}}
+   - push_changes: {{"message": "commit_message"}}
+
+Return ONLY the JSON array with no additional text or explanation."""
     
     try:
         refined_json = call_asi1_mini(prompt)
+        print(f"\nAPI Response Content: {refined_json}\n")  # Debug print
+        
         # Try to extract JSON from the response
         try:
             # First try direct JSON parsing
-            return json.loads(refined_json)
+            refined_steps = json.loads(refined_json)
         except json.JSONDecodeError:
             # If that fails, try to find JSON in the text
             import re
-            json_match = re.search(r'\{.*\}', refined_json, re.DOTALL)
+            json_match = re.search(r'\[.*\]', refined_json, re.DOTALL)
             if json_match:
                 try:
-                    return json.loads(json_match.group())
+                    refined_steps = json.loads(json_match.group())
                 except json.JSONDecodeError:
                     print("Found JSON-like text but it's not valid JSON. Using original macro.")
                     return macro
             else:
                 print("Could not find valid JSON in the response. Using original macro.")
                 return macro
+        
+        # Validate the structure of refined steps
+        if not isinstance(refined_steps, list):
+            print("Refined steps must be a list. Using original macro.")
+            return macro
+            
+        for step in refined_steps:
+            if not all(key in step for key in ['app', 'action', 'args']):
+                print("Each step must have 'app', 'action', and 'args' fields. Using original macro.")
+                return macro
+        
+        # Create new macro with refined steps
+        refined_macro = macro.copy()
+        refined_macro['steps'] = refined_steps
+        
+        # Save the refined workflow to workflows.json
+        try:
+            with open(WORKFLOW_PATH, 'w') as f:
+                json.dump(refined_macro, f, indent=2)
+            print(f"\nRefined workflow saved to {WORKFLOW_PATH}")
+        except Exception as e:
+            print(f"Warning: Could not save refined workflow to file: {str(e)}")
+        
+        return refined_macro
+        
     except Exception as e:
         print(f"Error during refinement: {str(e)}")
         print("Using original macro.")
