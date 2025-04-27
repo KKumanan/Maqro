@@ -36757,7 +36757,15 @@ var AppPopup = function (_a) {
                     }
                     executorMacro = {
                         id: macro.id,
-                        steps: [
+                        steps: app.name === "Spotify" ? [
+                            {
+                                app: "Spotify",
+                                action: "play_playlist",
+                                args: {
+                                    playlist_name: macro.title
+                                }
+                            }
+                        ] : [
                             {
                                 app: "Code",
                                 action: "open_file",

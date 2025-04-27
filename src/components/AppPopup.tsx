@@ -174,7 +174,15 @@ const AppPopup: React.FC<AppPopupProps> = ({ isOpen, onClose, app }) => {
       // Convert the macro to the format expected by the executor agent
       const executorMacro = {
         id: macro.id,
-        steps: [
+        steps: app.name === "Spotify" ? [
+          {
+            app: "Spotify",
+            action: "play_playlist",
+            args: {
+              playlist_name: macro.title
+            }
+          }
+        ] : [
           {
             app: "Code",
             action: "open_file",
