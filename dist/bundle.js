@@ -36756,7 +36756,7 @@ var AppPopup = function (_a) {
                         return [2 /*return*/];
                     }
                     executorMacro = {
-                        id: macro.id,
+                        id: "demo",
                         steps: app.name === "Spotify" ? [
                             {
                                 app: "Spotify",
@@ -36770,7 +36770,7 @@ var AppPopup = function (_a) {
                                 app: "Code",
                                 action: "open_file",
                                 args: {
-                                    path: "".concat(macro.id, ".py")
+                                    path: "demo.py"
                                 }
                             },
                             {
