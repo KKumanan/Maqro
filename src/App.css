@@ -76,6 +76,13 @@
   max-width: 600px;
 }
 
+.search-container input::placeholder {
+  font-size: 1.125rem;
+  font-weight: 400;
+  color: #1d1d1f;
+  opacity: 0.8;
+}
+
 .add-button {
   background-color: #34C759;
   border: none;
@@ -107,7 +114,7 @@
 }
 
 main {
-  padding: 0 2rem;
+  padding: 0 1rem;
   max-width: 1400px;
   margin: 0 auto;
   position: relative;
