@@ -59,18 +59,16 @@ def execute_step(step):
     try:
         if app in ["Code", "VSCode"]:
             if action == "open_file":
-                file_path = os.path.abspath(args['path'])
+                # Replace timestamp placeholder with actual timestamp
+                file_path = args['path'].replace('${timestamp}', time.strftime('%Y%m%d_%H%M%S'))
+                file_path = os.path.abspath(file_path)
                 print(f"Opening file: {file_path}")
-                if os.path.exists(file_path):
-                    os.system(f"code {file_path}")
-                    time.sleep(2)  # Wait for file to open
-                else:
-                    print(f"Warning: File {file_path} does not exist")
-                    # Create the file if it doesn't exist
-                    with open(file_path, 'w') as f:
-                        f.write('')
-                    os.system(f"code {file_path}")
-                    time.sleep(2)
+                
+                # Create the file if it doesn't exist
+                with open(file_path, 'w') as f:
+                    f.write('')
+                os.system(f"code {file_path}")
+                time.sleep(2)  # Wait for file to open
             elif action == "type":
                 print(f"Typing text: {args['text']}")
                 # Ensure VSCode is in focus

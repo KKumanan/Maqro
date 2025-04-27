@@ -2,21 +2,21 @@
   "id": "demo1",
   "steps": [
     {
-      "app": "VSCode",
+      "app": "Code",
       "action": "open_file",
       "args": {
         "path": "demo.py"
       }
     },
     {
-      "app": "VSCode",
+      "app": "Code",
       "action": "type",
       "args": {
-        "text": "print('Hello, world!')\n"
+        "text": "print('Hello, world!')"
       }
     },
     {
-      "app": "VSCode",
+      "app": "Code",
       "action": "save_file",
       "args": {}
     }
