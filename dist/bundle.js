@@ -25,14 +25,14 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.app {
   min-height: 100vh;
   background: linear-gradient(
     135deg,
-    #eef0f8 0%,
-    #d8dcf0 15%,
-    #e0d7f0 30%,
-    #f0d8e6 45%,
-    #f0e0d8 60%,
-    #f0e8d8 75%,
-    #e8f0e0 90%,
-    #d8f0e8 100%
+    #b2bde6 0%,
+    #aab1d5 15%,
+    #b6a3d7 30%,
+    #dca7c6 45%,
+    /* #f0e0d8 60%, */
+    /* #f0e8d8 75%, */
+    /* #d1f3af 90%, */
+    #a2d8c6 100%
   );
   font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -67,13 +67,31 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.app {
 .app-header h1 {
   color: #1d1d1f;
   font-weight: 500;
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   letter-spacing: -0.025em;
   position: relative;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin: 0;
   white-space: nowrap;
   min-width: 120px;
+  height: 48px;
+  padding: 0 1rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  line-height: 1;
+}
+
+.key-icon {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
 }
 
 .search-container {
@@ -139,7 +157,7 @@ p {
   100% {
     background-position: 0% 50%;
   }
-} `, "",{"version":3,"sources":["webpack://./src/App.css"],"names":[],"mappings":"AAAA;EACE,iBAAiB;EACjB;;;;;;;;;;GAUC;EACD,6HAA6H;EAC7H,mCAAmC;EACnC,kCAAkC;EAClC,0CAA0C;EAC1C,0BAA0B;AAC5B;;AAEA;EACE,uBAAuB;EACvB,qBAAqB;EACrB,6BAA6B;EAC7B,aAAa;EACb,gBAAgB;EAChB,mBAAmB;EACnB,mBAAmB;EACnB,kBAAkB;AACpB;;AAEA;EACE,aAAa;EACb,mBAAmB;EACnB,WAAW;EACX,iBAAiB;EACjB,cAAc;AAChB;;AAEA;EACE,aAAa;AACf;;AAEA;EACE,cAAc;EACd,gBAAgB;EAChB,iBAAiB;EACjB,wBAAwB;EACxB,kBAAkB;EAClB,yCAAyC;EACzC,SAAS;EACT,mBAAmB;EACnB,gBAAgB;AAClB;;AAEA;EACE,OAAO;EACP,gBAAgB;AAClB;;AAEA;EACE,yBAAyB;EACzB,YAAY;EACZ,mBAAmB;EACnB,WAAW;EACX,YAAY;EACZ,aAAa;EACb,mBAAmB;EACnB,uBAAuB;EACvB,eAAe;EACf,2DAA2D;EAC3D,wCAAwC;EACxC,cAAc;EACd,UAAU;AACZ;;AAEA;EACE,WAAW;EACX,YAAY;AACd;;AAEA;EACE,yBAAyB;EACzB,sBAAsB;AACxB;;AAEA;EACE,sBAAsB;AACxB;;AAEA;EACE,eAAe;EACf,iBAAiB;EACjB,cAAc;EACd,kBAAkB;AACpB;;AAEA;EACE,WAAW;EACX,mBAAmB;AACrB;;AAEA;EACE,WAAW;EACX,iBAAiB;AACnB;;AAEA,6CAA6C;AAC7C;EACE;IACE,2BAA2B;EAC7B;EACA;IACE,6BAA6B;EAC/B;EACA;IACE,2BAA2B;EAC7B;AACF","sourcesContent":[".app {\n  min-height: 100vh;\n  background: linear-gradient(\n    135deg,\n    #eef0f8 0%,\n    #d8dcf0 15%,\n    #e0d7f0 30%,\n    #f0d8e6 45%,\n    #f0e0d8 60%,\n    #f0e8d8 75%,\n    #e8f0e0 90%,\n    #d8f0e8 100%\n  );\n  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', Helvetica, Arial, sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  animation: gradientShift 20s ease infinite;\n  background-size: 400% 400%;\n}\n\n.app-header {\n  background: transparent;\n  backdrop-filter: none;\n  -webkit-backdrop-filter: none;\n  padding: 2rem;\n  box-shadow: none;\n  margin-bottom: 2rem;\n  border-bottom: none;\n  position: relative;\n}\n\n.header-content {\n  display: flex;\n  align-items: center;\n  gap: 0.5rem;\n  max-width: 1400px;\n  margin: 0 auto;\n}\n\n.app-header::before {\n  content: none;\n}\n\n.app-header h1 {\n  color: #1d1d1f;\n  font-weight: 500;\n  font-size: 2.5rem;\n  letter-spacing: -0.025em;\n  position: relative;\n  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n  margin: 0;\n  white-space: nowrap;\n  min-width: 120px;\n}\n\n.search-container {\n  flex: 1;\n  max-width: 600px;\n}\n\n.add-button {\n  background-color: #34C759;\n  border: none;\n  border-radius: 12px;\n  width: 48px;\n  height: 48px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n  transition: transform 0.2s ease, background-color 0.2s ease;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n  flex-shrink: 0;\n  padding: 0;\n}\n\n.add-button svg {\n  width: 24px;\n  height: 24px;\n}\n\n.add-button:hover {\n  background-color: #30B350;\n  transform: scale(1.05);\n}\n\n.add-button:active {\n  transform: scale(0.95);\n}\n\nmain {\n  padding: 0 2rem;\n  max-width: 1400px;\n  margin: 0 auto;\n  position: relative;\n}\n\nh1 {\n  color: #333;\n  margin-bottom: 1rem;\n}\n\np {\n  color: #666;\n  font-size: 1.2rem;\n}\n\n/* Add a subtle animation to the background */\n@keyframes gradientShift {\n  0% {\n    background-position: 0% 50%;\n  }\n  50% {\n    background-position: 100% 50%;\n  }\n  100% {\n    background-position: 0% 50%;\n  }\n} "],"sourceRoot":""}]);
+} `, "",{"version":3,"sources":["webpack://./src/App.css"],"names":[],"mappings":"AAAA;EACE,iBAAiB;EACjB;;;;;;;;;;GAUC;EACD,6HAA6H;EAC7H,mCAAmC;EACnC,kCAAkC;EAClC,0CAA0C;EAC1C,0BAA0B;AAC5B;;AAEA;EACE,uBAAuB;EACvB,qBAAqB;EACrB,6BAA6B;EAC7B,aAAa;EACb,gBAAgB;EAChB,mBAAmB;EACnB,mBAAmB;EACnB,kBAAkB;AACpB;;AAEA;EACE,aAAa;EACb,mBAAmB;EACnB,WAAW;EACX,iBAAiB;EACjB,cAAc;AAChB;;AAEA;EACE,aAAa;AACf;;AAEA;EACE,cAAc;EACd,gBAAgB;EAChB,iBAAiB;EACjB,wBAAwB;EACxB,kBAAkB;EAClB,yCAAyC;EACzC,SAAS;EACT,mBAAmB;EACnB,gBAAgB;EAChB,YAAY;EACZ,eAAe;EACf,oCAAoC;EACpC,mBAAmB;EACnB,wCAAwC;EACxC,aAAa;EACb,mBAAmB;EACnB,uBAAuB;EACvB,WAAW;EACX,cAAc;AAChB;;AAEA;EACE,WAAW;EACX,YAAY;EACZ,cAAc;EACd,aAAa;EACb,mBAAmB;AACrB;;AAEA;EACE,OAAO;EACP,gBAAgB;AAClB;;AAEA;EACE,yBAAyB;EACzB,YAAY;EACZ,mBAAmB;EACnB,WAAW;EACX,YAAY;EACZ,aAAa;EACb,mBAAmB;EACnB,uBAAuB;EACvB,eAAe;EACf,2DAA2D;EAC3D,wCAAwC;EACxC,cAAc;EACd,UAAU;AACZ;;AAEA;EACE,WAAW;EACX,YAAY;AACd;;AAEA;EACE,yBAAyB;EACzB,sBAAsB;AACxB;;AAEA;EACE,sBAAsB;AACxB;;AAEA;EACE,eAAe;EACf,iBAAiB;EACjB,cAAc;EACd,kBAAkB;AACpB;;AAEA;EACE,WAAW;EACX,mBAAmB;AACrB;;AAEA;EACE,WAAW;EACX,iBAAiB;AACnB;;AAEA,6CAA6C;AAC7C;EACE;IACE,2BAA2B;EAC7B;EACA;IACE,6BAA6B;EAC/B;EACA;IACE,2BAA2B;EAC7B;AACF","sourcesContent":[".app {\n  min-height: 100vh;\n  background: linear-gradient(\n    135deg,\n    #b2bde6 0%,\n    #aab1d5 15%,\n    #b6a3d7 30%,\n    #dca7c6 45%,\n    /* #f0e0d8 60%, */\n    /* #f0e8d8 75%, */\n    /* #d1f3af 90%, */\n    #a2d8c6 100%\n  );\n  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', Helvetica, Arial, sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  animation: gradientShift 20s ease infinite;\n  background-size: 400% 400%;\n}\n\n.app-header {\n  background: transparent;\n  backdrop-filter: none;\n  -webkit-backdrop-filter: none;\n  padding: 2rem;\n  box-shadow: none;\n  margin-bottom: 2rem;\n  border-bottom: none;\n  position: relative;\n}\n\n.header-content {\n  display: flex;\n  align-items: center;\n  gap: 0.5rem;\n  max-width: 1400px;\n  margin: 0 auto;\n}\n\n.app-header::before {\n  content: none;\n}\n\n.app-header h1 {\n  color: #1d1d1f;\n  font-weight: 500;\n  font-size: 2.2rem;\n  letter-spacing: -0.025em;\n  position: relative;\n  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n  margin: 0;\n  white-space: nowrap;\n  min-width: 120px;\n  height: 48px;\n  padding: 0 1rem;\n  background: rgba(255, 255, 255, 0.8);\n  border-radius: 12px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 0.5rem;\n  line-height: 1;\n}\n\n.key-icon {\n  width: 32px;\n  height: 32px;\n  flex-shrink: 0;\n  display: flex;\n  align-items: center;\n}\n\n.search-container {\n  flex: 1;\n  max-width: 600px;\n}\n\n.add-button {\n  background-color: #34C759;\n  border: none;\n  border-radius: 12px;\n  width: 48px;\n  height: 48px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n  transition: transform 0.2s ease, background-color 0.2s ease;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n  flex-shrink: 0;\n  padding: 0;\n}\n\n.add-button svg {\n  width: 24px;\n  height: 24px;\n}\n\n.add-button:hover {\n  background-color: #30B350;\n  transform: scale(1.05);\n}\n\n.add-button:active {\n  transform: scale(0.95);\n}\n\nmain {\n  padding: 0 2rem;\n  max-width: 1400px;\n  margin: 0 auto;\n  position: relative;\n}\n\nh1 {\n  color: #333;\n  margin-bottom: 1rem;\n}\n\np {\n  color: #666;\n  font-size: 1.2rem;\n}\n\n/* Add a subtle animation to the background */\n@keyframes gradientShift {\n  0% {\n    background-position: 0% 50%;\n  }\n  50% {\n    background-position: 100% 50%;\n  }\n  100% {\n    background-position: 0% 50%;\n  }\n} "],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -488,7 +506,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.popup-container {
   color: #FF3B30;
 }
 
-<<<<<<< HEAD
 .macro-edit-input {
   width: 90%;
   padding: 0.5rem;
@@ -558,27 +575,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.popup-container {
 
 .cancel-button:hover {
   color: #FF3B30;
-=======
-.macro-apps {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-  margin-top: 4px;
-}
-
-.app-tag {
-  background-color: #e0e0e0;
-  color: #666;
-  padding: 2px 6px;
-  border-radius: 4px;
-  font-size: 0.8em;
-  font-weight: 500;
-}
-
-.app-tag.current-app {
-  background-color: #007AFF;
-  color: white;
->>>>>>> macro-json-api
 }
 
 @keyframes slideIn {
@@ -590,7 +586,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.popup-container {
     opacity: 1;
     transform: translateY(0);
   }
-<<<<<<< HEAD
 }
 
 @keyframes gradientMove {
@@ -604,9 +599,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.popup-container {
     background-position: 0% 50%;
   }
 } `, "",{"version":3,"sources":["webpack://./src/components/AppPopup.css"],"names":[],"mappings":"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","sourcesContent":[".popup-container {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1000;\n  backdrop-filter: blur(4px);\n  -webkit-backdrop-filter: blur(4px);\n}\n\n.popup-content {\n  background: rgba(255, 255, 255, 0.95);\n  border-radius: 16px;\n  width: 600px;\n  height: 450px;\n  overflow: hidden;\n  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);\n  animation: slideIn 0.3s ease;\n  display: flex;\n  flex-direction: column;\n}\n\n.popup-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 1rem 1.5rem;\n  border-bottom: 1px solid rgba(0, 0, 0, 0.1);\n  background: rgba(255, 255, 255, 0.8);\n  backdrop-filter: blur(10px);\n  -webkit-backdrop-filter: blur(10px);\n}\n\n.app-info {\n  display: flex;\n  align-items: center;\n  gap: 1rem;\n}\n\n.app-info .app-icon {\n  width: 32px;\n  height: 32px;\n  object-fit: contain;\n  border-radius: 8px;\n}\n\n.app-info h2 {\n  margin: 0;\n  font-size: 1.25rem;\n  font-weight: 500;\n  color: #1d1d1f;\n}\n\n.close-button {\n  background: none;\n  border: none;\n  padding: 0.5rem;\n  cursor: pointer;\n  color: #1d1d1f;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: background-color 0.2s ease;\n}\n\n.close-button:hover {\n  background-color: rgba(0, 0, 0, 0.05);\n}\n\n.popup-body {\n  flex: 1;\n  padding: 1.5rem;\n  overflow-y: auto;\n  display: flex;\n  flex-direction: column;\n  gap: 2rem;\n}\n\n.macro-section {\n  display: flex;\n  flex-direction: column;\n  gap: 1rem;\n}\n\n.section-title {\n  margin: 0;\n  font-size: 1.125rem;\n  font-weight: 600;\n  color: #1d1d1f;\n  padding-bottom: 0.5rem;\n  border-bottom: 1px solid rgba(0, 0, 0, 0.1);\n}\n\n.macros-list {\n  display: flex;\n  flex-direction: column;\n  gap: 1rem;\n}\n\n.macro-item {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  padding: 1rem;\n  background: rgba(255, 255, 255, 0.8);\n  border-radius: 12px;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  transition: transform 0.2s ease, box-shadow 0.2s ease;\n  min-height: 50px;\n}\n\n.macro-item.editing {\n  min-height: 160px;\n}\n\n.macro-divider {\n  width: 100%;\n  height: 1px;\n  background: rgba(0, 0, 0, 0.1);\n  margin: 1rem 0;\n}\n\n.macro-item:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);\n}\n\n.macro-content {\n  flex: 1;\n}\n\n.macro-title {\n  margin: 0;\n  font-size: 1rem;\n  font-weight: 500;\n  color: #1d1d1f;\n}\n\n.macro-keybind {\n  margin-top: 0.5rem;\n  font-size: 0.875rem;\n  color: #666;\n  background: rgba(0, 0, 0, 0.05);\n  padding: 0.25rem 0.5rem;\n  border-radius: 4px;\n  display: inline-block;\n}\n\n.macro-actions {\n  display: flex;\n  gap: 0.75rem;\n  margin-left: 1rem;\n}\n\n.action-button {\n  background: none;\n  border: none;\n  padding: 0.75rem;\n  cursor: pointer;\n  color: #666;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: all 0.2s ease;\n}\n\n.action-button:hover {\n  background-color: rgba(0, 0, 0, 0.05);\n  color: #1d1d1f;\n}\n\n.edit-button:hover {\n  color: #007AFF;\n}\n\n.approve-button {\n  color: #666;\n}\n\n.approve-button.approved {\n  color: #34C759;\n}\n\n.approve-button:hover {\n  color: #34C759;\n}\n\n.remove-button:hover {\n  color: #FF3B30;\n}\n\n.macro-edit-input {\n  width: 90%;\n  padding: 0.5rem;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  border-radius: 4px;\n  font-size: 1rem;\n  margin-bottom: 0.5rem;\n  background: rgba(255, 255, 255, 0.9);\n}\n\n.macro-edit-input:focus {\n  outline: none;\n  border-color: #007AFF;\n  box-shadow: 0 0 0 2px rgba(0, 122, 255, 0.2);\n}\n\n.keybind-input {\n  font-size: 0.875rem;\n  background: rgba(0, 0, 0, 0.05);\n}\n\n.additional-input {\n  width: 90%;\n  padding: 0.5rem;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  border-radius: 4px;\n  font-size: 0.875rem;\n  background: rgba(255, 255, 255, 0.9);\n  margin-top: 0.5rem;\n}\n\n.additional-input-container {\n  display: flex;\n  align-items: center;\n  gap: 0.5rem;\n  width: 100%;\n}\n\n.brain-button {\n  background: linear-gradient(45deg, #FF69B4, #9370DB, #BA55D3);\n  background-size: 200% 200%;\n  border: none;\n  border-radius: 4px;\n  padding: 0.5rem;\n  cursor: pointer;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: all 0.3s ease;\n  animation: gradientMove 5s ease infinite;\n}\n\n.brain-button:hover {\n  transform: scale(1.05);\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);\n}\n\n.brain-button img {\n  width: 20px;\n  height: 20px;\n  filter: brightness(0) invert(1);\n}\n\n.save-button:hover {\n  color: #34C759;\n}\n\n.cancel-button:hover {\n  color: #FF3B30;\n}\n\n@keyframes slideIn {\n  from {\n    opacity: 0;\n    transform: translateY(-20px);\n  }\n  to {\n    opacity: 1;\n    transform: translateY(0);\n  }\n}\n\n@keyframes gradientMove {\n  0% {\n    background-position: 0% 50%;\n  }\n  50% {\n    background-position: 100% 50%;\n  }\n  100% {\n    background-position: 0% 50%;\n  }\n} "],"sourceRoot":""}]);
-=======
-} `, "",{"version":3,"sources":["webpack://./src/components/AppPopup.css"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,MAAM;EACN,OAAO;EACP,QAAQ;EACR,SAAS;EACT,8BAA8B;EAC9B,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,aAAa;EACb,0BAA0B;EAC1B,kCAAkC;AACpC;;AAEA;EACE,qCAAqC;EACrC,mBAAmB;EACnB,YAAY;EACZ,aAAa;EACb,gBAAgB;EAChB,yCAAyC;EACzC,4BAA4B;EAC5B,aAAa;EACb,sBAAsB;AACxB;;AAEA;EACE,aAAa;EACb,8BAA8B;EAC9B,mBAAmB;EACnB,oBAAoB;EACpB,2CAA2C;EAC3C,oCAAoC;EACpC,2BAA2B;EAC3B,mCAAmC;AACrC;;AAEA;EACE,aAAa;EACb,mBAAmB;EACnB,SAAS;AACX;;AAEA;EACE,WAAW;EACX,YAAY;EACZ,mBAAmB;EACnB,kBAAkB;AACpB;;AAEA;EACE,SAAS;EACT,kBAAkB;EAClB,gBAAgB;EAChB,cAAc;AAChB;;AAEA;EACE,gBAAgB;EAChB,YAAY;EACZ,eAAe;EACf,eAAe;EACf,cAAc;EACd,kBAAkB;EAClB,aAAa;EACb,mBAAmB;EACnB,uBAAuB;EACvB,sCAAsC;AACxC;;AAEA;EACE,qCAAqC;AACvC;;AAEA;EACE,OAAO;EACP,eAAe;EACf,gBAAgB;EAChB,aAAa;EACb,sBAAsB;EACtB,SAAS;AACX;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,SAAS;AACX;;AAEA;EACE,SAAS;EACT,mBAAmB;EACnB,gBAAgB;EAChB,cAAc;EACd,sBAAsB;EACtB,2CAA2C;AAC7C;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,SAAS;AACX;;AAEA;EACE,aAAa;EACb,8BAA8B;EAC9B,mBAAmB;EACnB,aAAa;EACb,oCAAoC;EACpC,mBAAmB;EACnB,oCAAoC;EACpC,qDAAqD;AACvD;;AAEA;EACE,2BAA2B;EAC3B,0CAA0C;AAC5C;;AAEA;EACE,OAAO;AACT;;AAEA;EACE,SAAS;EACT,eAAe;EACf,gBAAgB;EAChB,cAAc;AAChB;;AAEA;EACE,kBAAkB;EAClB,mBAAmB;EACnB,WAAW;EACX,+BAA+B;EAC/B,uBAAuB;EACvB,kBAAkB;EAClB,qBAAqB;AACvB;;AAEA;EACE,aAAa;EACb,YAAY;EACZ,iBAAiB;AACnB;;AAEA;EACE,gBAAgB;EAChB,YAAY;EACZ,gBAAgB;EAChB,eAAe;EACf,WAAW;EACX,kBAAkB;EAClB,aAAa;EACb,mBAAmB;EACnB,uBAAuB;EACvB,yBAAyB;AAC3B;;AAEA;EACE,qCAAqC;EACrC,cAAc;AAChB;;AAEA;EACE,cAAc;AAChB;;AAEA;EACE,WAAW;AACb;;AAEA;EACE,cAAc;AAChB;;AAEA;EACE,cAAc;AAChB;;AAEA;EACE,cAAc;AAChB;;AAEA;EACE,aAAa;EACb,eAAe;EACf,QAAQ;EACR,eAAe;AACjB;;AAEA;EACE,yBAAyB;EACzB,WAAW;EACX,gBAAgB;EAChB,kBAAkB;EAClB,gBAAgB;EAChB,gBAAgB;AAClB;;AAEA;EACE,yBAAyB;EACzB,YAAY;AACd;;AAEA;EACE;IACE,UAAU;IACV,4BAA4B;EAC9B;EACA;IACE,UAAU;IACV,wBAAwB;EAC1B;AACF","sourcesContent":[".popup-container {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1000;\n  backdrop-filter: blur(4px);\n  -webkit-backdrop-filter: blur(4px);\n}\n\n.popup-content {\n  background: rgba(255, 255, 255, 0.95);\n  border-radius: 16px;\n  width: 600px;\n  height: 450px;\n  overflow: hidden;\n  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);\n  animation: slideIn 0.3s ease;\n  display: flex;\n  flex-direction: column;\n}\n\n.popup-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 1rem 1.5rem;\n  border-bottom: 1px solid rgba(0, 0, 0, 0.1);\n  background: rgba(255, 255, 255, 0.8);\n  backdrop-filter: blur(10px);\n  -webkit-backdrop-filter: blur(10px);\n}\n\n.app-info {\n  display: flex;\n  align-items: center;\n  gap: 1rem;\n}\n\n.app-info .app-icon {\n  width: 32px;\n  height: 32px;\n  object-fit: contain;\n  border-radius: 8px;\n}\n\n.app-info h2 {\n  margin: 0;\n  font-size: 1.25rem;\n  font-weight: 500;\n  color: #1d1d1f;\n}\n\n.close-button {\n  background: none;\n  border: none;\n  padding: 0.5rem;\n  cursor: pointer;\n  color: #1d1d1f;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: background-color 0.2s ease;\n}\n\n.close-button:hover {\n  background-color: rgba(0, 0, 0, 0.05);\n}\n\n.popup-body {\n  flex: 1;\n  padding: 1.5rem;\n  overflow-y: auto;\n  display: flex;\n  flex-direction: column;\n  gap: 2rem;\n}\n\n.macro-section {\n  display: flex;\n  flex-direction: column;\n  gap: 1rem;\n}\n\n.section-title {\n  margin: 0;\n  font-size: 1.125rem;\n  font-weight: 600;\n  color: #1d1d1f;\n  padding-bottom: 0.5rem;\n  border-bottom: 1px solid rgba(0, 0, 0, 0.1);\n}\n\n.macros-list {\n  display: flex;\n  flex-direction: column;\n  gap: 1rem;\n}\n\n.macro-item {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 1rem;\n  background: rgba(255, 255, 255, 0.8);\n  border-radius: 12px;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  transition: transform 0.2s ease, box-shadow 0.2s ease;\n}\n\n.macro-item:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);\n}\n\n.macro-content {\n  flex: 1;\n}\n\n.macro-title {\n  margin: 0;\n  font-size: 1rem;\n  font-weight: 500;\n  color: #1d1d1f;\n}\n\n.macro-keybind {\n  margin-top: 0.5rem;\n  font-size: 0.875rem;\n  color: #666;\n  background: rgba(0, 0, 0, 0.05);\n  padding: 0.25rem 0.5rem;\n  border-radius: 4px;\n  display: inline-block;\n}\n\n.macro-actions {\n  display: flex;\n  gap: 0.75rem;\n  margin-left: 1rem;\n}\n\n.action-button {\n  background: none;\n  border: none;\n  padding: 0.75rem;\n  cursor: pointer;\n  color: #666;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: all 0.2s ease;\n}\n\n.action-button:hover {\n  background-color: rgba(0, 0, 0, 0.05);\n  color: #1d1d1f;\n}\n\n.edit-button:hover {\n  color: #007AFF;\n}\n\n.approve-button {\n  color: #666;\n}\n\n.approve-button.approved {\n  color: #34C759;\n}\n\n.approve-button:hover {\n  color: #34C759;\n}\n\n.remove-button:hover {\n  color: #FF3B30;\n}\n\n.macro-apps {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 4px;\n  margin-top: 4px;\n}\n\n.app-tag {\n  background-color: #e0e0e0;\n  color: #666;\n  padding: 2px 6px;\n  border-radius: 4px;\n  font-size: 0.8em;\n  font-weight: 500;\n}\n\n.app-tag.current-app {\n  background-color: #007AFF;\n  color: white;\n}\n\n@keyframes slideIn {\n  from {\n    opacity: 0;\n    transform: translateY(-20px);\n  }\n  to {\n    opacity: 1;\n    transform: translateY(0);\n  }\n} "],"sourceRoot":""}]);
->>>>>>> macro-json-api
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -36224,7 +36216,7 @@ var App = function () {
     var handleRemoveApp = function (appPath) {
         setSelectedApps(function (prev) { return prev.filter(function (path) { return path !== appPath; }); });
     };
-    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "app", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("header", { className: "app-header", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "header-content", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h1", { children: "Maqro" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_SearchBar__WEBPACK_IMPORTED_MODULE_2__["default"], { onSearch: handleSearch }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: "add-button", onClick: handleAddClick, children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M12 4V20M4 12H20", stroke: "white", strokeWidth: "2", strokeLinecap: "round" }) }) })] }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("main", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_ApplicationGallery__WEBPACK_IMPORTED_MODULE_3__["default"], { selectedApps: selectedApps, onRemoveApp: handleRemoveApp }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_AppDropdown__WEBPACK_IMPORTED_MODULE_4__["default"], { isOpen: isDropdownOpen, onClose: handleCloseDropdown, onSelect: handleAppSelect, selectedApps: selectedApps })] }));
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "app", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("header", { className: "app-header", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "header-content", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("h1", { children: ["Maqro", (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("svg", { viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", className: "key-icon", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M21.0667 5C21.6586 5.95805 22 7.08604 22 8.29344C22 11.7692 19.1708 14.5869 15.6807 14.5869C15.0439 14.5869 13.5939 14.4405 12.8885 13.8551L12.0067 14.7333C11.272 15.465 11.8598 15.465 12.1537 16.0505C12.1537 16.0505 12.8885 17.075 12.1537 18.0995C11.7128 18.6849 10.4783 19.5045 9.06754 18.0995L8.77362 18.3922C8.77362 18.3922 9.65538 19.4167 8.92058 20.4412C8.4797 21.0267 7.30403 21.6121 6.27531 20.5876C6.22633 20.6364 5.952 20.9096 5.2466 21.6121C4.54119 22.3146 3.67905 21.9048 3.33616 21.6121L2.45441 20.7339C1.63143 19.9143 2.1115 19.0264 2.45441 18.6849L10.0963 11.0743C10.0963 11.0743 9.3615 9.90338 9.3615 8.29344C9.3615 4.81767 12.1907 2 15.6807 2C16.4995 2 17.282 2.15509 18 2.43738", stroke: "#1d1d1f", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M17.8851 8.29353C17.8851 9.50601 16.8982 10.4889 15.6807 10.4889C14.4633 10.4889 13.4763 9.50601 13.4763 8.29353C13.4763 7.08105 14.4633 6.09814 15.6807 6.09814C16.8982 6.09814 17.8851 7.08105 17.8851 8.29353Z", stroke: "#1d1d1f", strokeWidth: "1.5" })] })] }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_SearchBar__WEBPACK_IMPORTED_MODULE_2__["default"], { onSearch: handleSearch }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: "add-button", onClick: handleAddClick, children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M12 4V20M4 12H20", stroke: "white", strokeWidth: "2", strokeLinecap: "round" }) }) })] }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("main", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_ApplicationGallery__WEBPACK_IMPORTED_MODULE_3__["default"], { selectedApps: selectedApps, onRemoveApp: handleRemoveApp }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_AppDropdown__WEBPACK_IMPORTED_MODULE_4__["default"], { isOpen: isDropdownOpen, onClose: handleCloseDropdown, onSelect: handleAppSelect, selectedApps: selectedApps })] }));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);
 
@@ -36521,22 +36513,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _AppPopup_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AppPopup.css */ "./src/components/AppPopup.css");
-<<<<<<< HEAD
 /* harmony import */ var _assets_images_brain_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../assets/images/brain.png */ "./src/assets/images/brain.png");
+/* harmony import */ var _data_dummy_macro_feed_json__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../data/dummy_macro_feed.json */ "./src/data/dummy_macro_feed.json");
 
 
 
 
-const AppPopup = ({ isOpen, onClose, app }) => {
-    const [editingMacroId, setEditingMacroId] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(null);
-    const [editedTitle, setEditedTitle] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)('');
-    const [editedKeybind, setEditedKeybind] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)('');
-    const [editedDescription, setEditedDescription] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)('');
-    const [isCapturingKeys, setIsCapturingKeys] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
-    const keybindInputRef = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(null);
-    const formatKeybind = (keys) => {
+
+var AppPopup = function (_a) {
+    var isOpen = _a.isOpen, onClose = _a.onClose, app = _a.app;
+    var _b = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(null), editingMacroId = _b[0], setEditingMacroId = _b[1];
+    var _c = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''), editedTitle = _c[0], setEditedTitle = _c[1];
+    var _d = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''), editedKeybind = _d[0], setEditedKeybind = _d[1];
+    var _e = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''), editedDescription = _e[0], setEditedDescription = _e[1];
+    var _f = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false), isCapturingKeys = _f[0], setIsCapturingKeys = _f[1];
+    var keybindInputRef = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(null);
+    var formatKeybind = function (keys) {
         return keys
-            .map(key => {
+            .map(function (key) {
             // Format special keys
             if (key === 'Control')
                 return 'Ctrl';
@@ -36554,11 +36548,11 @@ const AppPopup = ({ isOpen, onClose, app }) => {
         })
             .join(' + ');
     };
-    const handleKeyDown = (e) => {
+    var handleKeyDown = function (e) {
         if (!isCapturingKeys)
             return;
         e.preventDefault();
-        const keys = [];
+        var keys = [];
         if (e.ctrlKey)
             keys.push('Control');
         if (e.altKey)
@@ -36573,71 +36567,18 @@ const AppPopup = ({ isOpen, onClose, app }) => {
         }
         setEditedKeybind(formatKeybind(keys));
     };
-    const handleKeybindFocus = () => {
+    var handleKeybindFocus = function () {
         setIsCapturingKeys(true);
         setEditedKeybind('');
     };
-    const handleKeybindBlur = () => {
+    var handleKeybindBlur = function () {
         setIsCapturingKeys(false);
     };
-    if (!isOpen)
-        return null;
-    // Sample data - this would come from your state management in a real app
-    const suggestedMacros = [
-        {
-            id: '1',
-            title: 'Play Study Playlist',
-            keybind: 'Ctrl + s + p',
-            isApproved: false
-        },
-        {
-            id: '2',
-            title: 'Skip Track',
-            keybind: 'Ctrl + s',
-            isApproved: false
-        }
-    ];
-    const savedMacros = [
-        {
-            id: '3',
-            title: 'Play/Pause',
-            keybind: 'Ctrl + p',
-            isApproved: true
-        },
-        {
-            id: '4',
-            title: 'Volume Up',
-            keybind: 'Ctrl + ↑',
-            isApproved: true
-        }
-    ];
-    const handleEditClick = (macro) => {
-        setEditingMacroId(macro.id);
-        setEditedTitle(macro.title);
-        setEditedKeybind(macro.keybind);
-    };
-    const handleSaveClick = (macroId) => {
-        // Here you would update the macro in your state management
-        setEditingMacroId(null);
-    };
-    const handleCancelClick = () => {
-        setEditingMacroId(null);
-    };
-    const renderMacroList = (macros, title) => ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "macro-section", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h3", { className: "section-title", children: title }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "macros-list", children: macros.map((macro) => ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: `macro-item ${editingMacroId === macro.id ? 'editing' : ''}`, children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "macro-content", children: editingMacroId === macro.id ? ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", { type: "text", value: editedTitle, onChange: (e) => setEditedTitle(e.target.value), className: "macro-edit-input", placeholder: "Macro Title" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", { ref: keybindInputRef, type: "text", value: editedKeybind, onKeyDown: handleKeyDown, onFocus: handleKeybindFocus, onBlur: handleKeybindBlur, className: "macro-edit-input keybind-input", placeholder: "Click and press keys...", readOnly: true }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "macro-divider" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "additional-input-container", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", { type: "text", value: editedDescription, onChange: (e) => setEditedDescription(e.target.value), className: "macro-edit-input additional-input", placeholder: "Make Any Changes..." }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: "brain-button", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("img", { src: _assets_images_brain_png__WEBPACK_IMPORTED_MODULE_3__, alt: "Brain" }) })] })] })) : ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h3", { className: "macro-title", children: macro.title }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "macro-keybind", children: macro.keybind })] })) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "macro-actions", children: editingMacroId === macro.id ? ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: "action-button save-button", onClick: () => handleSaveClick(macro.id), children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", { width: "20", height: "20", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M20 6L9 17L4 12", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }) }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: "action-button cancel-button", onClick: handleCancelClick, children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", { width: "20", height: "20", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M18 6L6 18M6 6L18 18", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round" }) }) })] })) : ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: "action-button edit-button", onClick: () => handleEditClick(macro), children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("svg", { width: "20", height: "20", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M11 4H4C3.46957 4 2.96086 4.21071 2.58579 4.58579C2.21071 4.96086 2 5.46957 2 6V20C2 20.5304 2.21071 21.0391 2.58579 21.4142C2.96086 21.7893 3.46957 22 4 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V13", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M18.5 2.50001C18.8978 2.10219 19.4374 1.87869 20 1.87869C20.5626 1.87869 21.1022 2.10219 21.5 2.50001C21.8978 2.89784 22.1213 3.4374 22.1213 4.00001C22.1213 4.56262 21.8978 5.10219 21.5 5.50001L12 15L8 16L9 12L18.5 2.50001Z", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" })] }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: "action-button remove-button", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("svg", { width: "20", height: "20", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M3 6H5H21", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M19 6V20C19 20.5304 18.7893 21.0391 18.4142 21.4142C18.0391 21.7893 17.5304 22 17 22H7C6.46957 22 5.96086 21.7893 5.58579 21.4142C5.21071 21.0391 5 20.5304 5 20V6M8 6V4C8 3.46957 8.21071 2.96086 8.58579 2.58579C8.96086 2.21071 9.46957 2 10 2H14C14.5304 2 15.0391 2.21071 15.4142 2.58579C15.7893 2.96086 16 3.46957 16 4V6", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" })] }) }), title === "Suggested Macros" && ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: `action-button approve-button ${macro.isApproved ? 'approved' : ''}`, children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", { width: "20", height: "20", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M20 6L9 17L4 12", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }) }) }))] })) })] }, macro.id))) })] }));
-    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "popup-container", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "popup-content", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "popup-header", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "app-info", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("img", { src: app.icon, alt: app.name, className: "app-icon" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h2", { children: app.name })] }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: "close-button", onClick: onClose, children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", { width: "16", height: "16", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M18 6L6 18M6 6L18 18", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round" }) }) })] }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "popup-body", children: [renderMacroList(suggestedMacros, "Suggested Macros"), renderMacroList(savedMacros, "Saved Macros")] })] }) }));
-=======
-/* harmony import */ var _data_dummy_macro_feed_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../data/dummy_macro_feed.json */ "./src/data/dummy_macro_feed.json");
-
-
-
-
-var AppPopup = function (_a) {
-    var isOpen = _a.isOpen, onClose = _a.onClose, app = _a.app;
-    var _b = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]), suggestedMacros = _b[0], setSuggestedMacros = _b[1];
-    var _c = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]), savedMacros = _c[0], setSavedMacros = _c[1];
+    var _g = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]), suggestedMacros = _g[0], setSuggestedMacros = _g[1];
+    var _h = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]), savedMacros = _h[0], setSavedMacros = _h[1];
     (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
         // Create a new array of macros for the current application
-        var appMacros = _data_dummy_macro_feed_json__WEBPACK_IMPORTED_MODULE_3__.macros.reduce(function (acc, macro) {
+        var appMacros = _data_dummy_macro_feed_json__WEBPACK_IMPORTED_MODULE_4__.macros.reduce(function (acc, macro) {
             // Check each application in the macro's applications array
             macro.applications.forEach(function (targetApp) {
                 if (targetApp === app.name) {
@@ -36655,9 +36596,20 @@ var AppPopup = function (_a) {
     }, [app.name]);
     if (!isOpen)
         return null;
-    var renderMacroList = function (macros, title) { return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "macro-section", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h3", { className: "section-title", children: title }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "macros-list", children: macros.map(function (macro) { return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "macro-item", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "macro-content", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h3", { className: "macro-title", children: macro.title }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "macro-keybind", children: macro.keybind })] }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "macro-actions", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: "action-button edit-button", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("svg", { width: "20", height: "20", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M11 4H4C3.46957 4 2.96086 4.21071 2.58579 4.58579C2.21071 4.96086 2 5.46957 2 6V20C2 20.5304 2.21071 21.0391 2.58579 21.4142C2.96086 21.7893 3.46957 22 4 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V13", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M18.5 2.50001C18.8978 2.10219 19.4374 1.87869 20 1.87869C20.5626 1.87869 21.1022 2.10219 21.5 2.50001C21.8978 2.89784 22.1213 3.4374 22.1213 4.00001C22.1213 4.56262 21.8978 5.10219 21.5 5.50001L12 15L8 16L9 12L18.5 2.50001Z", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" })] }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: "action-button remove-button", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("svg", { width: "20", height: "20", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M3 6H5H21", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M19 6V20C19 20.5304 18.7893 21.0391 18.4142 21.4142C18.0391 21.7893 17.5304 22 17 22H7C6.46957 22 5.96086 21.7893 5.58579 21.4142C5.21071 21.0391 5 20.5304 5 20V6M8 6V4C8 3.46957 8.21071 2.96086 8.58579 2.58579C8.96086 2.21071 9.46957 2 10 2H14C14.5304 2 15.0391 2.21071 15.4142 2.58579C15.7893 2.96086 16 3.46957 16 4V6", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" })] }) }), title === "Suggested Macros" && ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: "action-button approve-button ".concat(macro.isApproved ? 'approved' : ''), children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", { width: "20", height: "20", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M20 6L9 17L4 12", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }) }) }))] })] }, macro.id)); }) })] })); };
+    var handleEditClick = function (macro) {
+        setEditingMacroId(macro.id);
+        setEditedTitle(macro.title);
+        setEditedKeybind(macro.keybind);
+    };
+    var handleSaveClick = function (macroId) {
+        // Here you would update the macro in your state management
+        setEditingMacroId(null);
+    };
+    var handleCancelClick = function () {
+        setEditingMacroId(null);
+    };
+    var renderMacroList = function (macros, title) { return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "macro-section", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h3", { className: "section-title", children: title }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "macros-list", children: macros.map(function (macro) { return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "macro-item ".concat(editingMacroId === macro.id ? 'editing' : ''), children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "macro-content", children: editingMacroId === macro.id ? ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", { type: "text", value: editedTitle, onChange: function (e) { return setEditedTitle(e.target.value); }, className: "macro-edit-input", placeholder: "Macro Title" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", { ref: keybindInputRef, type: "text", value: editedKeybind, onKeyDown: handleKeyDown, onFocus: handleKeybindFocus, onBlur: handleKeybindBlur, className: "macro-edit-input keybind-input", placeholder: "Click and press keys...", readOnly: true }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "macro-divider" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "additional-input-container", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", { type: "text", value: editedDescription, onChange: function (e) { return setEditedDescription(e.target.value); }, className: "macro-edit-input additional-input", placeholder: "Make Any Changes..." }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: "brain-button", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("img", { src: _assets_images_brain_png__WEBPACK_IMPORTED_MODULE_3__, alt: "Brain" }) })] })] })) : ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h3", { className: "macro-title", children: macro.title }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "macro-keybind", children: macro.keybind })] })) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "macro-actions", children: editingMacroId === macro.id ? ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: "action-button save-button", onClick: function () { return handleSaveClick(macro.id); }, children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", { width: "20", height: "20", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M20 6L9 17L4 12", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }) }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: "action-button cancel-button", onClick: handleCancelClick, children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", { width: "20", height: "20", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M18 6L6 18M6 6L18 18", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round" }) }) })] })) : ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: "action-button edit-button", onClick: function () { return handleEditClick(macro); }, children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("svg", { width: "20", height: "20", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M11 4H4C3.46957 4 2.96086 4.21071 2.58579 4.58579C2.21071 4.96086 2 5.46957 2 6V20C2 20.5304 2.21071 21.0391 2.58579 21.4142C2.96086 21.7893 3.46957 22 4 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V13", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M18.5 2.50001C18.8978 2.10219 19.4374 1.87869 20 1.87869C20.5626 1.87869 21.1022 2.10219 21.5 2.50001C21.8978 2.89784 22.1213 3.4374 22.1213 4.00001C22.1213 4.56262 21.8978 5.10219 21.5 5.50001L12 15L8 16L9 12L18.5 2.50001Z", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" })] }) }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: "action-button remove-button", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("svg", { width: "20", height: "20", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M3 6H5H21", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M19 6V20C19 20.5304 18.7893 21.0391 18.4142 21.4142C18.0391 21.7893 17.5304 22 17 22H7C6.46957 22 5.96086 21.7893 5.58579 21.4142C5.21071 21.0391 5 20.5304 5 20V6M8 6V4C8 3.46957 8.21071 2.96086 8.58579 2.58579C8.96086 2.21071 9.46957 2 10 2H14C14.5304 2 15.0391 2.21071 15.4142 2.58579C15.7893 2.96086 16 3.46957 16 4V6", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" })] }) }), title === "Suggested Macros" && ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: "action-button approve-button ".concat(macro.isApproved ? 'approved' : ''), children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", { width: "20", height: "20", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M20 6L9 17L4 12", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }) }) }))] })) })] }, macro.id)); }) })] })); };
     return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "popup-container", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "popup-content", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "popup-header", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "app-info", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("img", { src: app.icon, alt: app.name, className: "app-icon" }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h2", { children: app.name })] }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", { className: "close-button", onClick: onClose, children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", { width: "16", height: "16", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", { d: "M18 6L6 18M6 6L18 18", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round" }) }) })] }), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", { className: "popup-body", children: [suggestedMacros.length > 0 && renderMacroList(suggestedMacros, "Suggested Macros"), savedMacros.length > 0 && renderMacroList(savedMacros, "Saved Macros"), suggestedMacros.length === 0 && savedMacros.length === 0 && ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: "no-macros", children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", { children: "No macros available for this application." }) }))] })] }) }));
->>>>>>> macro-json-api
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AppPopup);
 

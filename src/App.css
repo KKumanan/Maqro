@@ -2,14 +2,14 @@
   min-height: 100vh;
   background: linear-gradient(
     135deg,
-    #eef0f8 0%,
-    #d8dcf0 15%,
-    #e0d7f0 30%,
-    #f0d8e6 45%,
-    #f0e0d8 60%,
-    #f0e8d8 75%,
-    #e8f0e0 90%,
-    #d8f0e8 100%
+    #b2bde6 0%,
+    #aab1d5 15%,
+    #b6a3d7 30%,
+    #dca7c6 45%,
+    /* #f0e0d8 60%, */
+    /* #f0e8d8 75%, */
+    /* #d1f3af 90%, */
+    #a2d8c6 100%
   );
   font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -44,13 +44,31 @@
 .app-header h1 {
   color: #1d1d1f;
   font-weight: 500;
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   letter-spacing: -0.025em;
   position: relative;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin: 0;
   white-space: nowrap;
   min-width: 120px;
+  height: 48px;
+  padding: 0 1rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  line-height: 1;
+}
+
+.key-icon {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
 }
 
 .search-container {
