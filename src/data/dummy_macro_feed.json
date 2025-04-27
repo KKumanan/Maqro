@@ -118,6 +118,13 @@
       "keybind": "Cmd + p + f",
       "isApproved": false,
       "applications": ["VS Code"]
+    },
+    {
+      "id": "macro-26",
+      "title": "Play Classical Music Playlist",
+      "keybind": "Cmd + c + m",
+      "isApproved": false,
+      "applications": ["Spotify"]
     }
   ]
 } 
