@@ -1,0 +1,24 @@
+{
+  "id": "demo1",
+  "steps": [
+    {
+      "app": "Code",
+      "action": "open_file",
+      "args": {
+        "path": "demo.py"
+      }
+    },
+    {
+      "app": "Code",
+      "action": "type",
+      "args": {
+        "text": "print('Hello, world!')"
+      }
+    },
+    {
+      "app": "Code",
+      "action": "save_file",
+      "args": {}
+    }
+  ]
+} 
