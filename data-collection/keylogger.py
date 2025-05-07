@@ -22,6 +22,8 @@ MAX_RECENT_APPS      = 5
 recent_apps      = deque(maxlen=MAX_RECENT_APPS)
 pressed_keys     = set()
 mouse_controller = MouseController()
+last_recent_apps_state = []  # Keep track of last written state
+last_active_app = None  # Track last active app to avoid unnecessary updates
 
 # ——— UTILITIES ———
 def now_iso():
@@ -42,7 +44,6 @@ def get_active_app():
             check=True
         )
         app_name = result.stdout.strip()
-        print(f"Active app detected: {app_name}")  # Debug logging
         return app_name
     except subprocess.CalledProcessError as e:
         print(f"Error getting active app: {e}")
@@ -107,7 +108,7 @@ def update_recent_apps(app_name):
         recent_apps.remove(app_name)
     recent_apps.appendleft(app_name)
     
-    print(f"Recent apps updated: {list(recent_apps)}")  # Debug logging
+    
 
     # log snapshot of the deque *on every update*
     event = {
@@ -142,8 +143,14 @@ def log_usage(event):
 
 # ——— EVENT HANDLERS ———
 def on_key_press(key):
+    global last_active_app
     app = get_active_app()
-    update_recent_apps(app)
+    
+    # Only update recent apps if the active app has changed
+    if app != last_active_app:
+        update_recent_apps(app)
+        last_active_app = app
+    
     pressed_keys.add(key)
 
     event = {
@@ -159,8 +166,13 @@ def on_key_press(key):
     log_usage(event)
 
 def on_key_release(key):
+    global last_active_app
     app = get_active_app()
-    update_recent_apps(app)
+    
+    # Only update recent apps if the active app has changed
+    if app != last_active_app:
+        update_recent_apps(app)
+        last_active_app = app
 
     event = {
         "id":          str(uuid.uuid4()),
@@ -176,8 +188,13 @@ def on_key_release(key):
     pressed_keys.discard(key)
 
 def on_click(x, y, button, pressed):
+    global last_active_app
     app = get_active_app()
-    update_recent_apps(app)
+    
+    # Only update recent apps if the active app has changed
+    if app != last_active_app:
+        update_recent_apps(app)
+        last_active_app = app
 
     event = {
         "id":          str(uuid.uuid4()),
