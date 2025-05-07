@@ -1,115 +1,130 @@
-from pynput import keyboard, mouse
-from pynput.mouse import Controller as MouseController, Listener as MouseListener
-from pynput.keyboard import Listener as KeyboardListener
-from datetime import datetime
-import subprocess
+#!/usr/bin/env python3
 import json
 import uuid
-import os
-import shutil 
-import requests
+import threading
+import time
+import subprocess
+from datetime import datetime
 
-LOG_FILE    = "input_events.jsonl"
-BACKUP_FILE = "input_events_backup.jsonl"
-MAX_INPUTS  = 10000
-SERVER_URL  = "http://localhost:5000/receive_archive"
+from pynput import keyboard, mouse
+from AppKit import NSWorkspace
 
-mouse_controller = MouseController()
+# ——— CONFIG ———
+LOG_FILE = "usage_log.jsonl"
+APP_SNAPSHOT_INTERVAL = 10.0  # seconds
 
-# 1) Initialize line_counter at module scope
-if os.path.exists(LOG_FILE):
-    with open(LOG_FILE, "r") as f:
-        line_counter = sum(1 for _ in f)
-else:
-    line_counter = 0
+# ——— UTILITIES ———
+def now_iso():
+    return datetime.now().isoformat()
 
-def get_active_app():
+def active_app():
+    """Return the name of the frontmost (active) application."""
+    ws = NSWorkspace.sharedWorkspace()
+    front = ws.frontmostApplication()
+    return front.localizedName() or "Unknown"
+
+def running_apps_list():
+    """Return list of all visible (non-background-only) running applications."""
+    apps = []
+    for app in NSWorkspace.sharedWorkspace().runningApplications():
+        # activationPolicy 0 = regular, 1 = accessory, 2 = background-only
+        if not app.isHidden() and app.activationPolicy() != 2:
+            name = app.localizedName()
+            if name:
+                apps.append(name)
+    return apps
+
+def get_chrome_url():
+    """Return the URL of the active tab in Google Chrome, or None on error."""
     try:
-        result = subprocess.run(
-            ["osascript", "-e",
-             'tell application "System Events" to get name of (processes where frontmost is true)'],
-            capture_output=True, text=True
+        script = 'tell application "Google Chrome" to get URL of active tab of front window'
+        res = subprocess.run(
+            ["osascript", "-e", script],
+            capture_output=True, text=True, check=True
         )
-        return result.stdout.strip()
-    except Exception as e:
-        return f"Unknown ({e})"
+        return res.stdout.strip()
+    except subprocess.CalledProcessError:
+        return None
 
-def rotate_if_needed():
-    global line_counter
-    if line_counter < MAX_INPUTS:
-        return
-    # Delete old backup so only the latest is kept
-    if os.path.exists(BACKUP_FILE):
-        os.remove(BACKUP_FILE)
-    # Copy and then truncate
-    shutil.copy2(LOG_FILE, BACKUP_FILE)
-    
-    # Read the backup file and send it to the server
-    try:
-        with open(BACKUP_FILE, 'r') as f:
-            archive_data = f.read()
-            print(f"[SERVER] Attempting to send {len(archive_data)} bytes to server...", flush=True)
-            response = requests.post(SERVER_URL, data=archive_data, headers={'Content-Type': 'application/json'})
-            if response.status_code == 200:
-                print(f"[SERVER] Successfully sent archive to server: {response.json()}", flush=True)
-            else:
-                print(f"[SERVER] Failed to send archive. Status code: {response.status_code}, Response: {response.text}", flush=True)
-    except requests.exceptions.ConnectionError as e:
-        print(f"[SERVER] Connection error: {str(e)}", flush=True)
-    except Exception as e:
-        print(f"[SERVER] Error sending archive: {str(e)}", flush=True)
-    
-    open(LOG_FILE, "w").close()
-    print(f"[ROTATE] backed up {MAX_INPUTS} lines → {BACKUP_FILE}", flush=True)
-    line_counter = 0
-
-def log_event(event_type, key_or_button):
-    """
-    Append one event, bump counter, rotate if needed,
-    and print a debug line so you can see it in real time.
-    """
-    global line_counter
-    event_data = {
-        "id": str(uuid.uuid4()),
-        "timestamp": datetime.now().isoformat(),
-        "event_type": event_type,
-        "key_or_button": str(key_or_button),
-        "position_x": mouse_controller.position[0],
-        "position_y": mouse_controller.position[1],
-        "active_app": get_active_app()
-    }
-
+def log_event(event: dict):
+    """Append a single JSON object to the log file, adding URL if Chrome."""
+    if event.get("active_app") == "Google Chrome":
+        url = get_chrome_url()
+        if url:
+            event["url"] = url
     with open(LOG_FILE, "a") as f:
-        f.write(json.dumps(event_data) + "\n")
+        f.write(json.dumps(event) + "\n")
 
-    line_counter += 1
-    rotate_if_needed()
+# ——— APP SNAPSHOT THREAD ———
+def snapshot_running_apps():
+    while True:
+        event = {
+            "id": str(uuid.uuid4()),
+            "timestamp": now_iso(),
+            "event_type": "running_apps_snapshot",
+            "running_apps": running_apps_list(),
+            "active_app": active_app()
+        }
+        log_event(event)
+        time.sleep(APP_SNAPSHOT_INTERVAL)
 
-# Keyboard Handlers
+# ——— KEYBOARD LISTENER ———
+pressed_keys = set()
+
 def on_key_press(key):
-    log_event("key_press", getattr(key, 'char', key))
+    pressed_keys.add(key)
+    event = {
+        "id": str(uuid.uuid4()),
+        "timestamp": now_iso(),
+        "event_type": "key_press",
+        "key": str(key),
+        "modifiers": [str(k) for k in pressed_keys if hasattr(k, 'name')],
+        "active_app": active_app()
+    }
+    log_event(event)
 
 def on_key_release(key):
-    if key == keyboard.Key.esc:
-        # Return False to stop *both* listeners
-        return False
+    event = {
+        "id": str(uuid.uuid4()),
+        "timestamp": now_iso(),
+        "event_type": "key_release",
+        "key": str(key),
+        "modifiers": [str(k) for k in pressed_keys if hasattr(k, 'name')],
+        "active_app": active_app()
+    }
+    log_event(event)
+    pressed_keys.discard(key)
 
-# Mouse Handlers
+# ——— MOUSE LISTENER ———
 def on_click(x, y, button, pressed):
-    if pressed:
-        log_event("mouse_click", button)
+    event = {
+        "id": str(uuid.uuid4()),
+        "timestamp": now_iso(),
+        "event_type": "mouse_click",
+        "button": str(button),
+        "action": "down" if pressed else "up",
+        "position": {"x": x, "y": y},
+        "active_app": active_app()
+    }
+    log_event(event)
 
+def on_move(x, y):
+    event = {
+        "id": str(uuid.uuid4()),
+        "timestamp": now_iso(),
+        "event_type": "mouse_move",
+        "position": {"x": x, "y": y},
+        "active_app": active_app()
+    }
+    log_event(event)
+
+# ——— MAIN ———
 if __name__ == "__main__":
-    print("Press ESC to stop")
+    # Start background thread to snapshot running apps
+    threading.Thread(target=snapshot_running_apps, daemon=True).start()
 
-    k_listener = KeyboardListener(on_press=on_key_press, on_release=on_key_release)
-    m_listener = MouseListener(on_click=on_click)
-
-    k_listener.start()
-    m_listener.start()
-
-    # Wait for both to finish
-    k_listener.join()
-    m_listener.join()
-
-    print("Listeners stopped. Goodbye.", flush=True)
+    # Start keyboard and mouse listeners
+    with keyboard.Listener(on_press=on_key_press, on_release=on_key_release), \
+         mouse.Listener(on_click=on_click, on_move=on_move):
+        print(f"Logging to {LOG_FILE}. Press ⌃C to quit.")
+        threading.Event().wait()  # keep the script alive
