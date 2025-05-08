@@ -9,7 +9,6 @@ from collections import deque
 
 from pynput import keyboard, mouse
 from pynput.mouse import Controller as MouseController
-from AppKit import NSWorkspace
 
 # ——— CONFIG ———
 def get_log_filename(base_name):
@@ -87,31 +86,40 @@ def get_active_app():
 def running_apps_list():
     """All visible (non-background-only) running apps."""
     try:
+        # Use a simpler approach that only gets main applications
         script = '''
         tell application "System Events"
-            set visibleApps to {}
-            repeat with proc in (processes where background only is false)
-                if visible of proc is true then
-                    set end of visibleApps to name of proc
-                end if
-            end repeat
-            return visibleApps
+            set appList to name of every application process whose background only is false
         end tell
         '''
         result = subprocess.run(
             ["osascript", "-e", script],
             capture_output=True,
-            text=True,
-            check=True
+            text=True
         )
-        apps = [app.strip() for app in result.stdout.strip().split(", ") if app.strip()]
-        print(f"Currently running apps: {apps}")  # Debug logging
-        return apps
-    except subprocess.CalledProcessError as e:
-        print(f"Error getting running apps: {e}")
-        return []
+        
+        if result.returncode == 0:
+            apps = [app.strip() for app in result.stdout.strip().split(", ") if app.strip()]
+            
+            # Filter out common system processes and helpers
+            main_apps = []
+            for app in apps:
+                # Skip helper processes and system services
+                if any(helper in app for helper in ["Helper", "Agent", "Service", "daemon", "agent"]):
+                    continue
+                # Skip system UI components
+                if app in ["WindowManager", "SystemUIServer", "Control Center", "Dock", "Wallpaper", 
+                          "Notification Center", "loginwindow", "Spotlight", "Wi-Fi", "System Settings", "App Store"]:
+                    continue
+                main_apps.append(app)
+                
+            print(f"Currently running apps: {main_apps}")  # Debug logging
+            return main_apps
+        else:
+            print(f"Error getting running apps: {result.stderr}")
+            return []
     except Exception as e:
-        print(f"Unexpected error getting running apps: {e}")
+        print(f"Error getting running apps: {e}")
         return []
 
 def get_chrome_url():
