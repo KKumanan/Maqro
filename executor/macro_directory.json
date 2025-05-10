@@ -69,6 +69,24 @@
             "date_modified": "2025-05-10T12:44:54.430586",
             "applications_involved": [],
             "active_status": true
+        },
+        {
+            "name": "macro-011",
+            "date_created": "2025-05-10T13:47:22.399084",
+            "date_modified": "2025-05-10T13:47:22.399084",
+            "applications_involved": [
+                "Spotify"
+            ],
+            "active_status": true
+        },
+        {
+            "name": "macro-012",
+            "date_created": "2025-05-10T13:49:06.688296",
+            "date_modified": "2025-05-10T13:49:06.688296",
+            "applications_involved": [
+                "Spotify"
+            ],
+            "active_status": true
         }
     ]
 }
