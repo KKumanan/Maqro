@@ -1,0 +1,2 @@
+(()=>{"use strict";console.log("Popup script loaded"),document.addEventListener("DOMContentLoaded",(()=>{const t=document.getElementById("app");t&&(t.textContent="Extension is working!")}))})();
+//# sourceMappingURL=popup.js.map

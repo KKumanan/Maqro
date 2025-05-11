@@ -1,0 +1,35 @@
+{
+  "name": "macro-engine-activity-tracker",
+  "version": "0.1.0",
+  "description": "Chrome extension for collecting user activity data to suggest workflow macros",
+  "private": true,
+  "scripts": {
+    "dev": "webpack --watch --config webpack.config.js --mode=development",
+    "build": "webpack --config webpack.config.js --mode=production",
+    "lint": "eslint src/**/*.ts"
+  },
+  "keywords": [
+    "chrome-extension",
+    "activity-tracking",
+    "workflow",
+    "macros",
+    "productivity"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/chrome": "^0.0.260",
+    "@types/uuid": "^10.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "copy-webpack-plugin": "^12.0.2",
+    "eslint": "^8.55.0",
+    "ts-loader": "^9.5.2",
+    "typescript": "^5.8.3",
+    "webpack": "^5.99.8",
+    "webpack-cli": "^6.0.1"
+  },
+  "dependencies": {
+    "uuid": "^9.0.1"
+  }
+}

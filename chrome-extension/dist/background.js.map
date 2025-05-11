@@ -1,0 +1,1 @@
+{"version":3,"file":"background.js","mappings":"mBAAAA,QAAQC,IAAI,gC","sources":["webpack://macro-engine-activity-tracker/./src/background.ts"],"sourcesContent":["console.log('Background script initialized');\n"],"names":["console","log"],"sourceRoot":""}

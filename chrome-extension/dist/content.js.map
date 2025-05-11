@@ -1,0 +1,1 @@
+{"version":3,"file":"content.js","mappings":"mBAAAA,QAAQC,IAAI,wB","sources":["webpack://macro-engine-activity-tracker/./src/content.ts"],"sourcesContent":["console.log('Content script loaded');\n"],"names":["console","log"],"sourceRoot":""}
