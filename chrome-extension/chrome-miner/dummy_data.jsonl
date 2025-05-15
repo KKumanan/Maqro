@@ -1,0 +1,108 @@
+[
+    {
+        "event_type": "page_view",
+        "url": "https://www.google.com",
+        "title": "Google",
+        "timestamp": "2024-03-15T10:00:00Z",
+        "duration": 45
+    },
+    {
+        "event_type": "click",
+        "url": "https://www.google.com",
+        "selector": "input[name='q']",
+        "x": 300,
+        "y": 200,
+        "timestamp": "2024-03-15T10:00:45Z"
+    },
+    {
+        "event_type": "key",
+        "url": "https://www.google.com",
+        "key": "p",
+        "mods": {"ctrl": false, "alt": false, "cmd": false},
+        "timestamp": "2024-03-15T10:00:46Z"
+    },
+    {
+        "event_type": "key",
+        "url": "https://www.google.com",
+        "key": "y",
+        "mods": {"ctrl": false, "alt": false, "cmd": false},
+        "timestamp": "2024-03-15T10:00:47Z"
+    },
+    {
+        "event_type": "key",
+        "url": "https://www.google.com",
+        "key": "t",
+        "mods": {"ctrl": false, "alt": false, "cmd": false},
+        "timestamp": "2024-03-15T10:00:48Z"
+    },
+    {
+        "event_type": "key",
+        "url": "https://www.google.com",
+        "key": "h",
+        "mods": {"ctrl": false, "alt": false, "cmd": false},
+        "timestamp": "2024-03-15T10:00:49Z"
+    },
+    {
+        "event_type": "key",
+        "url": "https://www.google.com",
+        "key": "Enter",
+        "mods": {"ctrl": false, "alt": false, "cmd": false},
+        "timestamp": "2024-03-15T10:00:50Z"
+    },
+    {
+        "event_type": "page_view",
+        "url": "https://www.google.com/search?q=python",
+        "title": "python - Google Search",
+        "timestamp": "2024-03-15T10:00:51Z",
+        "duration": 120
+    },
+    {
+        "event_type": "scroll",
+        "url": "https://www.google.com/search?q=python",
+        "scrollY": 300,
+        "timestamp": "2024-03-15T10:01:00Z"
+    },
+    {
+        "event_type": "click",
+        "url": "https://www.google.com/search?q=python",
+        "selector": "a[href*='python.org']",
+        "x": 150,
+        "y": 400,
+        "timestamp": "2024-03-15T10:01:30Z"
+    },
+    {
+        "event_type": "page_view",
+        "url": "https://www.python.org",
+        "title": "Welcome to Python.org",
+        "timestamp": "2024-03-15T10:01:31Z",
+        "duration": 180
+    },
+    {
+        "event_type": "scroll",
+        "url": "https://www.python.org",
+        "scrollY": 500,
+        "timestamp": "2024-03-15T10:02:00Z"
+    },
+    {
+        "event_type": "click",
+        "url": "https://www.python.org",
+        "selector": "a[href*='downloads']",
+        "x": 200,
+        "y": 600,
+        "timestamp": "2024-03-15T10:02:30Z"
+    },
+    {
+        "event_type": "page_view",
+        "url": "https://www.python.org/downloads/",
+        "title": "Download Python",
+        "timestamp": "2024-03-15T10:02:31Z",
+        "duration": 90
+    },
+    {
+        "event_type": "focus",
+        "url": "https://www.python.org/downloads/",
+        "state": "blur",
+        "timestamp": "2024-03-15T10:04:00Z"
+    }
+]
+  
