@@ -52,7 +52,7 @@ Events are collected in a standardized JSON format:
    - Open Chrome Extensions (chrome://extensions/)
    - Enable Developer Mode
    - Click "Load unpacked"
-   - Select the `chrome-extension` directory
+   - Select the `chrome-extension` directory - dist
 
 ### Node.js Server
 1. Start the server:
@@ -71,13 +71,6 @@ Events are collected in a standardized JSON format:
 
 ## Development Notes
 
-### Recent Changes
-- Removed Chrome storage usage in favor of direct server communication
-- Standardized event format for pattern mining
-- Added throttling for scroll events
-- Implemented element selector generation for click events
-- Added focus/blur state tracking
-
 ### Testing
 1. Start the Node.js server
 2. Load the Chrome extension
@@ -89,18 +82,3 @@ Events are collected in a standardized JSON format:
 - Use Chrome DevTools to view extension logs
 - Check server console for event reception
 - Monitor network tab for API calls
-
-## Next Steps
-- Implement pattern mining algorithm
-- Add user feedback mechanism
-- Create macro recommendation UI
-- Add event filtering options
-- Implement error handling and retry logic
-
-## Contributing
-1. Create a feature branch
-2. Make your changes
-3. Submit a pull request
-
-## License
-[Your License Here]
