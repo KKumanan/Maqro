@@ -38,6 +38,17 @@ Events are collected in a standardized JSON format:
    - Receives events via HTTP POST
    - Stores events for pattern mining
    - Provides API endpoints for event management
+   - Automatically exports events to JSON files
+
+### Automated Export System
+The Node.js server includes an automated export system that:
+- Exports events every 5 minutes
+- Creates timestamped JSON files in `server/exports/` directory
+- Triggers export when event count reaches 1000
+- Supports manual export via API endpoint
+- Clears events from memory after successful export
+
+Export files are named with timestamps: `events_2024-03-15T10-00-51Z.json`
 
 ## Setup
 
@@ -68,6 +79,7 @@ Events are collected in a standardized JSON format:
 - `POST /api/events` - Receive events from extension
 - `GET /api/events` - Retrieve collected events
 - `DELETE /api/events` - Clear collected events
+- `POST /api/export` - Manually trigger event export
 
 ## Development Notes
 
@@ -77,8 +89,10 @@ Events are collected in a standardized JSON format:
 3. Visit any webpage
 4. Perform actions (click, scroll, etc.)
 5. Check server logs for incoming events
+6. Verify exports in `server/exports/` directory
 
 ### Debugging
 - Use Chrome DevTools to view extension logs
 - Check server console for event reception
 - Monitor network tab for API calls
+- Check `server/exports/` for exported files
