@@ -1,26 +1,47 @@
-export interface ClickEvent {
-    type: 'click';
-    x: number;
-    y: number;
-    timestamp: number;
-    url: string;
-    selector: string;
+export enum EventType {
+  PAGE_VIEW = 'page_view',
+  SCROLL = 'scroll',
+  CLICK = 'click',
+  FOCUS = 'focus'
 }
 
-export interface KeyEvent {
-    type: 'key';
-    key: string;
-    timestamp: number;
-    url: string;
+export interface BaseEvent {
+  event_type: EventType;
+  url: string;
+  timestamp: string;
 }
 
-export interface ScrollEvent {
-    type: 'scroll';
-    timestamp: number;
-    url: string;
-    scrollY: number;
-    scrollX: number;
+export interface PageViewEvent extends BaseEvent {
+  event_type: EventType.PAGE_VIEW;
+  title: string;
+  duration: number;
 }
 
+export interface ScrollEvent extends BaseEvent {
+  event_type: EventType.SCROLL;
+  scrollY: number;
+}
 
-export type UserEvent = ClickEvent | KeyEvent | ScrollEvent;
+export interface ClickEvent extends BaseEvent {
+  event_type: EventType.CLICK;
+  selector: string;
+  x: number;
+  y: number;
+}
+
+export interface FocusEvent extends BaseEvent {
+  event_type: EventType.FOCUS;
+  state: 'focus' | 'blur';
+}
+
+export type UserEvent = 
+  | PageViewEvent 
+  | ScrollEvent 
+  | ClickEvent 
+  | FocusEvent;
+
+export interface Message {
+  type: string;
+  event?: UserEvent;
+  enabled?: boolean;
+}

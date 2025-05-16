@@ -1,18 +1,110 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>Maqro Extension</title>
+  <title>Maqro</title>
   <style>
     body {
-      width: 300px;
-      padding: 10px;
+      width: 400px;
+      padding: 16px;
       font-family: system-ui, -apple-system, sans-serif;
+    }
+    .server-status {
+      padding: 8px;
+      margin-bottom: 16px;
+      border-radius: 4px;
+      text-align: center;
+      font-weight: bold;
+    }
+    .server-status.checking {
+      background: #fff3cd;
+      color: #856404;
+    }
+    .server-status.connected {
+      background: #d4edda;
+      color: #155724;
+    }
+    .server-status.disconnected {
+      background: #f8d7da;
+      color: #721c24;
+    }
+    .status {
+      padding: 8px;
+      margin-bottom: 16px;
+      border-radius: 4px;
+    }
+    .status.active {
+      background: #e6ffe6;
+      color: #006600;
+    }
+    .status.inactive {
+      background: #ffe6e6;
+      color: #660000;
+    }
+    .events {
+      max-height: 400px;
+      overflow-y: auto;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 8px;
+    }
+    .event {
+      margin-bottom: 8px;
+      padding: 8px;
+      border-radius: 4px;
+      background: #f5f5f5;
+    }
+    .event-type {
+      font-weight: bold;
+      color: #0066cc;
+    }
+    .event-time {
+      color: #666;
+      font-size: 0.9em;
+    }
+    .event-url {
+      color: #666;
+      font-size: 0.9em;
+      word-break: break-all;
+    }
+    .button-group {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    button {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 4px;
+      background: #0066cc;
+      color: white;
+      cursor: pointer;
+      flex: 1;
+    }
+    button:hover {
+      background: #0052a3;
+    }
+    button:disabled {
+      background: #cccccc;
+      cursor: not-allowed;
+    }
+    .title {
+      font-size: 1.2em;
+      font-weight: bold;
+      margin-bottom: 16px;
+      color: #0066cc;
+      text-align: center;
     }
   </style>
 </head>
 <body>
-  <div id="app">Loading...</div>
+  <div class="title">Maqro</div>
+  <div id="serverStatus" class="server-status checking">Server: Checking...</div>
+  <div id="status" class="status active">Collecting events...</div>
+  <div class="button-group">
+    <button id="toggleCollection">Stop Collection</button>
+    <button id="clearEvents">Clear Events</button>
+  </div>
+  <div id="events" class="events"></div>
   <script src="popup.js"></script>
 </body>
 </html>
