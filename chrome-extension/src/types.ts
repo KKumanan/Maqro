@@ -40,8 +40,41 @@ export type UserEvent =
   | ClickEvent 
   | FocusEvent;
 
-export interface Message {
-  type: string;
-  event?: UserEvent;
-  enabled?: boolean;
+// Enhanced message types with better type safety
+export type Message = 
+  | { type: 'USER_EVENT'; event: UserEvent }
+  | { type: 'TOGGLE_COLLECTION'; enabled: boolean }
+  | { type: 'GET_OPERATIONAL_STATE' }
+  | { type: 'HEALTH_CHECK' };
+
+// Statistics interface for monitoring extension performance
+export interface ExtensionStats {
+  totalEventsSent: number;
+  totalEventsDropped: number;
+  sendFailureCount: number;
+  connectionFailures?: number;
+}
+
+// Response interfaces for better type safety
+export interface HealthCheckResponse {
+  success: boolean;
+  isAlive: boolean;
+}
+
+export interface OperationalStateResponse {
+  success: boolean;
+  isCollecting: boolean;
+  stats: ExtensionStats;
+}
+
+export interface ToggleCollectionResponse {
+  success: boolean;
+  isCollecting: boolean;
+}
+
+// Global window extension for content script guard
+declare global {
+  interface Window {
+    maqroContentScriptLoaded?: boolean;
+  }
 }
