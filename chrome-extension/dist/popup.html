@@ -6,144 +6,230 @@
     body {
       width: 400px;
       padding: 16px;
-      font-family: system-ui, -apple-system, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      background: linear-gradient(
+        135deg,
+        #b2bde6 0%,
+        #aab1d5 15%,
+        #b6a3d7 30%,
+        #dca7c6 45%,
+        #a2d8c6 100%
+      );
+      min-height: 100vh;
+      margin: 0;
     }
-    .server-status {
-      padding: 8px;
-      margin-bottom: 16px;
-      border-radius: 4px;
+
+    .title {
+      font-size: 1.8rem;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      color: #1d1d1f;
       text-align: center;
-      font-weight: bold;
+      padding: 0.75rem 1rem;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 12px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
+
+    .server-status {
+      padding: 12px;
+      margin-bottom: 1rem;
+      border-radius: 12px;
+      text-align: center;
+      font-weight: 500;
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
     .server-status.checking {
-      background: #fff3cd;
+      background: rgba(255, 243, 205, 0.9);
       color: #856404;
     }
+
     .server-status.connected {
-      background: #d4edda;
+      background: rgba(212, 237, 218, 0.9);
       color: #155724;
     }
+
     .server-status.disconnected {
-      background: #f8d7da;
+      background: rgba(248, 215, 218, 0.9);
       color: #721c24;
     }
+
     .status {
-      padding: 8px;
-      margin-bottom: 16px;
-      border-radius: 4px;
+      padding: 12px;
+      margin-bottom: 1rem;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
+
     .status.active {
-      background: #e6ffe6;
+      background: rgba(230, 255, 230, 0.9);
       color: #006600;
     }
+
     .status.inactive {
-      background: #ffe6e6;
+      background: rgba(255, 230, 230, 0.9);
       color: #660000;
     }
+
+    .button-group {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 1rem;
+    }
+
+    button {
+      padding: 10px 16px;
+      border: none;
+      border-radius: 12px;
+      background: #34C759;
+      color: white;
+      cursor: pointer;
+      flex: 1;
+      font-weight: 500;
+      transition: transform 0.2s ease, background-color 0.2s ease;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    button:hover {
+      background: #30B350;
+      transform: scale(1.02);
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+
+    button:disabled {
+      background: #cccccc;
+      cursor: not-allowed;
+      transform: none;
+    }
+
     .events {
-      max-height: 400px;
+      max-height: 300px;
       overflow-y: auto;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      padding: 8px;
+      border-radius: 12px;
+      padding: 12px;
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin-bottom: 1rem;
     }
+
     .event {
-      margin-bottom: 8px;
-      padding: 8px;
-      border-radius: 4px;
-      background: #f5f5f5;
+      margin-bottom: 12px;
+      padding: 12px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     }
+
     .event-type {
-      font-weight: bold;
-      color: #0066cc;
+      font-weight: 600;
+      color: #1d1d1f;
     }
+
     .event-time {
       color: #666;
       font-size: 0.9em;
     }
+
     .event-url {
       color: #666;
       font-size: 0.9em;
       word-break: break-all;
     }
-    .button-group {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 16px;
-    }
-    button {
-      padding: 8px 16px;
-      border: none;
-      border-radius: 4px;
-      background: #0066cc;
-      color: white;
-      cursor: pointer;
-      flex: 1;
-    }
-    button:hover {
-      background: #0052a3;
-    }
-    button:disabled {
-      background: #cccccc;
-      cursor: not-allowed;
-    }
-    .title {
-      font-size: 1.2em;
-      font-weight: bold;
-      margin-bottom: 16px;
-      color: #0066cc;
-      text-align: center;
-    }
+
     .macro-section {
-      margin-top: 24px;
-      border-top: 1px solid #ccc;
-      padding-top: 16px;
+      margin-top: 1.5rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      padding-top: 1rem;
     }
+
+    .macro-section h2 {
+      color: #1d1d1f;
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
     .macro-list {
       max-height: 300px;
       overflow-y: auto;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      padding: 8px;
-      margin-top: 8px;
+      border-radius: 12px;
+      padding: 12px;
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
+
     .macro-item {
       margin-bottom: 12px;
       padding: 12px;
-      border-radius: 4px;
-      background: #f8f9fa;
-      border: 1px solid #e9ecef;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     }
+
     .macro-title {
-      font-weight: bold;
-      color: #0066cc;
+      font-weight: 600;
+      color: #1d1d1f;
       margin-bottom: 4px;
     }
+
     .macro-description {
       color: #666;
       font-size: 0.9em;
       margin-bottom: 8px;
     }
+
     .macro-actions {
       display: flex;
       gap: 8px;
     }
+
     .macro-actions button {
       flex: 1;
-      padding: 6px 12px;
+      padding: 8px 12px;
       font-size: 0.9em;
     }
+
     .macro-actions button.approve {
-      background: #28a745;
+      background: #34C759;
     }
+
     .macro-actions button.approve:hover {
-      background: #218838;
+      background: #30B350;
     }
+
     .macro-actions button.reject {
-      background: #dc3545;
+      background: #FF3B30;
     }
+
     .macro-actions button.reject:hover {
-      background: #c82333;
+      background: #E02E24;
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(0, 0, 0, 0.3);
     }
   </style>
 </head>
