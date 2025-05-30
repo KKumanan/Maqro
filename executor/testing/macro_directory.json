@@ -1,0 +1,92 @@
+{
+    "macros": [
+        {
+            "name": "macro-001",
+            "date_created": "2025-05-10T12:44:54.428442",
+            "date_modified": "2025-05-10T12:44:54.428442",
+            "applications_involved": [],
+            "active_status": true
+        },
+        {
+            "name": "macro-002",
+            "date_created": "2025-05-10T12:44:54.428827",
+            "date_modified": "2025-05-10T12:44:54.428827",
+            "applications_involved": [],
+            "active_status": true
+        },
+        {
+            "name": "macro-003",
+            "date_created": "2025-05-10T12:44:54.429054",
+            "date_modified": "2025-05-10T12:44:54.429054",
+            "applications_involved": [],
+            "active_status": true
+        },
+        {
+            "name": "macro-004",
+            "date_created": "2025-05-10T12:44:54.429247",
+            "date_modified": "2025-05-10T12:44:54.429247",
+            "applications_involved": [],
+            "active_status": true
+        },
+        {
+            "name": "macro-005",
+            "date_created": "2025-05-10T12:44:54.429611",
+            "date_modified": "2025-05-10T12:44:54.429611",
+            "applications_involved": [],
+            "active_status": true
+        },
+        {
+            "name": "macro-006",
+            "date_created": "2025-05-10T12:44:54.429821",
+            "date_modified": "2025-05-10T12:44:54.429821",
+            "applications_involved": [],
+            "active_status": true
+        },
+        {
+            "name": "macro-007",
+            "date_created": "2025-05-10T12:44:54.430018",
+            "date_modified": "2025-05-10T12:44:54.430018",
+            "applications_involved": [],
+            "active_status": true
+        },
+        {
+            "name": "macro-008",
+            "date_created": "2025-05-10T12:44:54.430214",
+            "date_modified": "2025-05-10T12:44:54.430214",
+            "applications_involved": [],
+            "active_status": true
+        },
+        {
+            "name": "macro-009",
+            "date_created": "2025-05-10T12:44:54.430398",
+            "date_modified": "2025-05-10T12:44:54.430398",
+            "applications_involved": [],
+            "active_status": true
+        },
+        {
+            "name": "macro-010",
+            "date_created": "2025-05-10T12:44:54.430586",
+            "date_modified": "2025-05-10T12:44:54.430586",
+            "applications_involved": [],
+            "active_status": true
+        },
+        {
+            "name": "macro-011",
+            "date_created": "2025-05-10T13:47:22.399084",
+            "date_modified": "2025-05-10T13:47:22.399084",
+            "applications_involved": [
+                "Spotify"
+            ],
+            "active_status": true
+        },
+        {
+            "name": "macro-012",
+            "date_created": "2025-05-10T13:49:06.688296",
+            "date_modified": "2025-05-10T13:49:06.688296",
+            "applications_involved": [
+                "Spotify"
+            ],
+            "active_status": true
+        }
+    ]
+}

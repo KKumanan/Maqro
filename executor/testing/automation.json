@@ -1,0 +1,23 @@
+{
+    "name": "Open Gmail and send a draft email",
+    "steps": [
+      { "action": "goto", "url": "https://www.google.com" },
+      { "action": "wait", "milliseconds": 2000 },
+      { "action": "click", "selector": "a[href*='mail.google.com']" },
+      { "action": "wait_for_url", "url_contains": "accounts.google.com" },
+      { "action": "wait", "milliseconds": 2000 },
+      { "action": "type", "selector": "input[type='email']", "text": "YOUR_EMAIL" },
+      { "action": "click", "selector": "button[type='submit']" },
+      { "action": "wait", "milliseconds": 2000 },
+      { "action": "type", "selector": "input[type='password']", "text": "YOUR_PASSWORD" },
+      { "action": "click", "selector": "button[type='submit']" },
+      { "action": "wait_for_url", "url_contains": "mail.google.com" },
+      { "action": "wait", "milliseconds": 5000 },
+      { "action": "click", "selector": "div[role='button'][gh='cm']" },
+      { "action": "wait", "milliseconds": 2000 },
+      { "action": "type", "selector": "textarea[name='to']", "text": "example@example.com" },
+      { "action": "type", "selector": "input[name='subjectbox']", "text": "Test Subject" },
+      { "action": "type", "selector": "div[aria-label='Message Body']", "text": "Hello, this is a test email." },
+      { "action": "click", "selector": "div[aria-label*='Send'][role='button']" }
+    ]
+  }
