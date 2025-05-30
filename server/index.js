@@ -8,8 +8,9 @@ const port = 3000;
 
 // Configuration
 const config = {
-  exportInterval: 5 * 60 * 1000, // Export every 5 minutes
-  maxEventsPerFile: 1000, // Maximum events per file
+  exportInterval: 5 * 60 * 1000,  // Export every 5 minutes 
+  maxEventsPerFile: 1000,         // Maximum events per file 
+  maxBatchSize: 50,               // Maximum events per batch 
   exportsDir: path.join(__dirname, 'exports')
 };
 
@@ -19,6 +20,7 @@ app.use(express.json());
 
 // In-memory storage for testing
 let events = [];
+let patterns = []; // Store patterns received from miner
 
 // Automated export function
 async function exportEvents() {
@@ -148,6 +150,55 @@ app.post('/api/export', async (req, res) => {
       error: error.message 
     });
   }
+});
+
+// API endpoint to receive patterns from miner
+app.post('/api/patterns', (req, res) => {
+  try {
+    const { patterns: newPatterns } = req.body;
+    if (!Array.isArray(newPatterns)) {
+      console.error('Received invalid patterns format:', req.body);
+      return res.status(400).json({ success: false, error: 'Invalid patterns format' });
+    }
+
+    patterns.push(...newPatterns);
+    console.log('\n=== New Patterns Received from Miner ===');
+    console.log(`Received ${newPatterns.length} new patterns`);
+    console.log(`Total patterns in storage: ${patterns.length}`);
+    
+    newPatterns.forEach((pattern, index) => {
+      console.log(`Pattern ${index + 1}:`);
+      console.log(`  Type: ${pattern.type || 'unknown'}`);
+      console.log(`  Confidence: ${pattern.confidence || 'N/A'}`);
+      console.log(`  Description: ${pattern.description || 'No description'}`);
+      console.log(`  Created: ${new Date(pattern.timestamp || Date.now()).toLocaleString()}`);
+      console.log('------------------------');
+    });
+
+    res.json({ 
+      success: true, 
+      count: newPatterns.length,
+      message: 'Patterns received and ready for recommendation'
+    });
+  } catch (error) {
+    console.error('Error storing patterns:', error);
+    res.status(500).json({ success: false, error: error.message });
+  }
+});
+
+// API endpoint to get patterns for recommender
+app.get('/api/patterns', (req, res) => {
+  console.log(`\n=== Request for patterns ===`);
+  console.log(`Total patterns: ${patterns.length}\n`);
+  res.json({ patterns });
+});
+
+// API endpoint to clear patterns
+app.delete('/api/patterns', (req, res) => {
+  console.log('\n=== Clearing all patterns ===');
+  console.log(`Cleared ${patterns.length} patterns\n`);
+  patterns = [];
+  res.json({ success: true });
 });
 
 // Start server
