@@ -1,4 +1,6 @@
 import { UserEvent, Message } from './types';
+import { processEvents } from './pattern_integration';
+import { Macro } from './macro_recommender';
 
 // ==================== CONFIGURATION ====================
 
@@ -18,18 +20,21 @@ const PERFORMANCE_CONFIG = {
   maxStoredEvents: 1000, // Prevent infinite accumulation
   storageCleanupThreshold: 0.7, // Clean up at 70%
   keepaliveIntervalMinutes: 1, // Reduced service worker overhead
+  patternAnalysisIntervalMinutes: 30, // Analyze patterns every 30 minutes
 } as const;
 
 // Storage Keys
 const STORAGE_KEYS = {
   events: 'maqroUserEvents',
   stats: 'maqroStats',
+  suggestedMacros: 'maqroSuggestedMacros',
 } as const;
 
 // Alarm Names
 const ALARM_NAMES = {
   batchSend: 'maqroBatchSendAlarm',
   keepalive: 'maqroKeepaliveAlarm',
+  patternAnalysis: 'maqroPatternAnalysisAlarm',
 } as const;
 
 // Feature Flags
@@ -377,6 +382,7 @@ async function initializeExtension(): Promise<void> {
   const alarms = [
     { name: ALARM_NAMES.batchSend, periodInMinutes: PERFORMANCE_CONFIG.batchIntervalMinutes },
     { name: ALARM_NAMES.keepalive, periodInMinutes: PERFORMANCE_CONFIG.keepaliveIntervalMinutes },
+    { name: ALARM_NAMES.patternAnalysis, periodInMinutes: PERFORMANCE_CONFIG.patternAnalysisIntervalMinutes },
   ];
   
   for (const alarm of alarms) {
@@ -415,6 +421,11 @@ chrome.alarms.onAlarm.addListener((alarm) => {
       if (FEATURE_FLAGS.enablePerformanceLogging) {
         log('info', 'Keepalive alarm triggered');
       }
+      break;
+      
+    case ALARM_NAMES.patternAnalysis:
+      log('info', 'Pattern analysis alarm triggered');
+      analyzePatterns();
       break;
   }
 });
@@ -493,4 +504,45 @@ chrome.windows.onFocusChanged.addListener((windowId) => {
     }
   }
 });
+
+// Add after initializeExtension function
+async function analyzePatterns(): Promise<void> {
+  try {
+    // Get events from storage
+    const result = await chrome.storage.local.get(STORAGE_KEYS.events);
+    const events: UserEvent[] = result[STORAGE_KEYS.events] || [];
+    
+    if (events.length === 0) {
+      log('info', 'No events to analyze for patterns.');
+      return;
+    }
+
+    // Process events and get macro suggestions
+    const suggestedMacros = await processEvents(events);
+    
+    if (suggestedMacros.length > 0) {
+      // Get existing suggested macros
+      const existingResult = await chrome.storage.local.get(STORAGE_KEYS.suggestedMacros);
+      const existingMacros = existingResult[STORAGE_KEYS.suggestedMacros] || [];
+      
+      // Merge new suggestions with existing ones, avoiding duplicates
+      const mergedMacros = [...existingMacros];
+      for (const newMacro of suggestedMacros) {
+        const isDuplicate = existingMacros.some(
+          (existing: Macro) => existing.title === newMacro.title && 
+                     existing.applications[0] === newMacro.applications[0]
+        );
+        if (!isDuplicate) {
+          mergedMacros.push(newMacro);
+        }
+      }
+      
+      // Save updated suggestions
+      await chrome.storage.local.set({ [STORAGE_KEYS.suggestedMacros]: mergedMacros });
+      log('info', `Added ${suggestedMacros.length} new macro suggestions.`);
+    }
+  } catch (error) {
+    log('error', 'Error analyzing patterns:', error);
+  }
+}
   

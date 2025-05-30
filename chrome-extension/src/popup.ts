@@ -1,4 +1,6 @@
-import { UserEvent } from './types';
+/// <reference types="chrome"/>
+
+import { UserEvent, Macro, OperationalStateResponse, ToggleCollectionResponse } from './types';
 
 // Remove local isCollecting state, will get from background
 // let isCollecting = true; 
@@ -129,6 +131,96 @@ async function clearEvents() {
   }
 }
 
+// Fetch macros from API
+async function fetchMacros() {
+  const macroListDiv = document.getElementById('macroList')!;
+  if (!macroListDiv) return;
+
+  if (serverStatus !== 'connected') {
+    await checkServerStatus();
+    if (serverStatus !== 'connected') {
+      macroListDiv.innerHTML = '<div class="macro-item"><div class="macro-title">Server disconnected. Cannot fetch macros.</div></div>';
+      return;
+    }
+  }
+
+  try {
+    const response = await fetch('http://localhost:3000/api/macros');
+    if (!response.ok) {
+      throw new Error(`API error: ${response.status} ${await response.text()}`);
+    }
+    const data = await response.json();
+    
+    if (data.macros && Array.isArray(data.macros) && data.macros.length > 0) {
+      macroListDiv.innerHTML = data.macros
+        .filter((macro: Macro) => macro.status === 'pending')
+        .map((macro: Macro) => `
+          <div class="macro-item" data-macro-id="${macro.id}">
+            <div class="macro-title">${macro.title}</div>
+            <div class="macro-description">${macro.description}</div>
+            <div class="macro-actions">
+              <button class="approve" onclick="approveMacro('${macro.id}')">Approve</button>
+              <button class="reject" onclick="rejectMacro('${macro.id}')">Reject</button>
+            </div>
+          </div>
+        `).join('');
+    } else {
+      macroListDiv.innerHTML = '<div class="macro-item"><div class="macro-title">No macros suggested yet.</div></div>';
+    }
+  } catch (error: any) {
+    console.error('Error fetching macros:', error.message);
+    macroListDiv.innerHTML = '<div class="macro-item"><div class="macro-title">Could not fetch macros.</div></div>';
+  }
+}
+
+// Handle macro approval
+async function approveMacro(macroId: string) {
+  if (serverStatus !== 'connected') {
+    alert('Cannot approve macro: Server is not connected');
+    return;
+  }
+
+  try {
+    const response = await fetch(`http://localhost:3000/api/macros/${macroId}/approve`, {
+      method: 'POST'
+    });
+    
+    if (!response.ok) {
+      throw new Error(`Failed to approve macro: ${response.status} ${await response.text()}`);
+    }
+    
+    // Refresh macro list
+    fetchMacros();
+  } catch (error: any) {
+    console.error('Error approving macro:', error.message);
+    alert('Failed to approve macro. Please try again.');
+  }
+}
+
+// Handle macro rejection
+async function rejectMacro(macroId: string) {
+  if (serverStatus !== 'connected') {
+    alert('Cannot reject macro: Server is not connected');
+    return;
+  }
+
+  try {
+    const response = await fetch(`http://localhost:3000/api/macros/${macroId}/reject`, {
+      method: 'POST'
+    });
+    
+    if (!response.ok) {
+      throw new Error(`Failed to reject macro: ${response.status} ${await response.text()}`);
+    }
+    
+    // Refresh macro list
+    fetchMacros();
+  } catch (error: any) {
+    console.error('Error rejecting macro:', error.message);
+    alert('Failed to reject macro. Please try again.');
+  }
+}
+
 // Initialize popup
 document.addEventListener('DOMContentLoaded', () => {
   const toggleButton = document.getElementById('toggleCollection')!;
@@ -145,7 +237,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Get initial collection state from background script
-  chrome.runtime.sendMessage({ type: 'GET_OPERATIONAL_STATE' }, (response) => {
+  chrome.runtime.sendMessage({ type: 'GET_OPERATIONAL_STATE' }, (response: OperationalStateResponse) => {
     if (chrome.runtime.lastError) {
       console.error('Error getting initial operational state:', chrome.runtime.lastError.message);
       updateStatus(true); // Fallback UI to 'Collecting'
@@ -172,7 +264,7 @@ document.addEventListener('DOMContentLoaded', () => {
     chrome.runtime.sendMessage({ 
       type: 'TOGGLE_COLLECTION', 
       enabled: intendedState 
-    }, (bgResponse) => {
+    }, (bgResponse: ToggleCollectionResponse) => {
       if (chrome.runtime.lastError) {
         console.error('Error toggling collection state:', chrome.runtime.lastError.message);
         // Revert UI if error communication with background
@@ -192,5 +284,11 @@ document.addEventListener('DOMContentLoaded', () => {
   
   checkServerStatus();
   fetchEvents();
+  fetchMacros();
   setInterval(fetchEvents, 5000);
+  setInterval(fetchMacros, 10000); // Refresh macros every 10 seconds
 });
+
+// Make functions available globally for onclick handlers
+(window as any).approveMacro = approveMacro;
+(window as any).rejectMacro = rejectMacro;

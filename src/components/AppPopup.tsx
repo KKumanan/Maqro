@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import './AppPopup.css';
 import brainIcon from '../assets/images/brain.png';
 import macroData from '../data/dummy_macro_feed.json';
+import MacroList from '../../chrome-extension/src/components/MacroList';
 
 interface Macro {
   id: string;

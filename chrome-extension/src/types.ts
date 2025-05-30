@@ -78,3 +78,17 @@ declare global {
     maqroContentScriptLoaded?: boolean;
   }
 }
+
+// Macro related types
+export interface Macro {
+  id: string;
+  title: string;
+  description: string;
+  pattern: UserEvent[];
+  status: 'pending' | 'approved' | 'rejected';
+}
+
+export interface MacroResponse {
+  success: boolean;
+  macros: Macro[];
+}
