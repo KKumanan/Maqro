@@ -1,0 +1,33 @@
+{
+    "macros": [
+      {
+        "id": "macro_001",
+        "action": "Compose an email to a client",
+        "date_created": "2024-03-20T10:00:00Z",
+        "date_modified": "2024-03-20T10:00:00Z",
+        "color": "#4285f4"
+      },
+      {
+        "id": "macro_002",
+        "action": "Open stock suite",
+        "date_created": "2024-03-20T11:30:00Z",
+        "date_modified": "2024-03-20T11:35:00Z",
+        "color": "#34a853"
+      },
+      {
+        "id": "macro_003",
+        "action": "Watch NBA",
+        "date_created": "2024-03-20T14:15:00Z",
+        "date_modified": "2024-03-20T14:20:00Z",
+        "color": "#ea4335"
+      },
+      {
+        "id": "macro_004",
+        "action": "Submit Science Homework",
+        "date_created": "2024-03-20T14:15:00Z",
+        "date_modified": "2024-03-20T14:20:00Z",
+        "color": "#fbbc05"
+      }
+    ]
+  }
+  
