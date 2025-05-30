@@ -11,6 +11,13 @@ The extension collects the following user interactions:
 - Click events (with element selectors and coordinates)
 - Focus/blur events (window state changes)
 
+### Macro Recommender UI
+The extension includes a macro recommender interface that:
+- Displays suggested macros based on user interactions
+- Allows users to approve or reject macro suggestions
+- Shows macro details including steps and frequency
+- Integrates with the event collection system
+
 ### Event Format
 Events are collected in a standardized JSON format:
 ```json
@@ -40,6 +47,12 @@ Events are collected in a standardized JSON format:
    - Provides API endpoints for event management
    - Automatically exports events to JSON files
 
+4. **Popup UI** (`AppPopup.tsx`)
+   - Displays macro recommendations
+   - Handles user feedback on macros
+   - Shows event collection status
+   - Provides extension controls
+
 ### Automated Export System
 The Node.js server includes an automated export system that:
 - Exports events every 5 minutes
@@ -53,17 +66,19 @@ Export files are named with timestamps: `events_2024-03-15T10-00-51Z.json`
 ## Setup
 
 ### Chrome Extension
-1. Build the extension:
+1. Install dependencies:
    ```bash
-   cd chrome-extension
    npm install
+   ```
+2. Build the extension:
+   ```bash
    npm run build
    ```
-2. Load the extension in Chrome:
+3. Load the extension in Chrome:
    - Open Chrome Extensions (chrome://extensions/)
    - Enable Developer Mode
    - Click "Load unpacked"
-   - Select the `chrome-extension` directory - dist
+   - Select the `dist` directory
 
 ### Node.js Server
 1. Start the server:
@@ -81,15 +96,28 @@ Export files are named with timestamps: `events_2024-03-15T10-00-51Z.json`
 - `DELETE /api/events` - Clear collected events
 - `POST /api/export` - Manually trigger event export
 
-## Development Notes
+## Testing
 
-### Testing
+### Unit Tests
+Run the test suite:
+```bash
+npm test
+```
+
+Tests are written using Jest and cover:
+- Component rendering
+- Event handling
+- State management
+- API integration
+
+### Manual Testing
 1. Start the Node.js server
 2. Load the Chrome extension
 3. Visit any webpage
 4. Perform actions (click, scroll, etc.)
 5. Check server logs for incoming events
 6. Verify exports in `server/exports/` directory
+7. Test macro recommendations in the popup UI
 
 ### Debugging
 - Use Chrome DevTools to view extension logs
