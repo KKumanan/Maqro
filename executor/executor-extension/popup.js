@@ -1,30 +1,28 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // Fetch the macros from the JSON file
-  fetch(chrome.runtime.getURL('saved-macro-list.json'))
+  // Fetch the macros from the Node.js server
+  fetch('http://localhost:3000/api/macros')
     .then(response => response.json())
-    .then(data => {
+    .then(macros => {
       const macroList = document.getElementById('macroList');
       
       // Create a button for each macro
-      data.macros.forEach(macro => {
+      macros.forEach(macro => {
         const button = document.createElement('button');
         button.className = 'macro-button';
         button.textContent = macro.action;
+        
+        // Apply custom color if it exists, otherwise use default
+        const color = macro.color || '#202124';
+        button.style.color = color;
+        button.style.borderColor = color;
+        
         button.addEventListener('click', () => {
-          // Here you can add the logic to execute the macro
-          console.log(`Executing macro: ${macro.id}`);
-          // chrome.tabs.create({
-          //   url: "https://www.google.com", // URL for the new tab
-          //   active: false // Keep focus on the current tab
-          // });
-          
           // Execute the corresponding macro script
           chrome.tabs.query({}, (tabs) => {
-            console.log(tabs[tabs.length - 1].url);
             chrome.scripting.executeScript({
-                  target: {tabId: tabs[tabs.length - 2].id},
-                  files: ['macro-scripts/' + macro.id + '.js']
-                });
+              target: {tabId: tabs[tabs.length - 1].id},
+              files: ['macro-scripts/' + macro.id + '.js']
+            });
           });
         });
         macroList.appendChild(button);
@@ -33,6 +31,6 @@ document.addEventListener('DOMContentLoaded', function() {
     .catch(error => {
       console.error('Error loading macros:', error);
       const macroList = document.getElementById('macroList');
-      macroList.innerHTML = '<p style="color: red;">Error loading macros</p>';
+      macroList.innerHTML = '<p class="error-message">Error loading macros</p>';
     });
 }); 

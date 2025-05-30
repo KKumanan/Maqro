@@ -9,10 +9,12 @@
   "permissions": [
     "storage",
     "scripting",
-    "tabs"
+    "tabs",
+    "activeTab"
   ],
   "host_permissions": [
-    "<all_urls>"
+    "<all_urls>",
+    "http://localhost:3000/*"
   ],
   "web_accessible_resources": [{
     "resources": ["macro-scripts/*"],
