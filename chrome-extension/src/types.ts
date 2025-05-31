@@ -1,25 +1,24 @@
+// ==================== EVENT TYPES ====================
+
 export enum EventType {
   PAGE_VIEW = 'page_view',
-  SCROLL = 'scroll',
   CLICK = 'click',
-  FOCUS = 'focus'
+  SCROLL = 'scroll',
+  FOCUS = 'focus',
 }
 
+// Base event interface
 export interface BaseEvent {
   event_type: EventType;
   url: string;
   timestamp: string;
 }
 
+// Specific event types
 export interface PageViewEvent extends BaseEvent {
   event_type: EventType.PAGE_VIEW;
   title: string;
   duration: number;
-}
-
-export interface ScrollEvent extends BaseEvent {
-  event_type: EventType.SCROLL;
-  scrollY: number;
 }
 
 export interface ClickEvent extends BaseEvent {
@@ -29,23 +28,40 @@ export interface ClickEvent extends BaseEvent {
   y: number;
 }
 
+export interface ScrollEvent extends BaseEvent {
+  event_type: EventType.SCROLL;
+  scrollY: number;
+}
+
 export interface FocusEvent extends BaseEvent {
   event_type: EventType.FOCUS;
   state: 'focus' | 'blur';
 }
 
-export type UserEvent = 
-  | PageViewEvent 
-  | ScrollEvent 
-  | ClickEvent 
-  | FocusEvent;
+// Union type for all events
+export type UserEvent = PageViewEvent | ClickEvent | ScrollEvent | FocusEvent;
 
-// Enhanced message types with better type safety
-export type Message = 
-  | { type: 'USER_EVENT'; event: UserEvent }
-  | { type: 'TOGGLE_COLLECTION'; enabled: boolean }
-  | { type: 'GET_OPERATIONAL_STATE' }
-  | { type: 'HEALTH_CHECK' };
+// ==================== MESSAGE TYPES ====================
+
+export interface BaseMessage {
+  type: string;
+}
+
+export interface UserEventsMessage extends BaseMessage {
+  type: 'USER_EVENTS';
+  events: UserEvent[];
+}
+
+export interface ToggleCollectionMessage extends BaseMessage {
+  type: 'TOGGLE_COLLECTION';
+  enabled: boolean;
+}
+
+export interface GetStateMessage extends BaseMessage {
+  type: 'GET_STATE';
+}
+
+export type Message = UserEventsMessage | ToggleCollectionMessage | GetStateMessage;
 
 // Statistics interface for monitoring extension performance
 export interface ExtensionStats {
