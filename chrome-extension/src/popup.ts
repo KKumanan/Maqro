@@ -151,14 +151,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
   
-  // Refresh every 30 seconds (reduced from 10)
+  // Refresh every 15 seconds 
   setInterval(() => {
     checkServer().then(() => {
       if (serverConnected) {
         loadEvents();
       }
     });
-  }, 30000);
+  }, 15000);
 });
 
 log('Popup initialized');
