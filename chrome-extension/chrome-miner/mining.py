@@ -1,221 +1,200 @@
-from collections import Counter, defaultdict
-from typing import List, Dict, Tuple, Set
-from prefixspan import PrefixSpan
-from datetime import datetime, timedelta
-import json
-from urllib.parse import urlparse
-import os
+import argparse
+import uuid
+from prefixspan import PrefixSpan  # pip install prefixspan
+from utils import stream_json_events, sessionize_events, extract_event_sequence
 
-def parse_iso_timestamp(ts_str: str) -> datetime:
+def generate_pattern_id(pattern):
     """
-    Parse ISO 8601 timestamp string to datetime object.
-    Handles both with and without timezone information.
+    Generate a meaningful ID for a pattern based on its content.
+    """
+    # Extract the first event type and target from the pattern
+    first_event = pattern[0]
+    if first_event.startswith("page_view:"):
+        # For page_view patterns, use the page title
+        page_title = first_event.split(":", 1)[1]
+        # Create a short, readable ID
+        return f"PATTERN_{page_title.replace(' ', '_')[:10].upper()}"
+    elif first_event.startswith("click:"):
+        # For click patterns, use the selector
+        selector = first_event.split(":", 1)[1]
+        return f"PATTERN_CLICK_{selector.replace('#', '').replace('[', '').replace(']', '').replace('=', '_')[:10].upper()}"
+    return f"PATTERN_{len(pattern)}"
+
+def encode_event(event):
+    """
+    Create a more detailed event encoding that includes relevant context.
+    """
+    if event["event_type"] == "page_view":
+        return f"page_view:{event['title']}"
+    elif event["event_type"] == "click":
+        return f"click:{event['selector']}"
+    elif event["event_type"] == "focus":
+        return f"focus:{event['state']}"
+    return event["event_type"]
+
+def build_sequences(filepath, gap_minutes, encode_fn):
+    """
+    1. Stream all events from JSON.
+    2. Sessionize them with threshold = gap_minutes.
+    3. For each session, extract a token sequence.
+    4. Return a list of sequences (list of lists).
+    """
+    ev_gen = stream_json_events(filepath)
+    sessions = sessionize_events(ev_gen, gap_minutes=gap_minutes)
     
-    Args:
-        ts_str: ISO 8601 timestamp string
-        
-    Returns:
-        datetime object
-    """
-    # Remove 'Z' and replace with '+00:00' for UTC
-    if ts_str.endswith('Z'):
-        ts_str = ts_str[:-1] + '+00:00'
-    return datetime.fromisoformat(ts_str)
-
-def extract_ngrams(events: List[Dict], n: int) -> Counter:
-    """
-    Extract contiguous n-gram patterns of event types from a list of events.
-
-    Args:
-        events: List of event dictionaries sorted by 'timestamp'.
-        n: Size of the n-gram window.
-
-    Returns:
-        Counter mapping n-gram tuples to their support counts.
-    """
-    seq = [e['event_type'] for e in events]
-    cnt = Counter()
-    for i in range(len(seq) - n + 1):
-        window = tuple(seq[i:i+n])
-        cnt[window] += 1
-    return cnt
-
-def group_into_sessions(events: List[Dict], max_gap: timedelta = timedelta(minutes=30)) -> List[List[Dict]]:
-    """
-    Group events into sessions based on time gaps.
+    print(f"Found {len(sessions)} sessions")
     
-    Args:
-        events: List of event dictionaries sorted by timestamp
-        max_gap: Maximum time gap between events to be considered part of same session
-        
-    Returns:
-        List of sessions, each a list of event dicts
-    """
-    if not events:
-        return []
-        
-    sessions = []
-    current_session = [events[0]]
+    sequences = []
+    for i, sess in enumerate(sessions):
+        tokens = extract_event_sequence(sess, encode_fn)
+        print(f"Session {i}: {tokens}")
+        # Include sequences with at least 2 events
+        if len(tokens) >= 2:
+            sequences.append(tokens)
     
-    for i in range(1, len(events)):
-        current_time = parse_iso_timestamp(events[i]['timestamp'])
-        prev_time = parse_iso_timestamp(events[i-1]['timestamp'])
-        
-        if current_time - prev_time > max_gap:
-            sessions.append(current_session)
-            current_session = [events[i]]
-        else:
-            current_session.append(events[i])
-            
-    if current_session:
-        sessions.append(current_session)
-        
-    return sessions
+    print(f"Built {len(sequences)} valid sequences")
+    return sequences
 
-def extract_domain_patterns(events: List[Dict]) -> Dict[str, List[str]]:
+def mine_prefixspan(sequences, min_support, max_pattern_length=None):
     """
-    Extract patterns of event types per domain.
-    
-    Args:
-        events: List of event dictionaries
-        
-    Returns:
-        Dictionary mapping domains to lists of event types
+    Use PrefixSpan to find frequent sequential patterns.
+    Returns a list of (pattern, support) tuples, sorted by support descending.
     """
-    domain_patterns = defaultdict(list)
-    
-    for event in events:
-        if 'url' in event:
-            domain = urlparse(event['url']).netloc
-            domain_patterns[domain].append(event['event_type'])
-            
-    return domain_patterns
-
-def analyze_user_behavior(events: List[Dict]) -> Dict:
-    """
-    Analyze user behavior patterns from events.
-    
-    Args:
-        events: List of event dictionaries
-        
-    Returns:
-        Dictionary containing various behavior metrics
-    """
-    behavior = {
-        'total_events': len(events),
-        'event_types': Counter(e['event_type'] for e in events),
-        'domains': Counter(urlparse(e['url']).netloc for e in events if 'url' in e),
-        'avg_session_duration': 0,
-        'common_sequences': []
-    }
-    
-    # Calculate average session duration
-    sessions = group_into_sessions(events)
-    if sessions:
-        durations = []
-        for session in sessions:
-            start = parse_iso_timestamp(session[0]['timestamp'])
-            end = parse_iso_timestamp(session[-1]['timestamp'])
-            durations.append((end - start).total_seconds())
-        behavior['avg_session_duration'] = sum(durations) / len(durations)
-    
-    # Find common sequences
-    for n in [2, 3]:
-        ngrams = extract_ngrams(events, n)
-        behavior['common_sequences'].extend(ngrams.most_common(5))
-    
-    return behavior
-
-def mine_prefixspan(sessions: List[List[Dict]], min_support: int) -> List[Tuple[Tuple[str, ...], int]]:
-    """
-    Mine frequent non-contiguous subsequences of event types using PrefixSpan.
-
-    Args:
-        sessions: List of sessions, each a list of event dicts sorted by timestamp.
-        min_support: Minimum number of sessions a pattern must appear in.
-
-    Returns:
-        List of (pattern_tuple, support) sorted by support descending.
-    """
-    if PrefixSpan is None:
-        raise ImportError("The 'prefixspan' package is required for mine_prefixspan. Please install it via 'pip install prefixspan'.")
-        
-    sequences = [[e['event_type'] for e in session] for session in sessions]
     ps = PrefixSpan(sequences)
+    ps.minlen = 2  # Minimum pattern length of 2 events
+    if max_pattern_length:
+        ps.maxlen = max_pattern_length
+    else:
+        ps.maxlen = 6  # Default maximum pattern length
     patterns = ps.frequent(min_support)
-    return sorted(patterns, key=lambda x: x[1], reverse=True)
+    print(f"Found {len(patterns)} raw patterns")
+    return [(list(pat), supp) for (supp, pat) in patterns]
 
-def load_events(filename: str) -> List[Dict]:
-    """Load events from a JSONL file."""
-    events = []
-    with open(filename) as f:
-        data = json.load(f)
-        if isinstance(data, list):
-            events = data
-        else:
-            raise ValueError("Input file must contain a JSON array")
-    return sorted(events, key=lambda x: x['timestamp'])
+def is_subpattern(pattern, other_pattern):
+    """
+    Check if pattern is a subpattern of other_pattern.
+    Only consider it a subpattern if it's significantly shorter.
+    """
+    if len(pattern) >= len(other_pattern) - 1:  # Allow patterns that differ by only 1 event
+        return False
+    return any(other_pattern[i:i+len(pattern)] == pattern for i in range(len(other_pattern)-len(pattern)+1))
+
+def compute_confidence(sequences, pattern):
+    """
+    Compute confidence for a pattern, ensuring events are in sequence.
+    """
+    prefix = tuple(pattern[:-1])
+    pat_tuple = tuple(pattern)
+
+    support_pat = 0
+    support_pref = 0
+    
+    for seq in sequences:
+        seq_tuple = tuple(seq)
+        # Check if pattern appears in sequence (in order)
+        if any(seq_tuple[i:i+len(pattern)] == pat_tuple for i in range(len(seq_tuple)-len(pattern)+1)):
+            support_pat += 1
+        # Check if prefix appears in sequence (in order)
+        if any(seq_tuple[i:i+len(prefix)] == prefix for i in range(len(seq_tuple)-len(prefix)+1)):
+            support_pref += 1
+
+    if support_pref == 0:
+        return support_pat, support_pref, 0.0
+    confidence = support_pat / support_pref
+    return support_pat, support_pref, confidence
+
+def save_patterns(patterns, sequences, min_confidence, output_path):
+    """
+    Given a list of (pattern_tokens, support) and the full sequences,
+    compute confidence for each and write out only those ≥ min_confidence.
+    Output as JSON (or any suitable format).
+    """
+    import json
+    output = []
+    filtered_patterns = []
+    
+    # First pass: compute confidence and basic filtering
+    for pat, supp in patterns:
+        if len(pat) < 2:  # Minimum pattern length of 2
+            continue
+        supp_pat, supp_pref, conf = compute_confidence(sequences, pat)
+        print(f"Pattern {pat}: support={supp_pat}, prefix_support={supp_pref}, confidence={conf}")
+        if conf >= min_confidence and supp_pat >= 2:  # Require at least 2 occurrences
+            pattern_id = generate_pattern_id(pat)
+            filtered_patterns.append({
+                "id": pattern_id,
+                "uuid": str(uuid.uuid4()),  # Generate a unique UUID for each pattern
+                "pattern": pat,
+                "support": supp_pat,
+                "prefix_support": supp_pref,
+                "confidence": round(conf, 3),
+                "description": f"Pattern of {len(pat)} events starting with {pat[0]}"
+            })
+    
+    # Second pass: remove subpatterns
+    final_patterns = []
+    for pattern in sorted(filtered_patterns, key=lambda x: (len(x["pattern"]), -x["support"]), reverse=True):
+        # Check if this pattern is a subpattern of any existing pattern
+        if not any(is_subpattern(pattern["pattern"], p["pattern"]) for p in final_patterns):
+            final_patterns.append(pattern)
+    
+    # Sort by support and confidence
+    final_patterns.sort(key=lambda x: (x["support"], x["confidence"]), reverse=True)
+    
+    with open(output_path, 'w', encoding='utf-8') as f:
+        json.dump(final_patterns, f, indent=2)
+    print(f"Saved {len(final_patterns)} patterns to {output_path}")
+
+def main():
+    parser = argparse.ArgumentParser(
+        description="Sequential Pattern Miner for Chrome‐event JSON logs"
+    )
+    parser.add_argument(
+        "--input", "-i", required=True, help="Path to events JSON file"
+    )
+    parser.add_argument(
+        "--gap", "-g", type=int, default=30,  # Increased from 15 to 30 minutes
+        help="Session gap threshold in minutes (default: 30)"
+    )
+    parser.add_argument(
+        "--minsup", "-s", type=int, default=2,  # Keep at 2 since we have clear patterns
+        help="Minimum support for PrefixSpan (integer count)"
+    )
+    parser.add_argument(
+        "--maxlen", "-m", type=int, default=6,
+        help="Maximum pattern length (default: 6)"
+    )
+    parser.add_argument(
+        "--minconf", "-c", type=float, default=0.3,  # Lowered from 0.4 to 0.3
+        help="Minimum confidence filter (0–1 float, default: 0.3)"
+    )
+    parser.add_argument(
+        "--output", "-o", required=True,
+        help="Path to write resulting patterns JSON"
+    )
+    args = parser.parse_args()
+
+    # 1. Build sequences from raw JSON
+    sequences = build_sequences(
+        filepath=args.input,
+        gap_minutes=args.gap,
+        encode_fn=encode_event  # Use our custom encode_event function
+    )
+
+    # 2. Mine frequent patterns via PrefixSpan
+    patterns = mine_prefixspan(
+        sequences=sequences,
+        min_support=args.minsup,
+        max_pattern_length=args.maxlen
+    )
+
+    # 3. Compute confidence and save only those ≥ minconf
+    save_patterns(
+        patterns=patterns,
+        sequences=sequences,
+        min_confidence=args.minconf,
+        output_path=args.output
+    )
 
 if __name__ == "__main__":
-    import sys
-    
-    # Get the directory where the script is located
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    
-    if len(sys.argv) > 1:
-        input_file = sys.argv[1]
-    else:
-        # Use the default file in the same directory as the script
-        input_file = os.path.join(script_dir, 'dummy_data.jsonl')
-        
-    try:
-        events = load_events(input_file)
-        if not events:
-            print(f"No events found in {input_file}")
-            sys.exit(1)
-            
-        print(f"Loaded {len(events)} events")
-        
-        # Analyze user behavior
-        behavior = analyze_user_behavior(events)
-        print("\nUser Behavior Analysis:")
-        print(f"Total Events: {behavior['total_events']}")
-        print(f"Average Session Duration: {behavior['avg_session_duration']:.2f} seconds")
-        print("\nEvent Type Distribution:")
-        for event_type, count in behavior['event_types'].most_common():
-            print(f"  {event_type}: {count}")
-        print("\nDomain Distribution:")
-        for domain, count in behavior['domains'].most_common():
-            print(f"  {domain}: {count}")
-            
-        # Extract and print top n-grams
-        print("\nCommon Event Sequences:")
-        for pattern, count in behavior['common_sequences']:
-            print(f"  {pattern}: {count}")
-            
-        # Group into sessions and mine patterns
-        sessions = group_into_sessions(events)
-        print(f"\nGrouped into {len(sessions)} sessions")
-        
-        print("\nFrequent subsequences (min_support=2):")
-        for pattern, support in mine_prefixspan(sessions, min_support=2):
-            print(f"  {pattern}: {support}")
-            
-        # Analyze domain-specific patterns
-        domain_patterns = extract_domain_patterns(events)
-        print("\nDomain-specific patterns:")
-        for domain, patterns in domain_patterns.items():
-            print(f"\n{domain}:")
-            pattern_counter = Counter(patterns)
-            for pattern, count in pattern_counter.most_common(3):
-                print(f"  {pattern}: {count}")
-            
-    except FileNotFoundError:
-        print(f"Error: Could not find file {input_file}")
-        sys.exit(1)
-    except json.JSONDecodeError as e:
-        print(f"Error: Invalid JSON in {input_file}: {e}")
-        sys.exit(1)
-    except Exception as e:
-        print(f"Error: {e}")
-        sys.exit(1)
+    main()

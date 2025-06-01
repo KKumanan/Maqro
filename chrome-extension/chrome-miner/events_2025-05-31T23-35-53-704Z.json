@@ -1,0 +1,231 @@
+[
+  {
+    "duration": 0,
+    "event_type": "page_view",
+    "timestamp": "2025-05-31T23:28:40.001Z",
+    "title": "Slack",
+    "url": "https://maqro-group.slack.com/?redir=%2Ffiles-pri%2FT08R927DLD8-F0904G3FJJC%2Fevents_2025-05-31t04-23-25-084z.json"
+  },
+  {
+    "duration": 0,
+    "event_type": "page_view",
+    "timestamp": "2025-05-31T23:28:43.877Z",
+    "title": "Sign in - Google Accounts",
+    "url": "https://accounts.google.com/o/oauth2/v2/auth/oauthchooseaccount?client_id=606092904014-s1u3idjanlbhr4ns5b1hcjgfn63cr9nh.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Foauth2.slack.com%2Fworkspace-signin%2Foauth%2Fgoogle%2Fend&scope=openid%20email%20profile&response_type=code&access_type=offline&state=%7B%22provider%22%3A%22google%22%2C%22origin%22%3A%22workspace-signin%22%2C%22timestamp%22%3A1748734123%2C%22visitor%22%3A%22.c0e6ef9dc6f8ccb45d23264eb0385654%22%2C%22team%22%3A%22T08R927DLD8%22%2C%22extra%22%3A%7B%22params%22%3A%7B%22redir%22%3A%22%5C%2Ffiles-pri%5C%2FT08R927DLD8-F0904G3FJJC%5C%2Fevents_2025-05-31t04-23-25-084z.json%22%7D%7D%7D%7Cfe40bff5222e45e954a341368d2bd9a635aee78fcfcf9535192d7a606d77f9aa&prompt=consent&service=lso&o2v=2&flowName=GeneralOAuthFlow"
+  },
+  {
+    "event_type": "click",
+    "selector": ".yAlK0b",
+    "timestamp": "2025-05-31T23:28:44.673Z",
+    "url": "https://accounts.google.com/o/oauth2/v2/auth/oauthchooseaccount?client_id=606092904014-s1u3idjanlbhr4ns5b1hcjgfn63cr9nh.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Foauth2.slack.com%2Fworkspace-signin%2Foauth%2Fgoogle%2Fend&scope=openid%20email%20profile&response_type=code&access_type=offline&state=%7B%22provider%22%3A%22google%22%2C%22origin%22%3A%22workspace-signin%22%2C%22timestamp%22%3A1748734123%2C%22visitor%22%3A%22.c0e6ef9dc6f8ccb45d23264eb0385654%22%2C%22team%22%3A%22T08R927DLD8%22%2C%22extra%22%3A%7B%22params%22%3A%7B%22redir%22%3A%22%5C%2Ffiles-pri%5C%2FT08R927DLD8-F0904G3FJJC%5C%2Fevents_2025-05-31t04-23-25-084z.json%22%7D%7D%7D%7Cfe40bff5222e45e954a341368d2bd9a635aee78fcfcf9535192d7a606d77f9aa&prompt=consent&service=lso&o2v=2&flowName=GeneralOAuthFlow",
+    "x": 686,
+    "y": 376
+  },
+  {
+    "duration": 0,
+    "event_type": "page_view",
+    "timestamp": "2025-05-31T23:28:45.719Z",
+    "title": "Sign in - Google Accounts",
+    "url": "https://accounts.google.com/signin/oauth/id?authuser=0&part=AJi8hAMMOCM8Ml9IKVFykJsuruWk8ydGBsNzenHiWcDJfwRNWf_hM61JUb0nEsuRdD78ubL4X1-rY_pfPDM_BMYpWO6yocsK8qqcPr4ug75gM8k74e_O2FXWqIkfksN2c3fzUYJ-w0oirRC8grfWkJWZuuom-VTUhBUCPSXIOcJCWBqv_5IaGNxhdfxfjH6qpvxzUYAtyI-EpD082iPHNfqyXHM74bjoExbGZMczMTCtXL5irw6DWJNv5JQlMQX4iobIOUWlcuCavl1nUx6em2JgtJtBTc9Uc4RYo_HWuZREFAOUuWp7ZPk9HuELr0pk2dKVZVXUZNTUxHL88IScYq5h7qY_d5Z2orK9nMPeA2RQ8xcH9GeXESRVey3It6LSTAKS7yAmvkSYNkKQAz9vkBDFDx9f7yTUbl7Buf1HaCs5hZmGiKc7Uz3GPAqlrc0KF_vyLqNgxWRYFM0l4Ld1tc98Idqoqm9ev0x3QUCwH2sPjQLjQWY2fsLtrhA7-pDf3p9N-MuSZ53JbPeGHWLJrfmk75JPiNdvI9RIwdxCbj6RSwHNxrI1kA-Yb5wetl3hPyR6nHMr7MybJag8QAhJPbnmvHVuN3xPwk0FvRkZ-ocB0xpFKdRIZLckItvSK496xRWdc-l0XJEYYAAaZhjx2MEzGWQYcyx_vH_Dn2-V5JR0Z_1_pRv7D0QSH3lwgeBMztJARzCSoOS8D-J7Zl2dzLy5hJRbSOCl-R7r5Jo0o6P8_-doJpu3h075sppZaxPNz9Jg3Upz0EqeQlQoGWe8cPe6HHIKj8_3nPyXfut_u9AiOZ0_0sHzrDQAgwlRWA-BLgQ9tgc1GuLTLD5sWgzmCondwI3KS4DOgznL6q4pxmgqgu27YqWK8nQKOLVgx9FkB2umwQEuhBax-JIT6Xqe7Ar_KTgb50Q4pFK_nCz5wG0II1aITix8JnUl9Kw77MFwDSgT9zOVXT8RGaVm5Cv3a2j9EiUX66IxQkcHk7FIgsi5lEq9Srj0oGE&flowName=GeneralOAuthFlow&as=S-117388833%3A1748734123358975&client_id=606092904014-s1u3idjanlbhr4ns5b1hcjgfn63cr9nh.apps.googleusercontent.com&rapt=AEjHL4MNJXwvZFsILl-je7fxHYuCxaXjG93_Rp3xQSEIty2eXYVVlN5cb2DIceeJmI7oQLniZUu1E5SRhOnBs7J-5DSKgn9UyQ#"
+  },
+  {
+    "event_type": "click",
+    "selector": ".VfPpkd-RLmnJb",
+    "timestamp": "2025-05-31T23:28:47.957Z",
+    "url": "https://accounts.google.com/signin/oauth/id?authuser=0&part=AJi8hAMMOCM8Ml9IKVFykJsuruWk8ydGBsNzenHiWcDJfwRNWf_hM61JUb0nEsuRdD78ubL4X1-rY_pfPDM_BMYpWO6yocsK8qqcPr4ug75gM8k74e_O2FXWqIkfksN2c3fzUYJ-w0oirRC8grfWkJWZuuom-VTUhBUCPSXIOcJCWBqv_5IaGNxhdfxfjH6qpvxzUYAtyI-EpD082iPHNfqyXHM74bjoExbGZMczMTCtXL5irw6DWJNv5JQlMQX4iobIOUWlcuCavl1nUx6em2JgtJtBTc9Uc4RYo_HWuZREFAOUuWp7ZPk9HuELr0pk2dKVZVXUZNTUxHL88IScYq5h7qY_d5Z2orK9nMPeA2RQ8xcH9GeXESRVey3It6LSTAKS7yAmvkSYNkKQAz9vkBDFDx9f7yTUbl7Buf1HaCs5hZmGiKc7Uz3GPAqlrc0KF_vyLqNgxWRYFM0l4Ld1tc98Idqoqm9ev0x3QUCwH2sPjQLjQWY2fsLtrhA7-pDf3p9N-MuSZ53JbPeGHWLJrfmk75JPiNdvI9RIwdxCbj6RSwHNxrI1kA-Yb5wetl3hPyR6nHMr7MybJag8QAhJPbnmvHVuN3xPwk0FvRkZ-ocB0xpFKdRIZLckItvSK496xRWdc-l0XJEYYAAaZhjx2MEzGWQYcyx_vH_Dn2-V5JR0Z_1_pRv7D0QSH3lwgeBMztJARzCSoOS8D-J7Zl2dzLy5hJRbSOCl-R7r5Jo0o6P8_-doJpu3h075sppZaxPNz9Jg3Upz0EqeQlQoGWe8cPe6HHIKj8_3nPyXfut_u9AiOZ0_0sHzrDQAgwlRWA-BLgQ9tgc1GuLTLD5sWgzmCondwI3KS4DOgznL6q4pxmgqgu27YqWK8nQKOLVgx9FkB2umwQEuhBax-JIT6Xqe7Ar_KTgb50Q4pFK_nCz5wG0II1aITix8JnUl9Kw77MFwDSgT9zOVXT8RGaVm5Cv3a2j9EiUX66IxQkcHk7FIgsi5lEq9Srj0oGE&flowName=GeneralOAuthFlow&as=S-117388833%3A1748734123358975&client_id=606092904014-s1u3idjanlbhr4ns5b1hcjgfn63cr9nh.apps.googleusercontent.com&rapt=AEjHL4MNJXwvZFsILl-je7fxHYuCxaXjG93_Rp3xQSEIty2eXYVVlN5cb2DIceeJmI7oQLniZUu1E5SRhOnBs7J-5DSKgn9UyQ#",
+    "x": 786,
+    "y": 560
+  },
+  {
+    "duration": 0,
+    "event_type": "page_view",
+    "timestamp": "2025-05-31T23:28:49.507Z",
+    "title": "Slack",
+    "url": "https://maqro-group.slack.com/?redir=%2Ffiles-pri%2FT08R927DLD8-F0904G3FJJC%2Fevents_2025-05-31t04-23-25-084z.json"
+  },
+  {
+    "event_type": "focus",
+    "state": "blur",
+    "timestamp": "2025-05-31T23:28:50.547Z",
+    "url": "https://maqro-group.slack.com/?redir=%2Ffiles-pri%2FT08R927DLD8-F0904G3FJJC%2Fevents_2025-05-31t04-23-25-084z.json"
+  },
+  {
+    "event_type": "focus",
+    "state": "focus",
+    "timestamp": "2025-05-31T23:28:51.943Z",
+    "url": "https://maqro-group.slack.com/?redir=%2Ffiles-pri%2FT08R927DLD8-F0904G3FJJC%2Fevents_2025-05-31t04-23-25-084z.json"
+  },
+  {
+    "event_type": "click",
+    "selector": "#signup_email",
+    "timestamp": "2025-05-31T23:28:54.529Z",
+    "url": "https://maqro-group.slack.com/?redir=%2Ffiles-pri%2FT08R927DLD8-F0904G3FJJC%2Fevents_2025-05-31t04-23-25-084z.json",
+    "x": 362,
+    "y": 573
+  },
+  {
+    "event_type": "click",
+    "selector": "#submit_btn",
+    "timestamp": "2025-05-31T23:28:56.918Z",
+    "url": "https://maqro-group.slack.com/?redir=%2Ffiles-pri%2FT08R927DLD8-F0904G3FJJC%2Fevents_2025-05-31t04-23-25-084z.json",
+    "x": 533,
+    "y": 647
+  },
+  {
+    "event_type": "focus",
+    "state": "blur",
+    "timestamp": "2025-05-31T23:29:01.111Z",
+    "url": "https://maqro-group.slack.com/?redir=%2Ffiles-pri%2FT08R927DLD8-F0904G3FJJC%2Fevents_2025-05-31t04-23-25-084z.json"
+  },
+  {
+    "event_type": "focus",
+    "state": "focus",
+    "timestamp": "2025-05-31T23:29:01.506Z",
+    "url": "https://maqro-group.slack.com/?redir=%2Ffiles-pri%2FT08R927DLD8-F0904G3FJJC%2Fevents_2025-05-31t04-23-25-084z.json"
+  },
+  {
+    "event_type": "focus",
+    "state": "blur",
+    "timestamp": "2025-05-31T23:29:01.507Z",
+    "url": "https://maqro-group.slack.com/?redir=%2Ffiles-pri%2FT08R927DLD8-F0904G3FJJC%2Fevents_2025-05-31t04-23-25-084z.json"
+  },
+  {
+    "event_type": "focus",
+    "state": "focus",
+    "timestamp": "2025-05-31T23:29:24.468Z",
+    "url": "https://maqro-group.slack.com/?redir=%2Ffiles-pri%2FT08R927DLD8-F0904G3FJJC%2Fevents_2025-05-31t04-23-25-084z.json"
+  },
+  {
+    "event_type": "click",
+    "selector": "#submit_btn",
+    "timestamp": "2025-05-31T23:29:24.589Z",
+    "url": "https://maqro-group.slack.com/?redir=%2Ffiles-pri%2FT08R927DLD8-F0904G3FJJC%2Fevents_2025-05-31t04-23-25-084z.json",
+    "x": 605,
+    "y": 490
+  },
+  {
+    "event_type": "focus",
+    "state": "blur",
+    "timestamp": "2025-05-31T23:29:24.808Z",
+    "url": "https://maqro-group.slack.com/?redir=%2Ffiles-pri%2FT08R927DLD8-F0904G3FJJC%2Fevents_2025-05-31t04-23-25-084z.json"
+  },
+  {
+    "duration": 0,
+    "event_type": "page_view",
+    "timestamp": "2025-05-31T23:29:25.742Z",
+    "title": "Login | Slack",
+    "url": "https://slack.com/signin#/confirmemail?redir=%2Ffiles-pri%2FT08R927DLD8-F0904G3FJJC%2Fevents_2025-05-31t04-23-25-084z.json&domain=maqro-group&domainLogin=1&email=arjun.mittha%40gmail.com"
+  },
+  {
+    "event_type": "click",
+    "selector": "input",
+    "timestamp": "2025-05-31T23:29:28.548Z",
+    "url": "https://slack.com/signin#/confirmemail?redir=%2Ffiles-pri%2FT08R927DLD8-F0904G3FJJC%2Fevents_2025-05-31t04-23-25-084z.json&domain=maqro-group&domainLogin=1&email=arjun.mittha%40gmail.com",
+    "x": 356,
+    "y": 331
+  },
+  {
+    "event_type": "focus",
+    "state": "blur",
+    "timestamp": "2025-05-31T23:29:29.922Z",
+    "url": "https://slack.com/signin#/confirmemail?redir=%2Ffiles-pri%2FT08R927DLD8-F0904G3FJJC%2Fevents_2025-05-31t04-23-25-084z.json&domain=maqro-group&domainLogin=1&email=arjun.mittha%40gmail.com"
+  },
+  {
+    "duration": 0,
+    "event_type": "page_view",
+    "timestamp": "2025-05-31T23:29:33.930Z",
+    "title": "Gmail",
+    "url": "https://mail.google.com/mail/u/0/?tab=rm&ogbl"
+  },
+  {
+    "event_type": "focus",
+    "state": "blur",
+    "timestamp": "2025-05-31T23:29:35.928Z",
+    "url": "https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox"
+  },
+  {
+    "event_type": "focus",
+    "state": "focus",
+    "timestamp": "2025-05-31T23:30:23.810Z",
+    "url": "https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox"
+  },
+  {
+    "event_type": "focus",
+    "state": "blur",
+    "timestamp": "2025-05-31T23:30:26.294Z",
+    "url": "https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox"
+  },
+  {
+    "event_type": "focus",
+    "state": "focus",
+    "timestamp": "2025-05-31T23:30:26.297Z",
+    "url": "https://slack.com/signin#/confirmemail?redir=%2Ffiles-pri%2FT08R927DLD8-F0904G3FJJC%2Fevents_2025-05-31t04-23-25-084z.json&domain=maqro-group&domainLogin=1&email=arjun.mittha%40gmail.com"
+  },
+  {
+    "event_type": "focus",
+    "state": "blur",
+    "timestamp": "2025-05-31T23:30:27.646Z",
+    "url": "https://slack.com/signin#/confirmemail?redir=%2Ffiles-pri%2FT08R927DLD8-F0904G3FJJC%2Fevents_2025-05-31t04-23-25-084z.json&domain=maqro-group&domainLogin=1&email=arjun.mittha%40gmail.com"
+  },
+  {
+    "event_type": "focus",
+    "state": "focus",
+    "timestamp": "2025-05-31T23:30:27.650Z",
+    "url": "https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox"
+  },
+  {
+    "event_type": "click",
+    "selector": ".asa",
+    "timestamp": "2025-05-31T23:30:29.375Z",
+    "url": "https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox",
+    "x": 352,
+    "y": 92
+  },
+  {
+    "event_type": "click",
+    "selector": ".asa",
+    "timestamp": "2025-05-31T23:30:29.659Z",
+    "url": "https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox",
+    "x": 352,
+    "y": 92
+  },
+  {
+    "event_type": "click",
+    "selector": ".asa",
+    "timestamp": "2025-05-31T23:30:29.874Z",
+    "url": "https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox",
+    "x": 352,
+    "y": 92
+  },
+  {
+    "event_type": "focus",
+    "state": "blur",
+    "timestamp": "2025-05-31T23:30:36.672Z",
+    "url": "https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox"
+  },
+  {
+    "event_type": "focus",
+    "state": "focus",
+    "timestamp": "2025-05-31T23:30:42.379Z",
+    "url": "https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox"
+  },
+  {
+    "event_type": "focus",
+    "state": "blur",
+    "timestamp": "2025-05-31T23:30:42.454Z",
+    "url": "https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox"
+  },
+  {
+    "duration": 0,
+    "event_type": "page_view",
+    "timestamp": "2025-05-31T23:33:21.347Z",
+    "title": "ucla swipes - Google Search",
+    "url": "https://www.google.com/search?q=ucla+swipes&oq=&gs_lcrp=EgZjaHJvbWUqCQgAECMYJxjqAjIJCAAQIxgnGOoCMg8IARAuGCcYrwEYxwEY6gIyDwgCEC4YJxivARjHARjqAjIPCAMQLhgnGK8BGMcBGOoCMg8IBBAuGCcYrwEYxwEY6gIyCQgFECMYJxjqAjIJCAYQIxgnGOoCMgkIBxAjGCcY6gLSAQ4xMDA5OTgyODU5ajBqN6gCCLACAfEFR_aKJSlGs1HxBUf2iiUpRrNR&sourceid=chrome&ie=UTF-8"
+  },
+  {
+    "event_type": "focus",
+    "state": "blur",
+    "timestamp": "2025-05-31T23:33:27.382Z",
+    "url": "https://www.google.com/search?q=ucla+swipes&oq=&gs_lcrp=EgZjaHJvbWUqCQgAECMYJxjqAjIJCAAQIxgnGOoCMg8IARAuGCcYrwEYxwEY6gIyDwgCEC4YJxivARjHARjqAjIPCAMQLhgnGK8BGMcBGOoCMg8IBBAuGCcYrwEYxwEY6gIyCQgFECMYJxjqAjIJCAYQIxgnGOoCMgkIBxAjGCcY6gLSAQ4xMDA5OTgyODU5ajBqN6gCCLACAfEFR_aKJSlGs1HxBUf2iiUpRrNR&sourceid=chrome&ie=UTF-8"
+  }
+]

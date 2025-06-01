@@ -1,0 +1,122 @@
+[
+  {
+    "id": "PATTERN_GOOGLE_SEA",
+    "uuid": "82235d8d-3094-459e-9c8b-451b769e21ea",
+    "pattern": [
+      "page_view:Google Search",
+      "click:input[name='q']",
+      "click:#search_button",
+      "click:#first_result"
+    ],
+    "support": 3,
+    "prefix_support": 3,
+    "confidence": 1.0,
+    "description": "Pattern of 4 events starting with page_view:Google Search"
+  },
+  {
+    "id": "PATTERN_CLICK_COMPOSE",
+    "uuid": "96c56a5f-47b6-4c98-994b-d5736510ddba",
+    "pattern": [
+      "click:#compose",
+      "click:#to",
+      "click:#subject"
+    ],
+    "support": 3,
+    "prefix_support": 3,
+    "confidence": 1.0,
+    "description": "Pattern of 3 events starting with click:#compose"
+  },
+  {
+    "id": "PATTERN_GOOGLE_SEA",
+    "uuid": "b858f4ee-3f8b-48d1-a52f-bda957a32f78",
+    "pattern": [
+      "page_view:Google Search",
+      "click:input[name='q']",
+      "click:#search_button"
+    ],
+    "support": 3,
+    "prefix_support": 3,
+    "confidence": 1.0,
+    "description": "Pattern of 3 events starting with page_view:Google Search"
+  },
+  {
+    "id": "PATTERN_CLICK_INPUTNAME_",
+    "uuid": "e6146296-8cc6-489c-a8a0-53973c828925",
+    "pattern": [
+      "click:input[name='q']",
+      "click:#search_button",
+      "click:#first_result"
+    ],
+    "support": 3,
+    "prefix_support": 3,
+    "confidence": 1.0,
+    "description": "Pattern of 3 events starting with click:input[name='q']"
+  },
+  {
+    "id": "PATTERN_GMAIL",
+    "uuid": "f0863726-5fd6-47aa-996a-0adbcc1519c0",
+    "pattern": [
+      "page_view:Gmail",
+      "click:#compose",
+      "click:#to",
+      "click:#subject"
+    ],
+    "support": 2,
+    "prefix_support": 2,
+    "confidence": 1.0,
+    "description": "Pattern of 4 events starting with page_view:Gmail"
+  },
+  {
+    "id": "PATTERN_SLACK",
+    "uuid": "8e8faa75-ff4e-4f8b-ae24-fc38c2c4f997",
+    "pattern": [
+      "page_view:Slack",
+      "click:#signup_email",
+      "click:#submit_btn",
+      "click:#workspace_name"
+    ],
+    "support": 2,
+    "prefix_support": 2,
+    "confidence": 1.0,
+    "description": "Pattern of 4 events starting with page_view:Slack"
+  },
+  {
+    "id": "PATTERN_GMAIL",
+    "uuid": "6624dc8b-c06e-425f-ae48-ddf30a92d0e7",
+    "pattern": [
+      "page_view:Gmail",
+      "click:#compose",
+      "click:#to"
+    ],
+    "support": 2,
+    "prefix_support": 2,
+    "confidence": 1.0,
+    "description": "Pattern of 3 events starting with page_view:Gmail"
+  },
+  {
+    "id": "PATTERN_SLACK",
+    "uuid": "b90377f3-c77a-46be-b9fb-be8528717143",
+    "pattern": [
+      "page_view:Slack",
+      "click:#signup_email",
+      "click:#submit_btn"
+    ],
+    "support": 2,
+    "prefix_support": 2,
+    "confidence": 1.0,
+    "description": "Pattern of 3 events starting with page_view:Slack"
+  },
+  {
+    "id": "PATTERN_CLICK_SIGNUP_EMA",
+    "uuid": "e626fa8c-4e40-4c2d-9f8e-8b2dfa2b0925",
+    "pattern": [
+      "click:#signup_email",
+      "click:#submit_btn",
+      "click:#workspace_name"
+    ],
+    "support": 2,
+    "prefix_support": 2,
+    "confidence": 1.0,
+    "description": "Pattern of 3 events starting with click:#signup_email"
+  }
+]
